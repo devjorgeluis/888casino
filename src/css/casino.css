@@ -1,0 +1,122 @@
+[data-floating-label=true] .formkit-inner {
+    position: relative
+}
+
+[data-floating-label=true] .formkit-label {
+    background-color: transparent!important;
+    box-sizing: border-box;
+    font-size: 1rem;
+    font-weight: 400;
+    left: .75rem!important;
+    line-height: 1;
+    max-width: calc(100% - 3rem);
+    opacity: .45;
+    overflow: hidden;
+    pointer-events: none;
+    position: absolute;
+    text-overflow: ellipsis;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all .2s ease-out;
+    transition-delay: .1
+}
+
+[data-floating-label=true][data-prefix-icon=true] .formkit-label {
+    left: 3rem!important
+}
+
+[data-floating-label=true][data-type=textarea] .formkit-label {
+    left: .5rem;
+    top: .5rem;
+    transform: translateY(0)
+}
+
+[data-floating-label=true] input,[data-floating-label=true] select,[data-floating-label=true] textarea {
+    transition: all .2s ease-out
+}
+
+[data-floating-label=true] input:focus,[data-floating-label=true] select:focus,[data-floating-label=true] textarea:focus,[data-floating-label=true]:not([data-empty=true]) input,[data-floating-label=true]:not([data-empty=true]) select,[data-floating-label=true]:not([data-empty=true]) textarea,[data-floating-label=true][data-expanded=true] input,[data-floating-label=true][data-expanded=true] select,[data-floating-label=true][data-expanded=true] textarea {
+    padding-bottom: .75rem;
+    padding-top: 1.25rem
+}
+
+[data-floating-label=true]:not([data-empty=true]) select {
+    padding-bottom: .65rem
+}
+
+[data-floating-label=true][data-type=date] input,[data-floating-label=true][data-type=datepicker] input {
+    padding-bottom: .25rem;
+    padding-top: .95rem
+}
+
+[data-floating-label=true] select:focus[data-placeholder] {
+    opacity: 1
+}
+
+[data-floating-label=true] select[data-placeholder] {
+    opacity: 0
+}
+
+[data-floating-label=true] input:focus~.formkit-label,[data-floating-label=true] select:focus~.formkit-label,[data-floating-label=true] textarea:focus~.formkit-label,[data-floating-label=true]:not([data-empty=true]) .formkit-label,[data-floating-label=true][data-expanded=true] .formkit-label,[data-floating-label=true][data-type=phone] .formkit-label {
+    font-size: .7rem;
+    opacity: .8;
+    top: .125rem;
+    transform: translateY(0);
+    transition-delay: 0s;
+    transition-duration: .25s;
+    z-index: 2
+}
+
+[data-floating-label=true] .formkit-input:not(:focus)::-moz-placeholder {
+    opacity: 0;
+    transition-delay: .1s;
+    transition-duration: .2s
+}
+
+[data-floating-label=true] .formkit-input:not(:focus)::placeholder,[data-floating-label=true]:not(:focus-within) .formkit-overlay,[data-floating-label=true]:not([data-expanded=true]) .formkit-placeholder,[data-floating-label=true][data-type=datepicker] .formkit-overlay {
+    opacity: 0;
+    transition-delay: .1s;
+    transition-duration: .2s
+}
+
+[data-floating-label=true] .formkit-input::-moz-placeholder {
+    opacity: .3;
+    -moz-transition: opacity .25s ease-out;
+    transition: opacity .25s ease-out
+}
+
+[data-floating-label=true] .formkit-input::placeholder,[data-floating-label=true] .formkit-placeholder,[data-floating-label=true]:not([data-empty=true]) .formkit-overlay,[data-floating-label=true][data-type=datepicker]:not([data-empty=true]) .formkit-overlay,[data-floating-label=true][data-type=datepicker][data-expanded=true] .formkit-overlay,[data-floating-label=true][data-type=datepicker][data-focused=true] .formkit-overlay {
+    opacity: .3;
+    transition: opacity .25s ease-out
+}
+
+[data-floating-label=true][data-type=date] input,[data-floating-label=true][data-type=datepicker] input,[data-floating-label=true][data-type=mask]:not(:focus-within) input {
+    color: transparent;
+    transition-delay: .1s;
+    transition-duration: .2s
+}
+
+[data-floating-label=true][data-type=date] input:focus,[data-floating-label=true][data-type=date]:not([data-empty=true]) input,[data-floating-label=true][data-type=datepicker]:not([data-empty=true]) input,[data-floating-label=true][data-type=datepicker][data-expanded=true] input,[data-floating-label=true][data-type=datepicker][data-focused=true] input,[data-floating-label=true][data-type=mask]:not([data-empty=true]) input {
+    color: inherit;
+    transition: opacity .25s ease-out
+}
+
+[data-invalid] .password-suffix-icon svg {
+    --tw-text-opacity: 1!important;
+    color: rgb(255 75 75/var(--tw-text-opacity,1))!important
+}
+
+div[data-id=zsalesiq] {
+    bottom: calc(var(--header-bottom-height,2rem) + 1rem);
+    right: .25rem
+}
+
+@media (min-width: 1200px) {
+    div[data-id=zsalesiq] {
+        right:1rem
+    }
+}
+
+#studio-select {
+    color: inherit;
+}

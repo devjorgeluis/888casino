@@ -1,0 +1,62 @@
+.scroll-snap-slider {
+    display: flex;
+    flex-wrap: nowrap;
+    height: var(--vertical-height,auto);
+    justify-content: normal;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scroll-snap-stop:always;scroll-snap-type: x mandatory
+}
+
+.scroll-snap-slider.--vertical {
+    overflow-x: hidden;
+    overflow-y: auto;
+    scroll-snap-type: y mandatory
+}
+
+@media (prefers-reduced-motion) {
+    .scroll-snap-slider {
+        scroll-behavior: auto
+    }
+}
+
+.scroll-snap-slider:not(.-show-scroll-bar) {
+    -ms-overflow-style: none;
+    scrollbar-width: none
+}
+
+.scroll-snap-slider:not(.-show-scroll-bar)::-webkit-scrollbar {
+    display: none
+}
+
+.scroll-snap-slide {
+    flex: 0 0 auto;
+    max-width: none;
+    scroll-snap-align: start;
+    width: 100%
+}
+
+.--vertical .scroll-snap-slide {
+    height: 100%;
+    width: auto
+}
+
+.scroll-snap-slider--overrides {
+    display: grid;
+    gap: var(--grid-gap-x);
+    grid-auto-columns: calc((100% - (var(--grid-columns) - 1)*var(--grid-gap-x))/var(--grid-columns));
+    grid-auto-flow: column;
+    grid-template-rows: repeat(var(--grid-rows),1fr);
+    --snap-align: start;
+    --scrollbar-width: 0;
+    overscroll-behavior-x: none;
+    overscroll-behavior-y: auto
+}
+
+.scroll-snap-slider--overrides.--vertical {
+    grid-auto-columns: inherit;
+    grid-auto-flow: row;
+    grid-auto-rows: calc((100% - (var(--grid-rows) - 1)*var(--grid-gap-x))/var(--grid-rows));
+    grid-template-columns: repeat(var(--grid-columns),1fr);
+    grid-template-rows: inherit
+}

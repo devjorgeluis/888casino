@@ -1,0 +1,8 @@
+RewriteEngine On
+
+# Don't rewrite real files or directories (e.g., /assets/logo.png or /api/*)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Rewrite everything else to index.html
+RewriteRule ^ index.html [L]
