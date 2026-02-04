@@ -5,10 +5,6 @@ import { AppContext } from "../../AppContext";
 import SearchInput from "../SearchInput";
 import { callApi } from "../../utils/Utils";
 import ImgLogo from "/src/assets/svg/logo.svg";
-import ImgMobileLogo from "/src/assets/svg/logo-mobile.svg";
-import ImgCloseMenu from "/src/assets/svg/close-menu.svg";
-import ImgOpenMenu from "/src/assets/svg/open-menu.svg";
-import ImgSearch from "/src/assets/svg/search.svg";
 import ImgSupport from "/src/assets/svg/support-black.svg";
 
 const Header = ({

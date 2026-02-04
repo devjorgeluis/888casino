@@ -1,4 +1,3 @@
-import ImgLogoTransparent from "/src/assets/svg/logo-transparent.svg";
 import ImgGameCategoryBackground from "/src/assets/img/games-categories-background.png";
 
 const GameCategories = (props) => {
@@ -26,11 +25,6 @@ const GameCategories = (props) => {
             </div>
 
             <div className="relative mb-6 flex items-center justify-between gap-2 py-4">
-                <img
-                    src={ImgLogoTransparent}
-                    alt="fortunajuegos"
-                    className="absolute left-0 h-auto w-[4.25rem] opacity-50"
-                />
                 <h2 className="text-2xl font-bold text-white">Categorías populares</h2>
             </div>
 

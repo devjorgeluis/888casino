@@ -4,7 +4,6 @@ import { AppContext } from "../../AppContext";
 import { callApi } from "../../utils/Utils";
 import Footer from "../../components/Layout/Footer";
 import LoadApi from "../../components/Loading/LoadApi";
-import IconCalendar from "/src/assets/svg/calendar.svg";
 
 const ProfileHistory = () => {
     const navigate = useNavigate();
@@ -187,9 +186,6 @@ const ProfileHistory = () => {
                                                 value={filters.dateFrom}
                                                 onChange={(e) => handleDateChange(e, 'dateFrom')}
                                             />
-                                            <span className="absolute right-3 flex shrink-0 items-center top-1/2 -translate-y-1/2 -mr-1 ml-2 h-6 w-6 [&>svg]:w-full [&>svg]:!text-inherit text-theme-secondary peer-focus:text-dark-grey-50/50 group-data-[invalid]:text-theme-status-error group-data-[empty]:text-dark-grey-50/20 !right-4 sm:!right-6 pointer-events-none h-5 w-5 formkit-suffixIcon formkit-icon">
-                                                <img src={IconCalendar} />
-                                            </span>
                                             <label className="block text-white text-base lg:text-sm !leading-5 mb-2 formkit-label" htmlFor="input_30"
                                                 style={{
                                                     backgroundColor: "rgba(0, 0, 0, 0.5)",
@@ -214,9 +210,6 @@ const ProfileHistory = () => {
                                                 value={filters.dateTo}
                                                 onChange={(e) => handleDateChange(e, 'dateTo')}
                                             />
-                                            <span className="absolute right-3 flex shrink-0 items-center top-1/2 -translate-y-1/2 -mr-1 ml-2 h-6 w-6 [&>svg]:w-full [&>svg]:!text-inherit text-theme-secondary peer-focus:text-dark-grey-50/50 group-data-[invalid]:text-theme-status-error group-data-[empty]:text-dark-grey-50/20 !right-4 sm:!right-6 pointer-events-none h-5 w-5 formkit-suffixIcon formkit-icon">
-                                                <img src={IconCalendar} />
-                                            </span>
                                             <label className="block text-white text-base lg:text-sm !leading-5 mb-2 formkit-label" htmlFor="input_31"
                                                 style={{
                                                     backgroundColor: "rgba(0, 0, 0, 0.5)",

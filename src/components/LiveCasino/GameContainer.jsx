@@ -1,7 +1,6 @@
 import { useContext, useState, useRef } from 'react';
 import { useNavigate, useOutletContext } from "react-router-dom";
 import { AppContext } from '../../AppContext';
-import ImgLogoTransparent from "/src/assets/svg/logo-transparent.svg";
 
 const GameContainer = ({ games, title, link, onGameClick }) => {
     const { contextData } = useContext(AppContext);
@@ -50,11 +49,6 @@ const GameContainer = ({ games, title, link, onGameClick }) => {
         <div ref={containerRef} className="relative overflow-hidden border-primary/20 from-primary-800 to-primary-950 -mx-5 rounded-[2rem] border border-b-0 bg-[radial-gradient(95.8%_76.89%_at_50%_0%,_var(--tw-gradient-stops))] p-5 sm:mx-0 sm:p-12 py-6">
             <div className="absolute inset-0 h-full w-full opacity-50 [mask-image:radial-gradient(50%_50%_at_50%_50%,#000_0%,rgba(0,0,0,0)_100%)] -top-10 sm:top-0 -bottom-px sm:bottom-0"></div>
             <div className="relative mb-5 flex items-center justify-between gap-2 py-4">
-                <img
-                    src={ImgLogoTransparent}
-                    alt="fortunajuegos"
-                    className="absolute left-0 h-auto w-[4.25rem] opacity-50 top-0.5"
-                />
                 <h2 className="text-dark-grey-50 text-xs font-bold uppercase !leading-[1.1] tracking-[1.2px] md:text-sm">
                     {title}
                 </h2>

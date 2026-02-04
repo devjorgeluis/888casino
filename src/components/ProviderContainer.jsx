@@ -7,8 +7,6 @@ import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 
-import ImgLogoTransparent from "/src/assets/svg/logo-transparent.svg";
-
 const ProviderContainer = ({
     categories,
     selectedProvider,
@@ -36,15 +34,6 @@ const ProviderContainer = ({
     return (
         <div className="relative overflow-hidden py-2 lg:py-5">
             <div className="relative mb-3 flex items-center justify-between gap-2 py-4">
-                {
-                    !isMobile && 
-                    <img
-                        src={ImgLogoTransparent}
-                        alt="fortunajuegos"
-                        className="absolute left-0 -top-1/2 h-auto w-[4.25rem] translate-y-2 opacity-50"
-                    />
-                }
-
                 <h1 className={`text-center text-xs font-bold uppercase tracking-wider text-dark-grey-50 sm:text-sm`}>
                     Proveedores
                 </h1>

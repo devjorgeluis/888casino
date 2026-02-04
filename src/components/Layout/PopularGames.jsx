@@ -2,7 +2,6 @@ import { useContext, useState, useRef } from 'react';
 import { useOutletContext } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { AppContext } from '../../AppContext';
-import ImgLogoTransparent from "/src/assets/svg/logo-transparent.svg";
 
 const PopularGames = ({ games, title, icon, link, onGameClick }) => {
     const { contextData } = useContext(AppContext);
@@ -50,11 +49,6 @@ const PopularGames = ({ games, title, icon, link, onGameClick }) => {
     return (
         <div ref={containerRef} className="relative overflow-hidden sm:pb-5 py-6">
             <div className="relative mb-5 flex items-center justify-between gap-2 py-4 min-h-20">
-                <img
-                    src={ImgLogoTransparent}
-                    alt="fortunajuegos"
-                    className="absolute left-0 h-auto w-[4.25rem] opacity-50 top-0.5"
-                />
                 <h2 className="text-dark-grey-50 text-xs font-bold uppercase !leading-[1.1] tracking-[1.2px] md:text-sm">
                     {title}
                 </h2>

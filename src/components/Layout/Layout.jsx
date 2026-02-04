@@ -280,13 +280,13 @@ const Layout = () => {
                         
                     </div>
                 )}
-                {showMobileSearch && (
+                {/* {showMobileSearch && (
                     <MobileSearch
                         isLogin={isLogin}
                         isMobile={isMobile}
                         onClose={() => setShowMobileSearch(false)}
                     />
-                )}
+                )} */}
                 
                 {shouldShowGameModal && gameModalData.gameId !== null && (
                     <GameModal
@@ -310,7 +310,7 @@ const Layout = () => {
                     supportParentOnly={supportParentOnly}
                     supportParent={supportParent}
                 />
-                {isMobile && <MobileFooter isSlotsOnly={isSlotsOnly} isMobile={isMobile} supportParent={supportParent} openSupportModal={openSupportModal} />}
+                {/* {isMobile && <MobileFooter isSlotsOnly={isSlotsOnly} isMobile={isMobile} supportParent={supportParent} openSupportModal={openSupportModal} />} */}
             </NavigationContext.Provider>
         </LayoutContext.Provider>
     );
