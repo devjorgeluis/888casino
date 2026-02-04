@@ -1,0 +1,983 @@
+.responsive-table-component {
+    margin-bottom: 2rem
+}
+
+.responsive-table-component table {
+    border-spacing: 0
+}
+
+.responsive-table-component table.width-auto {
+    width: auto
+}
+
+.responsive-table-component table.width-full {
+    width: 100%
+}
+
+.responsive-table-component table.banking-section tr:nth-child(odd) {
+    background-color: #717171;
+    color: #fff
+}
+
+.responsive-table-component table.banking-section tr:nth-child(2n) {
+    background-color: #171717;
+    color: #fff
+}
+
+.responsive-table-component table.banking-section td:nth-of-type(2n) {
+    color: #fde500
+}
+
+.responsive-table-component table.banking-section tbody {
+    border: none
+}
+
+.responsive-table-component table.banking-short {
+    max-width: 33.5rem
+}
+
+.responsive-table-component table.banking-short tr:nth-child(odd) {
+    background-color: #717171;
+    color: #fff
+}
+
+.responsive-table-component table.banking-short tr:nth-child(2n) {
+    background-color: #171717;
+    color: #fff
+}
+
+.responsive-table-component table.banking-short td:nth-of-type(2n) {
+    color: #fde500
+}
+
+.responsive-table-component table.banking-short tbody {
+    border: none
+}
+
+.responsive-table-component table.in-game-section {
+    border-collapse: separate;
+    max-width: 600px
+}
+
+.responsive-table-component table.in-game-section .w-3-cols {
+    width: 100%
+}
+
+.responsive-table-component table.in-game-section .w-3-cols td {
+    width: auto
+}
+
+.responsive-table-component table.in-game-section .w-3-cols td:first-child {
+    width: 33%
+}
+
+.responsive-table-component table.in-game-section .w-3-cols td:nth-child(2) {
+    border-right: .1rem solid #848484;
+    width: 33%
+}
+
+.responsive-table-component table.in-game-section .w-3-cols td:nth-child(3) {
+    border-right: none;
+    width: 33%
+}
+
+.responsive-table-component table.in-game-section .w-3-cols td.row-100 {
+    width: 100%
+}
+
+.responsive-table-component table.in-game-section tr:nth-child(odd) {
+    background-color: #171717;
+    border-bottom: .1rem solid #848484;
+    color: #fff
+}
+
+.responsive-table-component table.in-game-section tr:nth-child(2n) {
+    background-color: #171717;
+    border-bottom: .1rem solid #848484;
+    color: #fff
+}
+
+.responsive-table-component table.in-game-section tr:last-child td {
+    border-bottom: none
+}
+
+.responsive-table-component table.in-game-section td:nth-of-type(odd) {
+    border-bottom: .1rem solid #848484;
+    border-right: .1rem solid #848484
+}
+
+.responsive-table-component table.in-game-section td:nth-of-type(2n) {
+    border-bottom: .1rem solid #848484
+}
+
+.responsive-table-component table.in-game-section td.row-100 {
+    border-right: none;
+    text-align: unset!important
+}
+
+.responsive-table-component table.in-game-section td .td-wrapper {
+    display: flex
+}
+
+.responsive-table-component table.in-game-section td img {
+    margin: auto 0;
+    padding-right: 1rem;
+    width: 60px
+}
+
+@media(max-width: 640px) {
+    .responsive-table-component table.in-game-section td img {
+        width:40px
+    }
+}
+
+.responsive-table-component table.in-game-section td .text-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center
+}
+
+@media(max-width: 640px) {
+    .responsive-table-component table.in-game-section td {
+        padding:.4rem .5rem
+    }
+}
+
+.responsive-table-component table.in-game-section tbody {
+    border: .2rem solid #848484;
+    border-radius: 1.5rem;
+    overflow: hidden
+}
+
+.responsive-table-component table.bnw-section td,.responsive-table-component table.bnw-section tr {
+    background-color: #000;
+    color: #fff
+}
+
+.responsive-table-component table.bnw-section table,.responsive-table-component table.bnw-section td,.responsive-table-component table.bnw-section th {
+    border: 3px groove #fff
+}
+
+.responsive-table-component table.blackjack tr:nth-child(odd) {
+    background-color: #373737;
+    color: #fff
+}
+
+.responsive-table-component table.blackjack tr:nth-child(2n) {
+    background-color: #111;
+    color: #fff
+}
+
+.responsive-table-component table.blackjack tbody {
+    border: .1rem solid #fff
+}
+
+.responsive-table-component table tr:nth-child(odd) {
+    background-color: #373737;
+    color: #fff
+}
+
+.responsive-table-component table tr:nth-child(2n) {
+    background-color: #fff;
+    color: #000
+}
+
+.responsive-table-component table tr td,.responsive-table-component table tr th {
+    border: none;
+    padding: .8rem 1rem;
+    vertical-align: middle
+}
+
+.responsive-table-component table tr.w-50-50,.responsive-table-component table tr.w-50-50 td {
+    width: 100%
+}
+
+.responsive-table-component table tr.w-50-50 td:first-child {
+    width: 50%
+}
+
+.responsive-table-component table tr.w-50-50 td:nth-child(2) {
+    width: 50%
+}
+
+.responsive-table-component table tr.w-50-50 td.row-100 {
+    text-align: center;
+    width: 100%
+}
+
+.responsive-table-component table tr.w-30-70,.responsive-table-component table tr.w-30-70 td {
+    width: 100%
+}
+
+.responsive-table-component table tr.w-30-70 td:first-child {
+    width: 30%
+}
+
+.responsive-table-component table tr.w-30-70 td:nth-child(2) {
+    width: 70%
+}
+
+.responsive-table-component table tr.w-30-70 td.row-100 {
+    text-align: center;
+    width: 100%
+}
+
+.responsive-table-component table tr.w-40-60,.responsive-table-component table tr.w-40-60 td {
+    width: 100%
+}
+
+.responsive-table-component table tr.w-40-60 td:first-child {
+    width: 40%
+}
+
+.responsive-table-component table tr.w-40-60 td:nth-child(2) {
+    width: 60%
+}
+
+.responsive-table-component table tr.w-40-60 td.row-100 {
+    text-align: center;
+    width: 100%
+}
+
+.responsive-table-component table tr.w-60-40,.responsive-table-component table tr.w-60-40 td {
+    width: 100%
+}
+
+.responsive-table-component table tr.w-60-40 td:first-child {
+    width: 60%
+}
+
+.responsive-table-component table tr.w-60-40 td:nth-child(2) {
+    width: 40%
+}
+
+.responsive-table-component table tr.w-60-40 td.row-100 {
+    text-align: center;
+    width: 100%
+}
+
+.responsive-table-component table tr.w-70-30,.responsive-table-component table tr.w-70-30 td {
+    width: 100%
+}
+
+.responsive-table-component table tr.w-70-30 td:first-child {
+    width: 70%
+}
+
+.responsive-table-component table tr.w-70-30 td:nth-child(2) {
+    width: 30%
+}
+
+.responsive-table-component table tr.w-70-30 td.row-100 {
+    text-align: center;
+    width: 100%
+}
+
+.responsive-table-component table tr.w-dynamic {
+    width: auto
+}
+
+.responsive-table-component table tr.w-dynamic td {
+    border-right: 3vw solid transparent;
+    padding: .8rem 1rem;
+    width: auto
+}
+
+@media screen and (min-width: 1920px) {
+    .responsive-table-component table tr.w-dynamic td {
+        border-right:6vw solid transparent
+    }
+}
+
+.responsive-table-component table tr.w-dynamic td:first-child {
+    width: auto
+}
+
+.responsive-table-component table tr.w-dynamic td:nth-child(2) {
+    width: auto
+}
+
+.responsive-table-component table tr.w-dynamic td.row-100 {
+    text-align: center;
+    width: auto
+}
+
+.responsive-table-component table tr.w-3-cols,.responsive-table-component table tr.w-3-cols td {
+    width: auto
+}
+
+.responsive-table-component table tr.w-3-cols td:first-child {
+    max-width: 33%;
+    width: auto
+}
+
+.responsive-table-component table tr.w-3-cols td:nth-child(2) {
+    max-width: 33%;
+    width: auto
+}
+
+.responsive-table-component table tr.w-3-cols td:nth-child(3) {
+    max-width: 33%;
+    width: auto
+}
+
+.responsive-table-component table tr.w-3-cols td.row-100 {
+    text-align: center;
+    width: 100%
+}
+
+.responsive-table-component table tr.w-4-cols,.responsive-table-component table tr.w-4-cols td {
+    width: auto
+}
+
+.responsive-table-component table tr.w-4-cols td:first-child {
+    max-width: 25%;
+    width: auto
+}
+
+.responsive-table-component table tr.w-4-cols td:nth-child(2) {
+    max-width: 25%;
+    width: auto
+}
+
+.responsive-table-component table tr.w-4-cols td:nth-child(3) {
+    max-width: 25%;
+    width: auto
+}
+
+.responsive-table-component table tr.w-4-cols td:nth-child(4) {
+    max-width: 25%;
+    width: auto
+}
+
+.responsive-table-component table tr.w-4-cols td.row-100 {
+    text-align: center;
+    width: 100%
+}
+
+.responsive-table-component table tr.w-5-cols,.responsive-table-component table tr.w-5-cols td {
+    width: auto
+}
+
+.responsive-table-component table tr.w-5-cols td:first-child {
+    max-width: 20%;
+    width: auto
+}
+
+.responsive-table-component table tr.w-5-cols td:nth-child(2) {
+    max-width: 20%;
+    width: auto
+}
+
+.responsive-table-component table tr.w-5-cols td:nth-child(3) {
+    max-width: 20%;
+    width: auto
+}
+
+.responsive-table-component table tr.w-5-cols td:nth-child(4) {
+    max-width: 20%;
+    width: auto
+}
+
+.responsive-table-component table tr.w-5-cols td:nth-child(5) {
+    max-width: 20%;
+    width: auto
+}
+
+.responsive-table-component table tr.w-5-cols td.row-100 {
+    text-align: center;
+    width: 100%
+}
+
+.responsive-table-component table.dynamic-table {
+    margin: 0 auto;
+    width: auto
+}
+
+.responsive-table-component table.dynamic-table thead tr {
+    background-color: transparent
+}
+
+.responsive-table-component table.dynamic-table thead tr th {
+    padding-left: 0;
+    padding-right: 0
+}
+
+.responsive-table-component table tbody {
+    display: inline-table
+}
+
+.responsive-table-component table tbody tr td span p {
+    font-size: 1.5rem;
+    font-weight: unset;
+    line-height: 2.2rem;
+    margin-bottom: 0
+}
+
+@media(max-width: 640px) {
+    .responsive-table-component table tbody tr td span p {
+        font-size:.9rem;
+        line-height: 1.2rem
+    }
+}
+
+.video-component {
+    display: flex;
+    padding: .5rem
+}
+
+.video-component iframe {
+    margin: auto
+}
+
+.video-component.responsive-video-container {
+    overflow: hidden;
+    padding-top: 56.25%;
+    position: relative
+}
+
+.video-component.responsive-video-container .responsive-iframe {
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    top: 0
+}
+
+.accordion-container-cmp .accordion-tab {
+    background: #1c1c1c;
+    border: none;
+    border-radius: 1.2rem;
+    cursor: pointer;
+    margin-bottom: .9rem;
+    padding: 2rem;
+    width: 100%
+}
+
+.accordion-container-cmp .accordion-tab.active .accordion-tab-head .accordion-icon:before {
+    content: "-"
+}
+
+.accordion-container-cmp .accordion-tab .accordion-tab-head .accordion-title {
+    margin-right: auto;
+    text-align: left
+}
+
+.accordion-container-cmp .accordion-tab .accordion-tab-head .accordion-icon,.accordion-container-cmp .accordion-tab .accordion-tab-head .accordion-title {
+    color: #fff;
+    font-size: 1.6rem;
+    font-weight: 300;
+    line-height: 1.5
+}
+
+.accordion-container-cmp .accordion-tab .accordion-tab-head .accordion-icon:before {
+    content: "+"
+}
+
+.accordion-container-cmp .accordion-panel {
+    display: none;
+    overflow: hidden
+}
+
+.accordion-container-cmp .accordion-panel.open {
+    background-color: #1c1c1c;
+    border-radius: 1.2rem;
+    margin: -3.2rem 0 1.2rem;
+    padding: 3.2rem 2rem 2rem
+}
+
+.accordion-container-cmp .accordion-panel.regular-p p {
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 1.5
+}
+
+.accordion-container-cmp .accordion-panel p {
+    font-size: 1.6rem;
+    font-weight: 600;
+    line-height: 1.6
+}
+
+.image-component {
+    margin: 0 auto
+}
+
+.image-component img {
+    height: auto;
+    width: 100%
+}
+
+.image-component .image-round img,.image-component img {
+    display: block;
+    transition: all;
+    transition-duration: .3s;
+    transition-timing-function: ease-out
+}
+
+.image-component .image-round img {
+    background-color: #dbdbdb;
+    clip-path: circle();
+    margin: auto;
+    object-fit: cover
+}
+
+.image-component .image-round-border {
+    background: #aa9a4c;
+    clip-path: circle();
+    padding: .4rem
+}
+
+.image-component .image-container {
+    position: relative
+}
+
+.image-component .image-container.modal-enabled:before {
+    background-color: transparent;
+    bottom: 0;
+    content: "";
+    height: 100%;
+    left: 0;
+    opacity: .2;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: all;
+    transition-duration: .3s;
+    transition-timing-function: ease-out;
+    width: 100%;
+    z-index: 1
+}
+
+.image-component .image-container.modal-enabled:hover:before {
+    background: #000;
+    cursor: pointer
+}
+
+.image-component .image-caption {
+    background-color: #f7f7f7;
+    color: #a3a3a3;
+    font-style: italic;
+    padding: .8rem
+}
+
+.image-component .modal {
+    background: 0 0;
+    cursor: zoom-out;
+    height: 0;
+    left: 0;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    transition: background .3s ease-out;
+    width: 100vw;
+    z-index: 1000
+}
+
+.image-component .modal .modal-dialog {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    width: 100%
+}
+
+.image-component .modal .modal-dialog .modal-content {
+    height: 0;
+    margin: auto;
+    max-width: 80%;
+    opacity: 0;
+    position: relative;
+    transition: opacity .2s ease-out;
+    width: fit-content
+}
+
+.image-component .modal .modal-dialog .modal-content .modal-image {
+    height: 0;
+    margin: auto
+}
+
+.image-component .modal .modal-dialog .modal-content .button-close {
+    background-color: #7cf700;
+    border: 0;
+    border-radius: 50%;
+    color: #fff;
+    cursor: zoom-out;
+    font-size: 2.8rem;
+    height: 0;
+    line-height: 4.2rem;
+    position: absolute;
+    right: -2.2rem;
+    top: -2.2rem;
+    width: 4.2rem;
+    z-index: 1002
+}
+
+.image-component .modal.reveal {
+    background: rgba(0,0,0,.8)
+}
+
+.image-component .modal.reveal .modal-dialog .modal-content {
+    opacity: 1
+}
+
+.image-component.img-10 {
+    max-width: 10%
+}
+
+.image-component.img-20 {
+    max-width: 20%
+}
+
+.image-component.img-30 {
+    max-width: 30%
+}
+
+.image-component.img-40 {
+    max-width: 40%
+}
+
+.image-component.img-50 {
+    max-width: 50%
+}
+
+.image-component.img-60 {
+    max-width: 60%
+}
+
+.image-component.img-70 {
+    max-width: 70%
+}
+
+.image-component.img-80 {
+    max-width: 80%
+}
+
+.image-component.img-90 {
+    max-width: 90%
+}
+
+.image-component.img-100 {
+    max-width: 100%
+}
+
+.image-component.img-404 {
+    display: block;
+    margin: 0 auto;
+    max-width: 680px;
+    min-height: 289px;
+    width: 100%
+}
+
+@media(max-width: 639px) {
+    .image-component.banner-img .image-container {
+        height:22vh
+    }
+
+    .image-component.banner-img .image-container img {
+        height: 100%;
+        object-fit: cover
+    }
+}
+
+.image-box-shadow,.image-component .modal .modal-dialog .modal-content .button-close,.image-component .modal .modal-dialog .modal-content .modal-image {
+    box-shadow: 0 0 1.6rem #000
+}
+
+.grid-component .image-component .image-container {
+    margin: 0
+}
+
+.free-html-authorcomment {
+    color: #969696;
+    padding-bottom: .625rem
+}
+
+.title-component {
+    word-break: break-word
+}
+
+.title-component .title-default-color {
+    color: #fff
+}
+
+.title-component .title-primary-color {
+    color: #7cf700
+}
+
+.title-component .title-grey-color {
+    color: #979797
+}
+
+.title-component .default-font {
+    font-family: "888-Orbit",arial,verdana,sans-serif
+}
+
+.title-component .title-font-variant-2 {
+    font-family: "888-Orbit",verdana,sans-serif
+}
+
+.title-component .title-font-variant-3 {
+    font-family: Oleo-Script-Regular,sans-serif
+}
+
+.title-component .title-font-variant-4 {
+    font-family: lobster
+}
+
+.title-component .title-font-variant-5 {
+    font-family: "888-Medium"
+}
+
+.title-component .title-underline {
+    text-decoration: underline
+}
+
+.title-component .no-underline {
+    text-decoration: none
+}
+
+.title-component .fs-23 {
+    font-size: 2.3rem
+}
+
+.title-component .fs-18 {
+    font-size: 1.8rem
+}
+
+.title-component .fs-16 {
+    font-size: 1.6rem
+}
+
+.title-component .fs-15 {
+    font-size: 1.5rem
+}
+
+.title-component .fs-24 {
+    font-size: 2.45rem
+}
+
+.title-component .fs-35 {
+    font-size: 35px
+}
+
+.title-component .fs-404 {
+    font-size: 3.2rem
+}
+
+@media only screen and (max-width: 1025px) {
+    .title-component .fs-404 {
+        font-size:2.3rem
+    }
+}
+
+.rich-text-component {
+    word-break: break-word
+}
+
+.rich-text-component p {
+    margin-bottom: 10px
+}
+
+.rich-text-component select {
+    background: transparent;
+    color: #fff
+}
+
+.rich-text-component .text {
+    font-size: 15px;
+    font-weight: 600
+}
+
+.rich-text-component .text h2 {
+    color: #7ffc02;
+    font-family: "888-Bold",verdana,sans-serif;
+    font-size: 1.6em;
+    margin: 0;
+    padding: 20px 0 10px;
+    text-transform: uppercase
+}
+
+.rich-text-component .text ul li:before {
+    color: #fff
+}
+
+.rich-text-component .text h3 {
+    font-size: 1.5em;
+    font-weight: 600;
+    line-height: 1.2em;
+    margin-bottom: .1em;
+    margin-top: 1em
+}
+
+.rich-text-component .text .Table {
+    overflow-x: auto
+}
+
+.rich-text-component .text .TableList,.rich-text-component .text .table-wrapper {
+    border: 0;
+    border-collapse: collapse;
+    border-spacing: 0;
+    display: block;
+    font-size: smaller;
+    overflow-x: auto;
+    text-indent: 0;
+    width: auto
+}
+
+.rich-text-component .text .TableList tbody,.rich-text-component .text .table-wrapper tbody {
+    background-color: transparent;
+    border: none
+}
+
+.rich-text-component .text .TableList tbody tr:nth-of-type(odd),.rich-text-component .text .table-wrapper tbody tr:nth-of-type(odd) {
+    background: #717171
+}
+
+.rich-text-component .text .TableList tbody tr th,.rich-text-component .text .table-wrapper tbody tr th {
+    border: 0;
+    font-size: 15px;
+    padding: 1rem 2rem 1rem 1.2rem;
+    text-align: left;
+    word-break: keep-all
+}
+
+@media screen and (max-width: 640px) {
+    .rich-text-component .text .TableList tbody tr th,.rich-text-component .text .table-wrapper tbody tr th {
+        font-size:11px;
+        padding: 5px
+    }
+}
+
+@media screen and (max-width: 414px) {
+    .rich-text-component .text .TableList tbody tr th,.rich-text-component .text .table-wrapper tbody tr th {
+        font-size:8px;
+        padding: .5rem .2rem
+    }
+}
+
+.rich-text-component .text .TableList tbody tr td,.rich-text-component .text .table-wrapper tbody tr td {
+    border: 1px solid transparent;
+    min-width: 55px;
+    padding: 1rem 2rem 1rem 1.2rem;
+    text-align: left;
+    word-break: keep-all
+}
+
+@media screen and (max-width: 640px) {
+    .rich-text-component .text .TableList tbody tr td,.rich-text-component .text .table-wrapper tbody tr td {
+        font-size:11px;
+        padding: .5rem
+    }
+}
+
+@media screen and (max-width: 414px) {
+    .rich-text-component .text .TableList tbody tr td,.rich-text-component .text .table-wrapper tbody tr td {
+        font-size:9px;
+        padding: .5rem
+    }
+}
+
+.rich-text-component .text .TableList tbody tr td b,.rich-text-component .text .TableList tbody tr td strong,.rich-text-component .text .table-wrapper tbody tr td b,.rich-text-component .text .table-wrapper tbody tr td strong {
+    font-size: inherit;
+    text-transform: uppercase
+}
+
+.rich-text-component .text .TableList tbody tr td:nth-of-type(2n),.rich-text-component .text .table-wrapper tbody tr td:nth-of-type(2n) {
+    color: #fde500
+}
+
+.rich-text-component .text .TableList tbody tr:nth-child(2n),.rich-text-component .text .table-wrapper tbody tr:nth-child(2n) {
+    background-color: transparent
+}
+
+@media only screen and (max-width: 820px) {
+    .rich-text-component .text .TableList,.rich-text-component .text .table-wrapper {
+        width:100%
+    }
+
+    .rich-text-component .text .TableList p,.rich-text-component .text .TableList td,.rich-text-component .text .table-wrapper p,.rich-text-component .text .table-wrapper td {
+        font-size: 1.6rem;
+        font-weight: 600
+    }
+}
+
+@media only screen and (max-width: 640px) {
+    .rich-text-component .text .TableList,.rich-text-component .text .table-wrapper {
+        width:100%
+    }
+
+    .rich-text-component .text .TableList p,.rich-text-component .text .TableList td,.rich-text-component .text .table-wrapper p,.rich-text-component .text .table-wrapper td {
+        font-size: .9rem;
+        font-weight: 600;
+        line-height: 1.2rem
+    }
+}
+
+@media only screen and (min-width: 640px) {
+    .rich-text-component .text .TableList p,.rich-text-component .text .TableList td,.rich-text-component .text .table-wrapper p,.rich-text-component .text .table-wrapper td {
+        font-size:1.5rem;
+        font-weight: 600
+    }
+}
+
+@media(min-width: 640px)and (max-width:844px)and (orientation:landscape) {
+    .rich-text-component .text .TableList,.rich-text-component .text .table-wrapper {
+        width:100%
+    }
+
+    .rich-text-component .text .TableList,.rich-text-component .text .table-wrapper * {
+        word-break: break-word
+    }
+}
+
+.rich-text-component .modal-enabled:hover:before {
+    border-radius: 19.2rem
+}
+
+.rich-text-component .text ul li ul {
+    display: block
+}
+
+.seo-text-content-component {
+    background-color: #000;
+    color: #fff;
+    padding: 2.4rem 0
+}
+
+@media screen and (max-width: 765px) {
+    .seo-text-content-component {
+        padding:3.2rem 1.3rem
+    }
+}
+
+.seo-text-content-component .grid-component .column-container .column {
+    padding: 0 4vw
+}
+
+.seo-text-content-component .grid-component .column-container.one-column>.column:has(.two-columns-50) {
+    padding: 0
+}
+
+.seo-text-content-component .grid-component .column-container.one-column>.column:has(.two-columns-50) .grid {
+    padding-top: 0
+}
+
+.seo-text-content-component .rich-text .rich-text-component ul li:before {
+    color: #fff
+}
+
+.seo-text-content-component .rich-text .rich-text-component ul li p.black-bullet:before {
+    color: #7ff800
+}
+
+.seo-text-content-component .rich-text .rich-text-component p {
+    font-size: 1.3rem
+}
+
+@media(max-width: 640px) {
+    .seo-text-content-component .responsive-table-component table tbody tr td span p {
+        font-size:1.3rem;
+        font-weight: 600;
+        line-height: 1.95rem
+    }
+}

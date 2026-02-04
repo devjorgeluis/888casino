@@ -1,0 +1,511 @@
+.cta-template a {
+    word-wrap: break-word;
+    border-radius: 5rem;
+    cursor: pointer;
+    display: flex;
+    font-weight: 700;
+    justify-content: center;
+    letter-spacing: .05em;
+    line-height: 1;
+    min-width: 10pc;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    transition: all;
+    transition-duration: .3s;
+    transition-timing-function: ease-out;
+    word-break: break-word
+}
+
+.cta-template.cta-primary a {
+    background: #7ff800;
+    border: 2px solid #7ff800;
+    color: #000;
+    font-size: 1.5rem;
+    text-decoration: none
+}
+
+.cta-template.cta-primary a:focus,.cta-template.cta-primary a:hover {
+    background: #000;
+    color: #7ff800
+}
+
+@media(hover: hover) {
+    .cta-template.cta-primary a:focus,.cta-template.cta-primary a:hover {
+        background:#000;
+        color: #7ff800
+    }
+}
+
+.cta-template.cta-primary-v2 a {
+    background: #000;
+    border: 2px solid #7ff800;
+    color: #7ff800;
+    font-size: 1.5rem;
+    text-decoration: none
+}
+
+.cta-template.cta-primary-v2 a:focus,.cta-template.cta-primary-v2 a:hover {
+    background: #7ff800;
+    color: #000
+}
+
+@media(hover: hover) {
+    .cta-template.cta-primary-v2 a:focus,.cta-template.cta-primary-v2 a:hover {
+        background:#7ff800;
+        color: #000
+    }
+}
+
+.cta-template.cta-primary-v3 a {
+    background: #212121;
+    border: 2px solid #7ff800;
+    color: #7ff800;
+    font-size: 1.5rem;
+    text-decoration: none
+}
+
+.cta-template.cta-primary-v3 a:focus,.cta-template.cta-primary-v3 a:hover {
+    background: #7ff800;
+    color: #000
+}
+
+@media(hover: hover) {
+    .cta-template.cta-primary-v3 a:focus,.cta-template.cta-primary-v3 a:hover {
+        background:#7ff800;
+        color: #000
+    }
+}
+
+.cta-template.cta-secondary a {
+    background: #fce403;
+    border: 2px solid #fce403;
+    color: #000;
+    font-size: 1.5rem;
+    text-decoration: none
+}
+
+.cta-template.cta-secondary a:focus,.cta-template.cta-secondary a:hover {
+    background: #000;
+    color: #fce403
+}
+
+@media(hover: hover) {
+    .cta-template.cta-secondary a:focus,.cta-template.cta-secondary a:hover {
+        background:#000;
+        color: #fce403
+    }
+}
+
+.cta-template.cta-outline a {
+    background: #212121;
+    border: 2px solid #7ff800;
+    color: #7ff800;
+    font-size: 1.5rem;
+    text-decoration: none
+}
+
+.cta-template.cta-outline a:focus,.cta-template.cta-outline a:hover {
+    background: #4c4c4c;
+    color: #7ff800
+}
+
+@media(hover: hover) {
+    .cta-template.cta-outline a:focus,.cta-template.cta-outline a:hover {
+        background:#4c4c4c;
+        color: #7ff800
+    }
+}
+
+.cta-template.cta-secondary-variant-1 a {
+    background: #fce403;
+    border: 2px solid #fded59;
+    color: #000;
+    font-size: 1.5rem;
+    text-decoration: none
+}
+
+.cta-template.cta-secondary-variant-1 a:focus,.cta-template.cta-secondary-variant-1 a:hover {
+    background: #fded59;
+    color: #000
+}
+
+@media(hover: hover) {
+    .cta-template.cta-secondary-variant-1 a:focus,.cta-template.cta-secondary-variant-1 a:hover {
+        background:#fded59;
+        color: #000
+    }
+}
+
+.cta-template.cta-secondary-variant-2 a {
+    background: #fce403;
+    border: 2px solid #fce403;
+    color: #000;
+    font-size: 1.6rem;
+    text-decoration: none
+}
+
+.cta-template.cta-secondary-variant-2 a:focus,.cta-template.cta-secondary-variant-2 a:hover {
+    background: #81fe00;
+    color: #000
+}
+
+@media(hover: hover) {
+    .cta-template.cta-secondary-variant-2 a:focus,.cta-template.cta-secondary-variant-2 a:hover {
+        background:#81fe00;
+        color: #000
+    }
+}
+
+.cta-template.cta-secondary-variant-2:hover {
+    transform: scale(1.05);
+    transition: all .2s ease-in-out
+}
+
+.cta-template.cta-secondary-variant-3 a {
+    background: #fc6200;
+    border: 2px solid #fc6200;
+    color: #fff;
+    font-size: 1.5rem;
+    text-decoration: none
+}
+
+.cta-template.cta-secondary-variant-3 a:focus,.cta-template.cta-secondary-variant-3 a:hover {
+    background: #000;
+    color: #fc6200
+}
+
+@media(hover: hover) {
+    .cta-template.cta-secondary-variant-3 a:focus,.cta-template.cta-secondary-variant-3 a:hover {
+        background:#000;
+        color: #fc6200
+    }
+}
+
+.cta-template.cta-secondary-variant-4 a {
+    background: #007cf7;
+    border: 2px solid #007cf7;
+    color: #fff;
+    font-size: 1.5rem;
+    text-decoration: none
+}
+
+.cta-template.cta-secondary-variant-4 a:focus,.cta-template.cta-secondary-variant-4 a:hover {
+    background: #fff;
+    color: #007cf7
+}
+
+@media(hover: hover) {
+    .cta-template.cta-secondary-variant-4 a:focus,.cta-template.cta-secondary-variant-4 a:hover {
+        background:#fff;
+        color: #007cf7
+    }
+}
+
+.cta-template.cta-simple a {
+    background: #0b0b0b;
+    border: 2px solid #686767;
+    color: #fff;
+    font-size: 1.5rem;
+    text-decoration: none
+}
+
+.cta-template.cta-simple a:focus,.cta-template.cta-simple a:hover {
+    background: #0b0b0b;
+    color: #fff
+}
+
+@media(hover: hover) {
+    .cta-template.cta-simple a:focus,.cta-template.cta-simple a:hover {
+        background:#0b0b0b;
+        color: #fff
+    }
+}
+
+.cta-template.cta-simple a {
+    line-height: 1.5;
+    min-width: fit-content
+}
+
+.cta-template.cta-gold a {
+    background: #181b20;
+    border: 2px solid #aa9a4c;
+    color: #aa9a4c;
+    font-size: 1.1rem;
+    text-decoration: none
+}
+
+.cta-template.cta-gold a:focus,.cta-template.cta-gold a:hover {
+    background: #aa9a4c;
+    color: #181b20
+}
+
+@media(hover: hover) {
+    .cta-template.cta-gold a:focus,.cta-template.cta-gold a:hover {
+        background:#aa9a4c;
+        color: #181b20
+    }
+}
+
+.cta-template.cta-gold a {
+    line-height: 2.15
+}
+
+.cta-template.cta-silver a {
+    background: #14171c;
+    border: 2px solid #94979c;
+    color: #94979c;
+    font-size: 1.1rem;
+    text-decoration: none
+}
+
+.cta-template.cta-silver a:focus,.cta-template.cta-silver a:hover {
+    background: #94979c;
+    color: #14171c
+}
+
+@media(hover: hover) {
+    .cta-template.cta-silver a:focus,.cta-template.cta-silver a:hover {
+        background:#94979c;
+        color: #14171c
+    }
+}
+
+.cta-template.cta-silver a {
+    line-height: 2.15
+}
+
+.cta-template.cta-glow a {
+    background: #fce403;
+    border: 2px solid #fce403;
+    color: #000;
+    font-size: 1.44rem;
+    text-decoration: none
+}
+
+.cta-template.cta-glow a:focus,.cta-template.cta-glow a:hover {
+    background: #000;
+    color: #fce403
+}
+
+@media(hover: hover) {
+    .cta-template.cta-glow a:focus,.cta-template.cta-glow a:hover {
+        background:#000;
+        color: #fce403
+    }
+}
+
+.cta-template.cta-glow a {
+    animation: glowing .9s infinite alternate
+}
+
+.cta-template.cta-animated-color a {
+    background: #fce403;
+    border: 2px solid #fce403;
+    color: #000;
+    font-size: 1.6rem;
+    text-decoration: none
+}
+
+.cta-template.cta-animated-color a:focus,.cta-template.cta-animated-color a:hover {
+    background: #000;
+    color: #fce403
+}
+
+@media(hover: hover) {
+    .cta-template.cta-animated-color a:focus,.cta-template.cta-animated-color a:hover {
+        background:#000;
+        color: #fce403
+    }
+}
+
+.cta-template.cta-animated-color a {
+    animation: color-rotation 3s linear infinite;
+    animation-delay: .3s
+}
+
+.cta-padding-small,.cta-template.cta-simple a {
+    padding: .4rem 1.6rem
+}
+
+.cta-padding-default,.cta-template.cta-animated-color a,.cta-template.cta-glow a,.cta-template.cta-gold a,.cta-template.cta-outline a,.cta-template.cta-primary a,.cta-template.cta-primary-v2 a,.cta-template.cta-primary-v3 a,.cta-template.cta-secondary a,.cta-template.cta-secondary-variant-1 a,.cta-template.cta-secondary-variant-2 a,.cta-template.cta-secondary-variant-3 a,.cta-template.cta-secondary-variant-4 a,.cta-template.cta-silver a {
+    padding: .8rem 4rem
+}
+
+@keyframes glowing {
+    to {
+        box-shadow: 0 0 20px 5px #fce403
+    }
+}
+
+@keyframes color-rotation {
+    0% {
+        filter: hue-rotate(0deg)
+    }
+
+    50% {
+        filter: hue-rotate(25deg)
+    }
+}
+
+.cta-template.cta-wide-size a {
+    line-height: 1.5;
+    min-width: 290px;
+    padding: .9rem 0
+}
+
+.cta-template.cta-medium-size a {
+    line-height: 1.5;
+    max-width: 290px;
+    min-width: 10pc;
+    padding: .9rem 0
+}
+
+.cta-template.cta-medium-size a span {
+    margin: 0 20px
+}
+
+.cta-template.cta-fullwidth-size,.cta-template.cta-fullwidth-size a {
+    font-size: 2.3rem;
+    line-height: 2;
+    width: 100%
+}
+
+.section-cta {
+    align-items: center;
+    background-color: #171717;
+    border: .2em solid #232323;
+    border-radius: .5em;
+    display: flex;
+    flex-direction: row;
+    font-size: 10px;
+    justify-content: space-evenly;
+    padding: 2.4em;
+    position: relative
+}
+
+@media(min-width: 1280px)and (max-width:1479px) {
+    .section-cta {
+        font-size:8.5px
+    }
+}
+
+@media(max-width: 1279px) {
+    .section-cta {
+        flex-direction:column;
+        text-align: center
+    }
+}
+
+.section-cta .footer-banner-text .footer-banner-first-title {
+    color: #fff;
+    display: block;
+    font-size: 2.5em;
+    font-weight: 400;
+    text-align: center;
+    text-transform: uppercase
+}
+
+@media(max-width: 1279px) {
+    .section-cta .footer-banner-text .footer-banner-first-title {
+        font-size:1.6em
+    }
+}
+
+.section-cta .footer-banner-text .footer-banner-second-title {
+    color: #7df700;
+    display: block;
+    font-size: 25px;
+    font-weight: 600;
+    line-height: normal;
+    text-align: center;
+    text-transform: uppercase
+}
+
+@media(max-width: 1279px) {
+    .section-cta .footer-banner-text .footer-banner-second-title {
+        font-size:2.6em
+    }
+}
+
+.section-cta .footer-banner-button {
+    min-width: 19.2em
+}
+
+.section-cta .footer-banner-button .cta-item {
+    margin: .5em 0
+}
+
+.section-cta .footer-banner-button .cta-item .cta-template a {
+    font-size: 14px;
+    font-weight: 900;
+    letter-spacing: 0;
+    line-height: 1.5;
+    min-width: 230px
+}
+
+@media(max-width: 1279px) {
+    .section-cta .footer-banner-button {
+        margin:1.6em 0;
+        max-width: 24em;
+        width: 100%
+    }
+}
+
+.section-cta .footer-banner-button .footer-banner-terms-link {
+    color: #717171;
+    display: block;
+    font-size: 1.3em;
+    font-weight: 600;
+    margin-top: .8em;
+    text-align: center;
+    text-decoration: underline
+}
+
+.section-cta .footer-banner-button .footer-banner-terms-link:hover {
+    color: #fff
+}
+
+.section-cta .desktop-wrapper {
+    align-items: center;
+    display: flex;
+    gap: 5%;
+    justify-content: center
+}
+
+.section-cta .desktop-wrapper.d-none {
+    display: none
+}
+
+.section-cta .mobile-wrapper {
+    align-items: center;
+    display: flex;
+    gap: .8em;
+    justify-content: center
+}
+
+.section-cta .mobile-wrapper.d-none {
+    display: none
+}
+
+.section-cta .mobile-wrapper .mobile-cta {
+    border: .01em solid #3f3e3e;
+    height: 7em;
+    max-width: 24em;
+    width: 40%
+}
+
+.section-cta .mobile-wrapper .mobile-cta a {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    overflow: hidden;
+    text-align: center
+}
+
+.section-cta .mobile-wrapper .mobile-cta a img {
+    display: block;
+    height: auto;
+    width: 10em
+}

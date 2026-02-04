@@ -250,16 +250,18 @@ const Layout = () => {
             <NavigationContext.Provider
                 value={{ selectedPage, setSelectedPage, getPage, showFullDivLoading, setShowFullDivLoading }}
             >
-                <div className="w-full !overflow-x-clip h-dvh">
-                    <div className={`grid min-h-[calc(_100dvh_-_var(--pwa-prompt-height,0px))] grid-rows-[auto_1fr_auto] pb-[var(--header-bottom-height)] [grid-template-areas:_'header_header'_'nav_main'_'nav_footer'] ${isMobile ? "" : "grid-cols-[15rem_calc(100%_-_15rem)]"}`}>
-                        {showLoginModal && (
-                            <LoginModal
-                                isMobile={isMobile}
-                                isOpen={showLoginModal}
-                                onClose={() => setShowLoginModal(false)}
-                                onLoginSuccess={handleLoginSuccess}
-                            />
-                        )}
+                {showLoginModal && (
+                    <LoginModal
+                        isMobile={isMobile}
+                        isOpen={showLoginModal}
+                        onClose={() => setShowLoginModal(false)}
+                        onLoginSuccess={handleLoginSuccess}
+                    />
+                )}
+                <div id="orbit-container">
+                    <div className="sc-kYrjYd hbEPYD cy-overlay"></div>
+                    {!isMobile && <Sidebar isSlotsOnly={isSlotsOnly} isMobile={isMobile} supportParent={supportParent} openSupportModal={openSupportModal} handleLogoutClick={handleLogoutClick} /> }
+                    <div className="sc-cAgqEL friIZi cy-main-wrapper">
                         <Header
                             isLogin={isLogin}
                             isMobile={isMobile}
@@ -269,46 +271,46 @@ const Layout = () => {
                             supportParent={supportParent}
                             openSupportModal={openSupportModal}
                         />
-                        {!isMobile && <Sidebar isSlotsOnly={isSlotsOnly} isMobile={isMobile} supportParent={supportParent} openSupportModal={openSupportModal} handleLogoutClick={handleLogoutClick} /> }
-                        
-                        {!shouldShowGameModal && (
-                            <div className={isLogin ? "account-background" : ""}>
-                                <Outlet context={{ isSlotsOnly, isMobile, topGames, topArcade, topCasino, topLiveCasino }} />
-                            </div>
-                        )}
-                        {showMobileSearch && (
-                            <MobileSearch
-                                isLogin={isLogin}
-                                isMobile={isMobile}
-                                onClose={() => setShowMobileSearch(false)}
-                            />
-                        )}
-                        
-                        {shouldShowGameModal && gameModalData.gameId !== null && (
-                            <GameModal
-                                gameUrl={gameModalData.gameUrl}
-                                gameName={gameModalData.gameName}
-                                gameImg={gameModalData.gameImg}
-                                reload={reloadGame}
-                                launchInNewTab={() => reloadGame(null, null, "tab")}
-                                ref={refGameModal}
-                                onClose={closeGameModal}
-                                isMobile={isMobile}
-                            />
-                        )}
-                        
-                        <SupportModal
-                            isOpen={showSupportModal}
-                            onClose={closeSupportModal}
-                            supportWhatsApp={supportWhatsApp}
-                            supportTelegram={supportTelegram}
-                            supportEmail={supportEmail}
-                            supportParentOnly={supportParentOnly}
-                            supportParent={supportParent}
-                        />
-                        {isMobile && <MobileFooter isSlotsOnly={isSlotsOnly} isMobile={isMobile} supportParent={supportParent} openSupportModal={openSupportModal} />}
+                        <Outlet context={{ isSlotsOnly, isMobile, topGames, topArcade, topCasino, topLiveCasino }} />
                     </div>
                 </div>
+                
+                {!shouldShowGameModal && (
+                    <div className={isLogin ? "account-background" : ""}>
+                        
+                    </div>
+                )}
+                {showMobileSearch && (
+                    <MobileSearch
+                        isLogin={isLogin}
+                        isMobile={isMobile}
+                        onClose={() => setShowMobileSearch(false)}
+                    />
+                )}
+                
+                {shouldShowGameModal && gameModalData.gameId !== null && (
+                    <GameModal
+                        gameUrl={gameModalData.gameUrl}
+                        gameName={gameModalData.gameName}
+                        gameImg={gameModalData.gameImg}
+                        reload={reloadGame}
+                        launchInNewTab={() => reloadGame(null, null, "tab")}
+                        ref={refGameModal}
+                        onClose={closeGameModal}
+                        isMobile={isMobile}
+                    />
+                )}
+                
+                <SupportModal
+                    isOpen={showSupportModal}
+                    onClose={closeSupportModal}
+                    supportWhatsApp={supportWhatsApp}
+                    supportTelegram={supportTelegram}
+                    supportEmail={supportEmail}
+                    supportParentOnly={supportParentOnly}
+                    supportParent={supportParent}
+                />
+                {isMobile && <MobileFooter isSlotsOnly={isSlotsOnly} isMobile={isMobile} supportParent={supportParent} openSupportModal={openSupportModal} />}
             </NavigationContext.Provider>
         </LayoutContext.Provider>
     );
