@@ -5,7 +5,6 @@ import { NavigationContext } from "../components/Layout/NavigationContext";
 import { callApi } from "../utils/Utils";
 import Footer from "../components/Layout/Footer";
 import Slideshow from "../components/Home/Slideshow";
-import ProviderContainer from "../components/ProviderContainer";
 import HotGameSlideshow from "../components/Home/HotGameSlideshow";
 import GameModal from "../components/Modal/GameModal";
 import LoginModal from "../components/Modal/LoginModal";
@@ -482,194 +481,69 @@ const Home = () => {
         />
       ) : (
         <>
-          { !selectedProvider && 
-            <div className="section section--top promo-bar">
+          {!selectedProvider &&
+            <>
               <Slideshow />
-            </div>
-          }
-
-          {
-            selectedProvider &&
-            <section className="section section--top">
-              <header className="navigation-bar navigation-bar--without-divider">
-                <button 
-                  className="navigation-bar__left" 
-                  type="button" 
-                  aria-label="Go back"
-                  onClick={() => {
-                    setSelectedProvider(null);
-                  }}
-                >
-                  <svg-image glyph="back_ios" width="24px" height="24px" fill="var(--icon-main)">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" fill="var(--icon-main)"><path d="M13.3 20.7l-8-8c-.4-.4-.4-1 0-1.4l8-8c.4-.4 1-.4 1.4 0s.4 1 0 1.4L7.4 12l7.3 7.3c.4.4.4 1 0 1.4s-1 .4-1.4 0z"></path></svg>
-                  </svg-image>
-                </button>
-                <div className="navigation-bar__center navigation-bar__center--double">
-                  <h1 className="navigation-bar__title body-semi-bold">
-                    <i18n-t t="casino-lobby:Virtual Sports" className="navigation-bar__title body-semi-bold">{selectedProvider?.name}</i18n-t>
-                  </h1>
-                </div>
-              </header>
-            </section>
-          }
-
-          <ProviderContainer
-            categories={categories}
-            selectedProvider={selectedProvider}
-            setSelectedProvider={setSelectedProvider}
-            onProviderSelect={handleProviderSelect}
-          />
-
-          {
-            (selectedProvider || isSingleCategoryView) ? (
-              <div>
-                <div className="games-list">
-                  {games.map((game, idx) => (
-                    <GameCard
-                      key={`list-${activeCategory?.id || 'search'}-${game.id}-${idx}`}
-                      id={game.id}
-                      provider={activeCategory?.name || "Casino"}
-                      title={game.name}
-                      imageSrc={
-                        game.image_local !== null
-                          ? contextData.cdnUrl + game.image_local
-                          : game.image_url
+              <div className="sc-gKIhPs la-dtQg cy-layout-wrapper-homepage">
+                {topGames.length > 0 && (
+                  <HotGameSlideshow
+                    games={topGames}
+                    name="games"
+                    title="Juegos Populares"
+                    onGameClick={(game) => {
+                      if (isLogin) {
+                        launchGame(game, "slot", "modal");
+                      } else {
+                        handleLoginClick();
                       }
-                      game={game}
-                      mobileShowMore={mobileShowMore}
-                      onGameClick={(g) => {
-                        if (isLogin) {
-                          launchGame(g, "slot", "modal");
-                        } else {
-                          handleLoginClick();
-                        }
-                      }}
-                    />
-                  ))}
-                </div>
-                {isLoadingGames && <LoadApi />}
-
-                {
-                  games.length > 0 && (
-                    <div className="load-more">
-                      <button className="button button--low button--primary" type="button" onClick={loadMoreGames}>
-                        <i18n-t t="casino-lobby:Load More">Cargar más</i18n-t>
-                      </button>
-
-                      <div className="load-more__loader">
-                        <div className="page-loader">
-                          <svg className="loader loader--spin" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M15.5376 20.4833H5.50435C2.41417 20.4833 0.243672 17.4402 1.2481 14.5179L4.74475 4.3497C5.02254 3.54302 5.78214 3 6.6359 3H20.8313C21.8592 3 22.5827 4.0107 22.2516 4.98374L17.4303 19.1273C17.1541 19.9371 16.3929 20.4817 15.536 20.4817L15.5376 20.4833Z" fill="#B9E113"></path>
-                            <path d="M13.8899 4.92567L4.62883 12.5467C4.48131 12.6692 4.56763 12.9093 4.75909 12.9093H9.08283C9.22251 12.9093 9.32138 13.0474 9.27587 13.1808L7.66722 17.8341C7.59973 18.0287 7.83044 18.1888 7.98895 18.0585L17.0523 10.6478C17.2014 10.5269 17.1151 10.2852 16.9236 10.2852H12.6752C12.534 10.2852 12.4351 10.1455 12.4822 10.0121L14.2117 5.15323C14.2807 4.95863 14.05 4.79541 13.8899 4.92724V4.92567Z" fill="#0A234F"></path>
-                          </svg>
-                        </div>
-                      </div>
-                    </div>
-                  )}
-              </div>
-            ) :
-              <>
-                {isSingleCategoryView ? (
-                  <>
-                    <div className="games-list">
-                      {games.map((game, idx) => (
-                        <GameCard
-                          key={`cat-${selectedCategoryIndex}-${game.id}-${idx}`}
-                          id={game.id}
-                          title={game.name}
-                          text={isLogin ? "Jugar" : "Ingresar"}
-                          imageSrc={game.image_local !== null ? contextData.cdnUrl + game.image_local : game.image_url}
-                          mobileShowMore={mobileShowMore}
-                          onClick={() => (isLogin ? launchGame(game, "slot", "modal") : handleLoginClick())}
-                        />
-                      ))}
-                    </div>
-                    {isLoadingGames && <LoadApi />}
-
-                    {games.length > 0 && (
-                      <div className="load-more">
-                        <button className="button button--low button--primary" type="button" onClick={loadMoreGames}>
-                          <i18n-t t="casino-lobby:Load More">Cargar más</i18n-t>
-                        </button>
-
-                        <div className="load-more__loader">
-                          <div className="page-loader">
-                            <svg className="loader loader--spin" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <path d="M15.5376 20.4833H5.50435C2.41417 20.4833 0.243672 17.4402 1.2481 14.5179L4.74475 4.3497C5.02254 3.54302 5.78214 3 6.6359 3H20.8313C21.8592 3 22.5827 4.0107 22.2516 4.98374L17.4303 19.1273C17.1541 19.9371 16.3929 20.4817 15.536 20.4817L15.5376 20.4833Z" fill="#B9E113"></path>
-                              <path d="M13.8899 4.92567L4.62883 12.5467C4.48131 12.6692 4.56763 12.9093 4.75909 12.9093H9.08283C9.22251 12.9093 9.32138 13.0474 9.27587 13.1808L7.66722 17.8341C7.59973 18.0287 7.83044 18.1888 7.98895 18.0585L17.0523 10.6478C17.2014 10.5269 17.1151 10.2852 16.9236 10.2852H12.6752C12.534 10.2852 12.4351 10.1455 12.4822 10.0121L14.2117 5.15323C14.2807 4.95863 14.05 4.79541 13.8899 4.92724V4.92567Z" fill="#0A234F"></path>
-                            </svg>
-                          </div>
-                        </div>
-                      </div>
-                    )}
-                  </>
-                ) : (
-                  <>
-                    {tags[selectedCategoryIndex]?.code === 'home' && (
-                      <>
-                        {topGames.length > 0 && (
-                          <HotGameSlideshow
-                            games={topGames}
-                            name="games"
-                            title="Juegos Populares"
-                            onGameClick={(game) => {
-                              if (isLogin) {
-                                launchGame(game, "slot", "modal");
-                              } else {
-                                handleLoginClick();
-                              }
-                            }}
-                          />
-                        )}
-                        {topCasino.length > 0 && (
-                          <HotGameSlideshow
-                            games={topCasino}
-                            name="casino"
-                            title="Casino"
-                            onGameClick={(game) => {
-                              if (isLogin) {
-                                launchGame(game, "slot", "modal");
-                              } else {
-                                handleLoginClick();
-                              }
-                            }}
-                          />
-                        )}
-                        {topLiveCasino.length > 0 && (
-                          <HotGameSlideshow
-                            games={topLiveCasino}
-                            name="liveCasino"
-                            title="Casino en Vivo"
-                            onGameClick={(game) => {
-                              if (isLogin) {
-                                launchGame(game, "slot", "modal");
-                              } else {
-                                handleLoginClick();
-                              }
-                            }}
-                          />
-                        )}
-                        {topArcade.length > 0 && (
-                          <HotGameSlideshow
-                            games={topArcade}
-                            name="arcade"
-                            title="Crash Games"
-                            onGameClick={(game) => {
-                              if (isLogin) {
-                                launchGame(game, "slot", "modal");
-                              } else {
-                                handleLoginClick();
-                              }
-                            }}
-                          />
-                        )}
-                      </>
-                    )}
-                  </>
+                    }}
+                  />
                 )}
-              </>
+                {topCasino.length > 0 && isSlotsOnly === "false" && (
+                  <HotGameSlideshow
+                    games={topCasino}
+                    name="casino"
+                    title="Casino"
+                    onGameClick={(game) => {
+                      if (isLogin) {
+                        launchGame(game, "slot", "modal");
+                      } else {
+                        handleLoginClick();
+                      }
+                    }}
+                  />
+                )}
+                {topLiveCasino.length > 0 && isSlotsOnly === "false" && (
+                  <HotGameSlideshow
+                    games={topLiveCasino}
+                    name="liveCasino"
+                    title="Casino en Vivo"
+                    onGameClick={(game) => {
+                      if (isLogin) {
+                        launchGame(game, "slot", "modal");
+                      } else {
+                        handleLoginClick();
+                      }
+                    }}
+                  />
+                )}
+                {topArcade.length > 0 && isSlotsOnly === "false" && (
+                  <HotGameSlideshow
+                    games={topArcade}
+                    name="arcade"
+                    title="Crash Games"
+                    onGameClick={(game) => {
+                      if (isLogin) {
+                        launchGame(game, "slot", "modal");
+                      } else {
+                        handleLoginClick();
+                      }
+                    }}
+                  />
+                )}
+              </div>
+            </>
           }
-
           <Footer isSlotsOnly={isSlotsOnly} />
         </>
       )}

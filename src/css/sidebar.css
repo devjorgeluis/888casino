@@ -847,12 +847,17 @@ html.cgp-rtl .sc-hBpigv {
     }
 }
 
+.sc-hBpigv img {
+    width: 18px;
+}
+
 .kQdJxW {
     opacity: 1;
     position: absolute;
     width: 100%;
     -webkit-transform: translate3d(0, 0, 0);
     border-radius: 15px;
+    object-fit: cover;
 }
 
 .game-box-jackpot-template .sc-ivDtld {
@@ -1239,7 +1244,6 @@ html.cgp-rtl .sc-hBpigv {
     position: relative;
     margin-top: 10px;
     margin-bottom: 3rem;
-    width: calc(100% / 7);
     text-align: center;
     cursor: pointer;
     -webkit-user-select: none;

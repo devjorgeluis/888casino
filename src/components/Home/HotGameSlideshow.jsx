@@ -5,6 +5,8 @@ import { Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import GameCard from '../GameCard';
+import IconArrowLeft from "/src/assets/svg/arrow-left.svg";
+import IconArrowRight from "/src/assets/svg/arrow-right.svg";
 
 const HotGameSlideshow = ({ games, name, title, onGameClick }) => {
     const { contextData } = useContext(AppContext);
@@ -19,16 +21,39 @@ const HotGameSlideshow = ({ games, name, title, onGameClick }) => {
     };
 
     return (
-        <>
-            <header className="casino-widget__heading section-heading">
-                <h2 className="section-heading__left">
-                    <span className="section-heading__title title-2-semi-bold">
-                        <i18n-t>{title}</i18n-t>
-                    </span>
-                </h2>
-            </header>
-            <div className="casino-widget__games">
-                <div className="swiper-container">
+        <div className="sc-htehQK ieKpMF cy-orbit-swiper">
+            <div className="sc-kAuobC hvWNQq cy-games-list-title">
+                <div className="sc-cbRazL kytqOW cy-games-title-text">{title}</div>
+                <div className="sc-fEyyHY inSENM"></div>
+                <div className="sc-iNjjOV kuICQf cy-swiper-buttons">
+                    <div className="sc-cLVkoy gTiEhq">
+                        <button 
+                            className="sc-ksJhlw fTCwfC cy-swiper-button-prev" 
+                            ref={prevRef}
+                            aria-label="Previous slide"
+                        >
+                            <span className="sc-hBpigv iTELlo">
+                                <img src={IconArrowLeft} className="sc-bqOBqt kKmHiP" />
+                            </span>
+                            <div className="sc-bjEuFB cSRHhG"></div>
+                        </button>
+                    </div>
+                    <div className="sc-cLVkoy gTiEhq">
+                        <button 
+                            className="sc-ksJhlw gpefPx cy-swiper-button-next" 
+                            ref={nextRef}
+                            aria-label="Next slide"
+                        >
+                            <span className="sc-hBpigv bzAYWQ">
+                                <img src={IconArrowRight} className="sc-bqOBqt PBviZ" />
+                            </span>
+                            <div className="sc-bjEuFB cSRHhG"></div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div className="sc-hAHgYv faMpiy cy-orbit-swiper-wrapper">
+                <div className="sc-iysFMw cxdLwt cy-orbit-swiper-games-list">
                     <Swiper
                         ref={swiperRef}
                         modules={[Navigation]}
@@ -52,14 +77,15 @@ const HotGameSlideshow = ({ games, name, title, onGameClick }) => {
                             });
                         }}
                         className="row-top-games"
-                        style={{ width: '100%' }}
                     >
                         {games?.map((game, index) => (
-                            <SwiperSlide key={`hot-${name}-${game.id ?? index}-${index}`} className="top-game-item">
+                            <SwiperSlide 
+                                key={`hot-${name}-${game.id ?? index}-${index}`} 
+                                className="sc-gSkVGw sc-lbNtLv evQOJh bdSJRm cy-single-game-regular-template game-box swiper-mode game-group-videoslot game-category-slots game-company-games-global game-type-2400475"
+                            >
                                 <GameCard
-                                    key={`hotcard-${name}-${game.id ?? index}-${index}`}
                                     id={game.id}
-                                    provider={'Casino'}
+                                    provider="Casino"
                                     title={game.name}
                                     type="slideshow"
                                     imageSrc={game.image_local !== null ? contextData.cdnUrl + game.image_local : game.image_url}
@@ -69,22 +95,10 @@ const HotGameSlideshow = ({ games, name, title, onGameClick }) => {
                                 />
                             </SwiperSlide>
                         ))}
-                        <span className="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
                     </Swiper>
-                    
-                    <button ref={prevRef} className="splide__arrow splide__arrow--prev slider-button slider-button--prev">
-                        <svg-image glyph="chevron_left" width="24px" height="24px" fill="currentColor">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" fill="currentColor"><path d="M8.3 12.7c-.4-.4-.4-1 0-1.4l4.5-4.5c.4-.4 1-.4 1.4 0s.4 1 0 1.4L10.4 12l3.8 3.8c.4.4.4 1 0 1.4s-1 .4-1.4 0l-4.5-4.5z"></path></svg>
-                        </svg-image>
-                    </button>
-                    <button ref={nextRef} className="splide__arrow splide__arrow--next slider-button slider-button--next">
-                        <svg-image glyph="chevron_right" width="24px" height="24px" fill="currentColor">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" fill="currentColor"><path d="M9.8 17.2c-.4-.4-.4-1 0-1.4l3.8-3.8-3.8-3.8c-.4-.4-.4-1 0-1.4s1-.4 1.4 0l4.5 4.5c.4.4.4 1 0 1.4l-4.5 4.5c-.4.4-1 .4-1.4 0z"></path></svg>
-                        </svg-image>
-                    </button>
                 </div>
             </div>
-        </>
+        </div>
     );
 };
 
