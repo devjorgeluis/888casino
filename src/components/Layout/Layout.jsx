@@ -8,6 +8,8 @@ import Header from "./Header";
 import Sidebar from "./Sidebar";
 import LoginModal from "../Modal/LoginModal";
 import SupportModal from "../Modal/SupportModal";
+import MyProfileModal from "../Modal/MyProfileModal";
+import HistoryModal from "../Modal/HistoryModal";
 import { NavigationContext } from "./NavigationContext";
 import FullDivLoading from "../Loading/FullDivLoading";
 import MobileSearch from "../MobileSearch";
@@ -26,6 +28,8 @@ const Layout = () => {
     const [supportParent, setSupportParent] = useState("");
     const [showSupportModal, setShowSupportModal] = useState(false);
     const [supportParentOnly, setSupportParentOnly] = useState(false);
+    const [showMyProfileModal, setShowMyProfileModal] = useState(false);
+    const [showHistoryModal, setShowHistoryModal] = useState(false);
     const [topGames, setTopGames] = useState([]);
     const [topArcade, setTopArcade] = useState([]);
     const [topCasino, setTopCasino] = useState([]);
@@ -181,6 +185,14 @@ const Layout = () => {
         setSupportParentOnly(false);
     };
 
+    const handleMyProfileClick = () => {
+        setShowMyProfileModal(true);
+    };
+
+    const handleHistoryClick = () => {
+        setShowHistoryModal(true);
+    };
+
     const launchGameFromSearch = (game, type, launcher) => {
         setShowMobileSearch(false);
         setShouldShowGameModal(true);
@@ -258,9 +270,29 @@ const Layout = () => {
                         onLoginSuccess={handleLoginSuccess}
                     />
                 )}
+                {showMyProfileModal && (
+                    <MyProfileModal
+                        isOpen={showMyProfileModal}
+                        onClose={() => setShowMyProfileModal(false)}
+                    />
+                )}
+                {showHistoryModal && (
+                    <HistoryModal
+                        isOpen={showHistoryModal}
+                        onClose={() => setShowHistoryModal(false)}
+                    />
+                )}
                 <div id="orbit-container">
                     <div className="sc-kYrjYd hbEPYD cy-overlay"></div>
-                    {!isMobile && <Sidebar isSlotsOnly={isSlotsOnly} isMobile={isMobile} supportParent={supportParent} openSupportModal={openSupportModal} handleLogoutClick={handleLogoutClick} /> }
+                    {!isMobile &&
+                        <Sidebar
+                            isSlotsOnly={isSlotsOnly}
+                            isMobile={isMobile}
+                            supportParent={supportParent}
+                            openSupportModal={openSupportModal}
+                            handleLoginClick={handleLoginClick} 
+                            handleLogoutClick={handleLogoutClick}
+                        /> }
                     <div className="sc-cAgqEL friIZi cy-main-wrapper">
                         <Header
                             isLogin={isLogin}
@@ -269,6 +301,8 @@ const Layout = () => {
                             isSlotsOnly={isSlotsOnly}
                             handleLoginClick={handleLoginClick}
                             handleLogoutClick={handleLogoutClick}
+                            handleMyProfileClick={handleMyProfileClick}
+                            handleHistoryClick={handleHistoryClick}
                             supportParent={supportParent}
                             openSupportModal={openSupportModal}
                         />

@@ -604,7 +604,7 @@ html {
 }
 
 .rllogin-logo {
-    background: url(https://login.safe-iplay.com/assets/2.4.823/img/888casino_logo.png) center no-repeat;
+    background: url("../assets/img/888casino_logo.png") center no-repeat;
     position: absolute;
     top: 0;
     left: 0;

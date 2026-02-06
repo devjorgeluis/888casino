@@ -16,13 +16,14 @@ const Header = ({
     supportParent,
     handleLoginClick,
     handleLogoutClick,
+    handleMyProfileClick,
+    handleHistoryClick,
     openSupportModal,
 }) => {
     const { contextData } = useContext(AppContext);
     const [games, setGames] = useState([]);
     const [txtSearch, setTxtSearch] = useState("");
     const [isLoadingGames, setIsLoadingGames] = useState(false);
-    const { isSidebarExpanded, toggleSidebar } = useContext(LayoutContext);
     const navigate = useNavigate();
     const searchRef = useRef(null);
     const [searchDelayTimer, setSearchDelayTimer] = useState();
@@ -122,7 +123,7 @@ const Header = ({
                 {
                     isLogin && 
                     <button className="sc-ksJhlw jOQfJh cy-header-client-settings-button">
-                        <span className="sc-hBpigv iTELlo">
+                        <span className="sc-hBpigv iTELlo" onClick={handleHistoryClick}>
                             <img src={ImgProtect} style={{ width: "2.4em", height: "2.4em" }} />
                         </span>
                         <div className="sc-bjEuFB knfoyZ" style={{ height: "2.4em" }}></div>
@@ -133,7 +134,7 @@ const Header = ({
                         <span className="sc-IYxHW ksYfVp"></span>
                         {
                             isLogin ? 
-                            <button className="sc-ksJhlw hfleRR cy-welcome-cashier-button" onClick={handleLogoutClick}>
+                            <button className="sc-ksJhlw hfleRR cy-welcome-cashier-button" onClick={handleMyProfileClick}>
                                 <span className="sc-fIysua sc-cRAjZL eZsMbN dcVKxz">
                                     <span className="sc-bFbHAG fxFSPh">Cajero</span>
                                 </span>
