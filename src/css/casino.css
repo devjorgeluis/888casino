@@ -120,3 +120,538 @@ div[data-id=zsalesiq] {
 #studio-select {
     color: inherit;
 }
+
+.iVOthZ {
+    display: flex;
+    position: fixed;
+    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+    z-index: 8040;
+    background-color: #171717;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.hXBpHK {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    max-width: 100%;
+}
+
+.hEYaPr {
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.jaIczi {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    background-color: #000000;
+    color: #ffffff;
+    line-height: 1;
+    width: 100%;
+}
+
+.iAbnhJ {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-content: center;
+    -ms-flex-line-pack: center;
+    align-content: center;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-image: url(https://cgp-cdn.safe-iplay.com/gamesImages/2380455_background.jpg);
+    background-repeat: no-repeat;
+    background-clip: border-box;
+    background-color: #171717;
+    background-attachment: fixed;
+    background-position: center center;
+    background-size: 100% 100%;
+}
+
+.dDPxTc {
+    width: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    height: 4.8rem;
+    padding: 0.3rem 0.8rem;
+    background-color: #000000;
+}
+
+.bBaxkM {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    min-height: 60px;
+    width: 100%;
+    padding-left: 30px;
+    padding-right: 15px;
+}
+
+.jgBKE {
+    width: 35%;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+}
+
+.cNDXZx {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-align-content: center;
+    -ms-flex-line-pack: center;
+    align-content: center;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    -webkit-flex-shrink: 1;
+    -ms-flex-negative: 1;
+    flex-shrink: 1;
+    height: 100%;
+}
+
+.XiJNy {
+    width: 35%;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+}
+
+.cNDXZx {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-align-content: center;
+    -ms-flex-line-pack: center;
+    align-content: center;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    -webkit-flex-shrink: 1;
+    -ms-flex-negative: 1;
+    flex-shrink: 1;
+    height: 100%;
+}
+
+.kWgyCH {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-align-content: center;
+    -ms-flex-line-pack: center;
+    align-content: center;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    height: 100%;
+}
+
+.cQDXZz {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-align-items: flex-start;
+    -webkit-box-align: flex-start;
+    -ms-flex-align: flex-start;
+    align-items: flex-start;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.eUUbAr {
+    color: #ffffff;
+}
+
+.dBHGWN {
+    font-weight: 700;
+    font-size: 1.2rem;
+    line-height: 1;
+    text-align: center;
+}
+
+.cgp-pc * {
+    -webkit-scrollbar-width: thin;
+    -moz-scrollbar-width: thin;
+    -ms-scrollbar-width: thin;
+    scrollbar-width: thin;
+    -webkit-scrollbar-color: rgba(255,255,255,0.8) rgba(255,255,255,0.1);
+    -moz-scrollbar-color: rgba(255,255,255,0.8) rgba(255,255,255,0.1);
+    -ms-scrollbar-color: rgba(255,255,255,0.8) rgba(255,255,255,0.1);
+    scrollbar-color: rgba(255, 255, 255, 0.8) rgba(255, 255, 255, 0.1);
+}
+
+.huWxWb {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.bWFDOM {
+    height: 27px;
+    width: 27px;
+    min-width: initial;
+}
+
+.gxNfBt {
+    -webkit-flex: 0 0 auto;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    width: 15px;
+}
+
+.cvzsHT {
+    font-size: 1.8rem;
+}
+
+.jQIAqS {
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+}
+
+.lhtAEM {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.ksYfVp {
+    -webkit-flex: 0 0 auto;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    width: 7.5px;
+}
+
+.hfleRR {
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border-radius: 100px;
+    background: none;
+    outline: none;
+    font-weight: 900;
+    font-size: 1rem;
+    padding: 0 1em;
+    line-height: 0.8;
+    -webkit-letter-spacing: 0.05em;
+    -moz-letter-spacing: 0.05em;
+    -ms-letter-spacing: 0.05em;
+    letter-spacing: 0.05em;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    box-sizing: border-box;
+    height: 4em;
+    width: auto;
+    min-width: 15em;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    border-width: 2px;
+    border-style: solid;
+    color: #000000;
+    background-color: #FCE523;
+    border-color: #FCE523;
+    box-shadow: none;
+}
+
+.dcVKxz {
+    padding-top: 0.2em;
+    padding-bottom: 0em;
+}
+
+.eZsMbN {
+    -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 0em 1em 0em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: clip;
+}
+
+.fxFSPh {
+    text-transform: uppercase;
+    font-size: 1.4em;
+    line-height: 1.2;
+    max-height: 2.2em;
+}
+
+.cedNG {
+    width: 20px;
+    height: 20px;
+}
+
+.fQGMWi {
+    background-image: url(https://cgp-cdn.safe-iplay.com/cgp-assets/full/defaults/images/full-screen-on.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+}
+
+.hFOJgn {
+    width: 2px;
+    background-color: #1f1f1f;
+    height: 20px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.fOjcyi {
+    width: 20px;
+    height: 20px;
+}
+
+.gLgOii {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-content: center;
+    -ms-flex-line-pack: center;
+    align-content: center;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    /* background-image: url(https://cgp-cdn.safe-iplay.com/gamesImages/130329_background.jpg); */
+    background-repeat: no-repeat;
+    background-clip: border-box;
+    background-color: #171717;
+    background-attachment: fixed;
+    background-position: center center;
+    background-size: cover;
+}
+
+.cqOVkk {
+    max-width: 1280px;
+    max-height: 720px;
+    width: 100%;
+    height: 100%;
+    border: none;
+    overflow: scroll;
+}
+
+.epoRvC {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    box-sizing: border-box;
+    background-color: rgba(33, 33, 33, 0.85);
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+}
+
+.gKGsEC.apply-borders {
+    border-width: 2px;
+    border-style: solid;
+    border-color: #717171;
+    border-radius: 10px;
+}
+
+.dYBkcR {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    background-color: #212121;
+    max-height: 100%;
+}
+
+.jaZtiX {
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    padding: 0;
+    margin: 0;
+    background-color: #171717;
+    overflow: unset;
+    border-radius: 10px;
+}
+
+.fGoDUz {
+    position: relative;
+    max-width: 1017px;
+    max-height: 686px;
+    width: calc(100vw - 30px);
+    height: calc(100vh - 30px);
+    box-sizing: border-box;
+}
+
+.jBckan {
+    position: absolute;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    top: -14px;
+    right: -14px;
+    padding: 4px;
+    color: #ffffff;
+    background-color: #212121;
+    border: 1px solid #ffffff;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.fnRmpA {
+    width: 100%;
+    height: 100%;
+}

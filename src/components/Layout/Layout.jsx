@@ -306,7 +306,7 @@ const Layout = () => {
                             supportParent={supportParent}
                             openSupportModal={openSupportModal}
                         />
-                        <Outlet context={{ isSlotsOnly, isMobile, topGames, topArcade, topCasino, topLiveCasino }} />
+                        <Outlet context={{ isSlotsOnly, isLogin, isMobile, topGames, topArcade, topCasino, topLiveCasino }} />
                     </div>
                 </div>
                 
@@ -322,19 +322,6 @@ const Layout = () => {
                         onClose={() => setShowMobileSearch(false)}
                     />
                 )} */}
-                
-                {shouldShowGameModal && gameModalData.gameId !== null && (
-                    <GameModal
-                        gameUrl={gameModalData.gameUrl}
-                        gameName={gameModalData.gameName}
-                        gameImg={gameModalData.gameImg}
-                        reload={reloadGame}
-                        launchInNewTab={() => reloadGame(null, null, "tab")}
-                        ref={refGameModal}
-                        onClose={closeGameModal}
-                        isMobile={isMobile}
-                    />
-                )}
                 
                 <SupportModal
                     isOpen={showSupportModal}

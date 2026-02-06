@@ -38,21 +38,6 @@ const HistoryModal = ({ isOpen, onClose }) => {
         });
     };
 
-
-    // Link cards data
-    const infoLinks = [
-        { id: 'faqs', title: 'Preguntas frecuentes' },
-        { id: 'tips', title: 'Consejos de juego seguro' },
-        { id: 'useful', title: 'Enlaces útiles' },
-        { id: 'policy', title: 'Política de juego responsable' },
-        { id: 'help', title: 'Centro de ayuda' }
-    ];
-
-    const restrictionLinks = [
-        { id: 'tab', title: 'Tómate un descanso' },
-        { id: 'se', title: 'Self Exclude' }
-    ];
-
     const handlePrevClick = () => {
         if (swiperRef.current && swiperRef.current.swiper) {
             swiperRef.current.swiper.slidePrev();
@@ -212,25 +197,6 @@ const HistoryModal = ({ isOpen, onClose }) => {
                                 </div>
                             </div>
                             }
-                        </div>
-                        <div>
-                            <div
-                                className="Information__InformationStyle-safeZone__sc-1nuwij2-0 iKklXR information__cards"
-                            >
-                                <h3 className="control__titles">Información</h3>
-                                <div className="linkCards__wrapper">
-                                    {infoLinks.map((link) => (
-                                        <div
-                                            key={link.id}
-                                            id={`link-${link.id}`}
-                                            className="LinkCard__LinkCardBox-safeZone__sc-195nmfs-0 jbdXEp link__card"
-                                        >
-                                            <span></span>
-                                            <span>{link.title}</span>
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>

@@ -337,6 +337,7 @@ const Home = () => {
                     name="games"
                     title="Juegos Populares"
                     onGameClick={(game) => {
+                    console.log("isLogin value:", isLogin, "type:", typeof isLogin);
                       if (isLogin) {
                         launchGame(game, "slot", "modal");
                       } else {

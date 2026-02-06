@@ -10,6 +10,7 @@ import './css/orbit-foundation.min.css'
 import './css/sidebar.css'
 import './css/default.css'
 import './css/888casino.css'
+import './css/cashier.css'
 
 import App from './App.jsx'
 

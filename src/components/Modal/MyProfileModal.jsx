@@ -23,7 +23,7 @@ const MyProfileModal = ({ isOpen, onClose }) => {
                     <div className="modal-body p-4">
                         <div className="form-large">
                             <form>
-                                <h1 style={{ color: "#f2ce00" }}>MI CUENTA</h1>
+                                <h1 style={{ color: "#f2ce00" }}>MI CUENTA====</h1>
                                 <div className="pb-2 font-size-custom mb-3 my-3">
                                     <label style={{ color: "white" }}>Número de cuenta</label> <br />
                                     {
