@@ -343,7 +343,7 @@ const Slideshow = () => {
                                       <div className="CTA_btns">
                                         <div className="cta-template cta-secondary">
                                           <a
-                                            href="/promotions/jackpot-hunt"
+                                            href="#"
                                             aria-label="JUEGA"
                                             target="_self"
                                           >

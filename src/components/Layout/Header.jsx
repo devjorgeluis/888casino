@@ -108,6 +108,7 @@ const Header = ({
                 <button className="button-support" onClick={() => { openSupportModal(false); }}>
                     <img src={ImgSupport} />
                 </button>
+                <div className="sc-jTqEgK cxgeDG"></div>
                 {
                     !isSlotsOnlyMode &&
                     <div className="sc-gJWpfJ elLuri cy-cross-brand-list">

@@ -8,8 +8,6 @@ import Slideshow from "../components/Home/Slideshow";
 import HotGameSlideshow from "../components/Home/HotGameSlideshow";
 import GameModal from "../components/Modal/GameModal";
 import LoginModal from "../components/Modal/LoginModal";
-import GameCard from "../components/GameCard";
-import LoadApi from "../components/Loading/LoadApi";
 
 let selectedGameId = null;
 let selectedGameType = null;
@@ -203,7 +201,7 @@ const Home = () => {
   };
 
   const handleLoginClick = () => {
-    navigate("/login");
+    setShowLoginModal(true);
   };
 
   const handleLoginConfirm = () => {
@@ -246,12 +244,6 @@ const Home = () => {
       setIsLoadingGames(false);
       setShowFullDivLoading(false);
     }
-  };
-
-  const loadMoreGames = () => {
-    if (!activeCategory) return;
-    setIsLoadingGames(true);
-    fetchContent(activeCategory, activeCategory.id, activeCategory.table_name, selectedCategoryIndex, false);
   };
 
   const fetchContent = (category, categoryId, tableName, categoryIndex, resetCurrentPage, pageGroupCode) => {
@@ -402,33 +394,6 @@ const Home = () => {
       // ignore DOM errors
     }
     try { getPage('casino'); } catch (e) { }
-  };
-  const handleProviderSelect = (provider, index = 0) => {
-    setSelectedProvider(provider);
-
-    if (provider) {
-      setActiveCategory(null);
-      setSelectedCategoryIndex(-1);
-
-      fetchContent(
-        provider,
-        provider.id,
-        provider.table_name,
-        index,
-        true
-      );
-
-      if (isMobile) {
-        setMobileShowMore(true);
-      }
-    } else {
-      const firstCategory = categories[0];
-      if (firstCategory) {
-        setActiveCategory(firstCategory);
-        setSelectedCategoryIndex(0);
-        fetchContent(firstCategory, firstCategory.id, firstCategory.table_name, 0, true);
-      }
-    }
   };
 
   return (
