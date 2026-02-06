@@ -1,66 +1,137 @@
-import Img18 from "/src/assets/img/18.webp";
+import { useOutletContext, useNavigate } from "react-router-dom";
+import ImgCasino from "/src/assets/img/footer-888cas.png";
+import ImgSports from "/src/assets/img/footer-888spo.png";
 
 const Footer = () => {
+    const navigate = useNavigate();
+    const { isSlotsOnly } = useOutletContext();
+
     return (
-        <footer className="w-full overflow-hidden pb-6 [grid-area:_footer]">
-            <div className="container px-5">
-                <hr className="border-theme-secondary/10 mt-6 border-t sm:mt-12" />
-
-                <div className="flex flex-col gap-6 lg:pt-6">
-                    <div className="flex flex-col justify-center lg:flex-row lg:items-start lg:gap-6">
-                        <div className="prose text-dark-grey-50 max-w-none text-xs [&_p]:mb-5">
-                            <p>
-                                FORTUNAJUEGOS es operado por Entertainment Art BV (número de registro 127327, constituida en septiembre de 2012),
-                                con domicilio social en Emancipatie Boulevard 29, Willemstad, Curazao.
-                                <br /><br />
-                                Entertainment Art BV cuenta con la licencia completa del Gobierno Central de Curazao y opera bajo la licencia
-                                de eGaming (OGL/2024/995/0478).
-                            </p>
-                        </div>
-
-                        <div className="flex flex-wrap items-center gap-x-4 gap-y-6 lg:min-w-[14.25rem] lg:flex-col lg:items-stretch">
-                            <a
-                                href="#"
-                                rel="noreferrer"
-                                title="Debe tener 18 años o más para usar fortunajuegos.com"
-                                className="group flex items-center gap-6"
-                            >
-                                <picture className="contents">
-                                    <img
-                                        src={Img18}
-                                        alt="18+"
-                                        className="max-h-11 min-w-11 group-even:w-full"
-                                        loading="lazy"
-                                    />
-                                </picture>
-                                <p className="text-dark-grey-50 text-xs !leading-tight">
-                                    Debe tener 18 años o más para usar fortunajuegos.com
-                                </p>
-                            </a>
+        <footer>
+            <div className="footer-component-v2">
+                <div className="footer-container">
+                    <div className="aem-Grid aem-Grid--12 aem-Grid--default--12 ">
+                        <div className="experiencefragment aem-GridColumn aem-GridColumn--default--12">
+                            <div id="experiencefragment-f74107b615" className="cmp-experiencefragment cmp-experiencefragment--offer-strip-es-footer">
+                                <div className="xf-content-height">
+                                    <div className="root container responsivegrid">
+                                        <div className="root container responsivegrid">
+                                            <div id="container-89a2efe923" className="cmp-container">
+                                                <div className="offer-banner">
+                                                    <div className="section section-cta">
+                                                        <div className="footer-banner-text">
+                                                            <span className="footer-banner-second-title">¿PREPARADO PARA CREAR TU CUENTA?</span>
+                                                        </div>
+                                                        <div className="footer-banner-button">
+                                                            <div>
+                                                                <div className="cta-item">
+                                                                    <div className="cta-template cta-secondary ">
+                                                                        <a href="javascript:void(0)"><span className="label ">Jugar</span></a></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-
-                <hr className="border-theme-secondary/10 mt-4 border-t" />
-
-                <div className="flex flex-col gap-6 pt-6 sm:flex-row sm:items-center sm:justify-between">
-                    <p className="text-dark-grey-50 flex-1 text-xs !leading-tight">
-                        © 2017-2025 FORTUNAJUEGOS. Reservados todos los derechos.
-                        Los juegos y apuestas deportivas a distancia realizados en exceso pueden causar ludopatía.
-                    </p>
-
-                    <div className="flex items-center gap-6">
-                        <p className="text-dark-grey-50 whitespace-nowrap text-xs !leading-tight">
-                            Desarrollado por&nbsp;
-                            <a
-                                href="https://engagefactory.com/"
-                                target="_blank"
-                                rel="noreferrer"
-                                className="underline"
-                            >
-                                Engage Factory
-                            </a>
-                        </p>
+                    <div className="section section-top">
+                        <div className="footer-top">
+                            <div className="footer-top-component">
+                                <div className="section section-link">
+                                    <div className="footer-top-links">
+                                        <div className="footer-top-links-component default">
+                                            <div className="accordion-heading">
+                                                <span className="toggle-icon">
+                                                    <a><span>Juegos de casino</span></a>
+                                                </span>
+                                            </div>
+                                            <div className="accordion-content">
+                                                {
+                                                    isSlotsOnly === "false" ? 
+                                                    <ul className="link-list">
+                                                        <li className="link-item" onClick={() => navigate("/home")}>
+                                                            <a>
+                                                                <span>Inicio</span>
+                                                            </a>
+                                                        </li>
+                                                        <li className="link-item" onClick={() => navigate("/casino")}>
+                                                            <a>
+                                                                <span>Casino</span>
+                                                            </a>
+                                                        </li>
+                                                        <li className="link-item" onClick={() => navigate("/live-casino")}>
+                                                            <a>
+                                                                <span>Casino en vivo</span>
+                                                            </a>
+                                                        </li>
+                                                        <li className="link-item" onClick={() => navigate("/sports")}>
+                                                            <a>
+                                                                <span>Deportes</span>
+                                                            </a>
+                                                        </li>
+                                                        <li className="link-item" onClick={() => navigate("/live-sports")}>
+                                                            <a>
+                                                                <span>Deportes en vivo</span>
+                                                            </a>
+                                                        </li>
+                                                    </ul> : 
+                                                    <ul className="link-list">
+                                                        <li className="link-item" onClick={() => navigate("/casino")}>
+                                                            <a>
+                                                                <span>Casino</span>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                }
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="footer-top-links">
+                                        <div className="footer-top-links-component icons">
+                                            <div className="accordion-heading">
+                                                <span className="toggle-icon">
+                                                    <a><span>2 productos, 1 cuenta</span></a>
+                                                </span>
+                                            </div>
+                                            <div className="accordion-content">
+                                                <ul className="link-list">
+                                                    <li className="link-item" onClick={() => navigate("/casino")}>
+                                                        <a>
+                                                            <img src={ImgCasino} />
+                                                        </a>
+                                                    </li>
+                                                    {
+                                                        isSlotsOnly === "false" && 
+                                                        <li className="link-item" onClick={() => navigate("/sports")}>
+                                                            <a>
+                                                                <img src={ImgSports} />
+                                                            </a>
+                                                        </li>
+                                                    }
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="section section-disclaimer">
+                        <div id="footerLicense">
+                            <p><span class="font-size-16">PREVENCIÓN ADICCIÓN AL JUEGO, LLAMA: 900 533 788</span></p>
+                            <p>Copyright © 2026. 888 Online Games España S.A., Licencias nº 138-11/GA/A75057273/SGR, 68-11/GO/N0440805J/SGR, 76-11/ADC/N0440805J/SGR, 70-11/BNG/N0440805J/SGR, 73-11/BLJ/N0440805J/SGR, 71-11/POQ/N0440805J7SGR, MAZ/2014/008, una filial de Evoke Holding Plc.</p>
+                            <p>888 Online Games España S.A. es una sociedad inscrita en Ceuta; Domicilio social: Calle Millán Astray nº1, 51001, Ceuta, España.</p>
+                            <p>El representante en España de 888 es Cuatrecasas con domicilio social en Calle Almagro 9, 28010 – Madrid</p>
+                            <p>La prestación y operación de servicios de juego remoto en España por parte de 888 Online Games España S.A. ha sido autorizada por la Dirección General de Ordenación del Juego.</p>
+                            Para más información, por favor lea nuestros 
+                            <a title="Términos y Condiciones" rel="noopener" referrerpolicy="no-referrer" class="addsCut">Términos y Condiciones</a>
+                            <a title="Política de Privacidad." rel="noopener" referrerpolicy="no-referrer" class="addsCut">Política de Privacidad.</a>
+                        </div>
                     </div>
                 </div>
             </div>
