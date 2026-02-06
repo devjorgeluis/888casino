@@ -250,7 +250,7 @@ html.cgp-rtl .sc-bqOBqt {
 }
 
 .gpefPx {
-    cursor: default;
+    cursor: pointer;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -285,10 +285,16 @@ html.cgp-rtl .sc-bqOBqt {
     transition: all 0.2s ease-in-out;
     border-width: 1px;
     border-style: solid;
+    background-color: #000000;
+    border-color: #717171;
+    box-shadow: none;
+}
+
+.gpefPx.swiper-button-disabled {
+    cursor: default;
     color: #717171;
     background-color: #212121;
     border-color: #717171;
-    box-shadow: none;
 }
 
 @media (hover:hover) {
@@ -347,6 +353,13 @@ html.cgp-rtl .sc-bqOBqt {
     background-color: #000000;
     border-color: #717171;
     box-shadow: none;
+}
+
+.fTCwfC.swiper-button-disabled {
+    cursor: default;
+    color: #717171;
+    background-color: #212121;
+    border-color: #717171;
 }
 
 @media (hover:hover) {
@@ -3210,11 +3223,11 @@ html.cgp-rtl .sc-eZfbsf.open::before {
     background-color: transparent;
     padding: 0;
     margin-inline-end: 8px;
-    width: 18px;
-    height: 18px;
+    width: 26px;
+    height: 26px;
 }
 
-.hWgsTC svg {
+.hWgsTC.phone {
     width: 18px;
     height: 18px;
 }

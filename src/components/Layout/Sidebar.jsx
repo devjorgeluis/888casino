@@ -191,9 +191,10 @@ const Sidebar = ({ isSlotsOnly, isMobile, supportParent, openSupportModal, handl
                                 <section className="sc-klCKcm sc-kZzZex eLAEaM jdUfX">
                                     <div className="sc-MKQME sc-jlirRl ekPQQx fJgckN">
                                         <ul className="cy-menu-links-group">
-                                            {menuItems.map((item) => {
+                                            {menuItems.map((item, index) => {
                                                 const itemRef = (el) => (iconRefs.current[item.id] = el);
                                                 const isActive = isMenuActive(item);
+                                                const isLast = index === menuItems.length - 1;
 
                                                 return (
                                                     <div ref={itemRef} key={item.id}>
@@ -201,8 +202,13 @@ const Sidebar = ({ isSlotsOnly, isMobile, supportParent, openSupportModal, handl
                                                             <a onClick={() => navigate(item.href)} className="sc-ciMfCw ja-dRuB">
                                                                 <div className={`sc-gPLYmt sc-cjShfW efmGEW bDGwEc ${isActive && "dtqOUd"}`}>
                                                                     <span className="sc-iDhmSy jagTrD"></span>
-                                                                    <div className="sc-dgWXKx sc-bsStmr dvyXko hWgsTC">
-                                                                        <img src={item.image} className="sc-bqOBqt PBviZ" />
+                                                                    <div
+                                                                        className={`sc-dgWXKx sc-bsStmr dvyXko hWgsTC ${isLast ? "phone" : ""}`}
+                                                                    >
+                                                                        <img
+                                                                            src={item.image}
+                                                                            className="sc-bqOBqt PBviZ"
+                                                                        />
                                                                     </div>
                                                                     <span className="sc-bMhjqq sc-kfiijn eeQnce gwhmuu">{item.name}</span>
                                                                 </div>
@@ -210,7 +216,7 @@ const Sidebar = ({ isSlotsOnly, isMobile, supportParent, openSupportModal, handl
                                                         </li>
                                                         <div className="sc-cLVYFp sc-kiUgTw cSIQFP hPFZit"></div>
                                                     </div>
-                                                )
+                                                );
                                             })}
                                         </ul>
                                     </div>
