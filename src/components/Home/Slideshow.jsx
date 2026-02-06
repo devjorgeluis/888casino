@@ -140,11 +140,6 @@ const Slideshow = () => {
                                       </div>
                                     </div>
                                   </div>
-                                  <div className="disclaimer dark">
-                                    <p>
-                                      <a href="/promotions/welcome5fs/#tc">Full T&amp;C Apply.</a>
-                                    </p>
-                                  </div>
                                 </div>
                               </>
                             )}
@@ -198,11 +193,6 @@ const Slideshow = () => {
                                       </div>
                                     </div>
                                   </div>
-                                  <div className="disclaimer dark">
-                                    <p>
-                                      <a href="/promotions/goplay/#tc">T&amp;Cs apply.</a>
-                                    </p>
-                                  </div>
                                 </div>
                               </>
                             )}
@@ -246,16 +236,6 @@ const Slideshow = () => {
                                         </div>
                                       </div>
                                     </div>
-                                  </div>
-                                  <div className="disclaimer dark">
-                                    <p>
-                                      <a
-                                        href="/promotions/new-welcome-offer/#tc"
-                                        style={{ color: 'rgb(255, 255, 255)' }}
-                                      >
-                                        <u>Sujeto a términos y condiciones</u>
-                                      </a>
-                                    </p>
                                   </div>
                                 </div>
                               </>

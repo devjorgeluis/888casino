@@ -123,14 +123,14 @@ const Footer = () => {
                     </div>
                     <div className="section section-disclaimer">
                         <div id="footerLicense">
-                            <p><span class="font-size-16">PREVENCIÓN ADICCIÓN AL JUEGO, LLAMA: 900 533 788</span></p>
+                            <p><span className="font-size-16">PREVENCIÓN ADICCIÓN AL JUEGO, LLAMA: 900 533 788</span></p>
                             <p>Copyright © 2026. 888 Online Games España S.A., Licencias nº 138-11/GA/A75057273/SGR, 68-11/GO/N0440805J/SGR, 76-11/ADC/N0440805J/SGR, 70-11/BNG/N0440805J/SGR, 73-11/BLJ/N0440805J/SGR, 71-11/POQ/N0440805J7SGR, MAZ/2014/008, una filial de Evoke Holding Plc.</p>
                             <p>888 Online Games España S.A. es una sociedad inscrita en Ceuta; Domicilio social: Calle Millán Astray nº1, 51001, Ceuta, España.</p>
                             <p>El representante en España de 888 es Cuatrecasas con domicilio social en Calle Almagro 9, 28010 – Madrid</p>
                             <p>La prestación y operación de servicios de juego remoto en España por parte de 888 Online Games España S.A. ha sido autorizada por la Dirección General de Ordenación del Juego.</p>
                             Para más información, por favor lea nuestros 
-                            <a title="Términos y Condiciones" rel="noopener" referrerpolicy="no-referrer" class="addsCut">Términos y Condiciones</a>
-                            <a title="Política de Privacidad." rel="noopener" referrerpolicy="no-referrer" class="addsCut">Política de Privacidad.</a>
+                            <a title="Términos y Condiciones" rel="noopener" className="addsCut">Términos y Condiciones</a>
+                            <a title="Política de Privacidad." rel="noopener" className="addsCut">Política de Privacidad.</a>
                         </div>
                     </div>
                 </div>

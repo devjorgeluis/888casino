@@ -12,7 +12,7 @@ const GameCard = (props) => {
               alt={props.title}
               loading="lazy"
               fetchPriority="high"
-              style={{ width: 400, height: 555 }}
+              style={{ width: "100%", height: 270 }}
             />
           </div>
         </div>

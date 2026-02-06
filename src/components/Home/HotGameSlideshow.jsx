@@ -27,8 +27,8 @@ const HotGameSlideshow = ({ games, name, title, onGameClick }) => {
                 <div className="sc-fEyyHY inSENM"></div>
                 <div className="sc-iNjjOV kuICQf cy-swiper-buttons">
                     <div className="sc-cLVkoy gTiEhq">
-                        <button 
-                            className="sc-ksJhlw fTCwfC cy-swiper-button-prev" 
+                        <button
+                            className="sc-ksJhlw fTCwfC cy-swiper-button-prev"
                             ref={prevRef}
                             aria-label="Previous slide"
                         >
@@ -39,8 +39,8 @@ const HotGameSlideshow = ({ games, name, title, onGameClick }) => {
                         </button>
                     </div>
                     <div className="sc-cLVkoy gTiEhq">
-                        <button 
-                            className="sc-ksJhlw gpefPx cy-swiper-button-next" 
+                        <button
+                            className="sc-ksJhlw gpefPx cy-swiper-button-next"
                             ref={nextRef}
                             aria-label="Next slide"
                         >
@@ -53,50 +53,72 @@ const HotGameSlideshow = ({ games, name, title, onGameClick }) => {
                 </div>
             </div>
             <div className="sc-hAHgYv faMpiy cy-orbit-swiper-wrapper">
-                <div className="sc-iysFMw cxdLwt cy-orbit-swiper-games-list">
-                    <Swiper
-                        ref={swiperRef}
-                        modules={[Navigation]}
-                        spaceBetween={10}
-                        slidesPerView={6.8}
-                        breakpoints={{
-                            0: { slidesPerView: 3.5, spaceBetween: 8 },
-                            576: { slidesPerView: 4.5, spaceBetween: 10 },
-                            992: { slidesPerView: 6.8, spaceBetween: 10 }
-                        }}
-                        navigation={{
-                            prevEl: prevRef.current,
-                            nextEl: nextRef.current,
-                        }}
-                        onSwiper={(swiper) => {
-                            setTimeout(() => {
-                                swiper.params.navigation.prevEl = prevRef.current;
-                                swiper.params.navigation.nextEl = nextRef.current;
-                                swiper.navigation.init();
-                                swiper.navigation.update();
-                            });
-                        }}
-                        className="row-top-games"
-                    >
+                {
+                    games.length > 7 ?
+                    <div className="sc-iysFMw cxdLwt cy-orbit-swiper-games-list">
+
+                        <Swiper
+                            ref={swiperRef}
+                            modules={[Navigation]}
+                            spaceBetween={10}
+                            slidesPerView={6.8}
+                            breakpoints={{
+                                0: { slidesPerView: 3.5, spaceBetween: 8 },
+                                576: { slidesPerView: 4.5, spaceBetween: 10 },
+                                992: { slidesPerView: 6.8, spaceBetween: 10 }
+                            }}
+                            navigation={{
+                                prevEl: prevRef.current,
+                                nextEl: nextRef.current,
+                            }}
+                            onSwiper={(swiper) => {
+                                setTimeout(() => {
+                                    swiper.params.navigation.prevEl = prevRef.current;
+                                    swiper.params.navigation.nextEl = nextRef.current;
+                                    swiper.navigation.init();
+                                    swiper.navigation.update();
+                                });
+                            }}
+                            className="row-top-games"
+                        >
+                            {games?.map((game, index) => (
+                                <SwiperSlide
+                                    key={`hot-${title}-${name}-${game.id ?? index}-${index}`}
+                                    className="sc-gSkVGw sc-lbNtLv evQOJh bdSJRm cy-single-game-regular-template game-box swiper-mode game-group-videoslot game-category-slots game-company-games-global game-type-2400475"
+                                >
+                                    <GameCard
+                                        id={game.id}
+                                        category="slide"
+                                        provider="Casino"
+                                        title={game.name}
+                                        imageSrc={game.image_local !== null ? contextData.cdnUrl + game.image_local : game.image_url}
+                                        onGameClick={() => {
+                                            handleGameClick(game);
+                                        }}
+                                    />
+                                </SwiperSlide>
+                            ))}
+                        </Swiper>
+                    </div> :
+                    <div className="game-list">
                         {games?.map((game, index) => (
-                            <SwiperSlide 
-                                key={`hot-${name}-${game.id ?? index}-${index}`} 
-                                className="sc-gSkVGw sc-lbNtLv evQOJh bdSJRm cy-single-game-regular-template game-box swiper-mode game-group-videoslot game-category-slots game-company-games-global game-type-2400475"
+                            <div
+                                key={`hot-${title}-${name}-${game.id ?? index}-${index}`}
                             >
                                 <GameCard
                                     id={game.id}
+                                    category="slide"
                                     provider="Casino"
                                     title={game.name}
-                                    type="slideshow"
                                     imageSrc={game.image_local !== null ? contextData.cdnUrl + game.image_local : game.image_url}
                                     onGameClick={() => {
                                         handleGameClick(game);
                                     }}
                                 />
-                            </SwiperSlide>
+                            </div>
                         ))}
-                    </Swiper>
-                </div>
+                    </div>
+                }
             </div>
         </div>
     );

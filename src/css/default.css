@@ -341,3 +341,50 @@
 .game_interface a {
     cursor: pointer;
 }
+
+#slider {
+    position: relative;
+}
+
+#navigation {
+    justify-content: space-between;
+    position: absolute;
+    top: calc(50% - 32px);
+    width: 100%;
+}
+
+.arrow {
+    display: flex;
+    position: absolute;
+    z-index: 3;
+    cursor: pointer;
+    transition: 0.5s cubic-bezier(0.28, 0.68, 0.52, 1.22);
+    width: 36px;
+    height: 36px;
+    border-radius: 36px;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.left {
+    left: 50px;
+}
+
+.right {
+    right: 50px;
+}
+
+.arrow svg {
+    height: 36px;
+}
+
+.arrow svg path {
+    fill: rgb(255, 255, 255);
+}
+
+#image-slider .swiper-pagination-bullet-active {
+    background-color: #7cf700;
+}
+
+#image-slider .swiper-pagination-bullets-dynamic {
+    bottom: -30px;
+}

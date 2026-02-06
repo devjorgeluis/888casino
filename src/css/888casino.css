@@ -1,0 +1,50 @@
+.casino .game-list .evQOJh {
+    width: calc(100% / 7);
+}
+
+.load-more {
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border-radius: 100px;
+    margin: 0 auto;
+    background: none;
+    outline: none;
+    font-weight: 900;
+    text-transform: capitalize;
+    font-size: 1.4em;
+    line-height: 1.2;
+    max-height: 2.2em;
+    padding: 1em;
+    -webkit-letter-spacing: 0.05em;
+    -moz-letter-spacing: 0.05em;
+    -ms-letter-spacing: 0.05em;
+    letter-spacing: 0.05em;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    box-sizing: border-box;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    border-width: 2px;
+    border-style: solid;
+    color: #7BF037;
+    background-color: #171717;
+    border-color: #7BF037;
+    box-shadow: none;
+    padding: 1rem 3rem;
+}
+
+.load-more:hover {
+    color: #7BF037;
+    background-color: #424242ff;
+    border-color: #b0f687ff;
+    box-shadow: none;
+}
