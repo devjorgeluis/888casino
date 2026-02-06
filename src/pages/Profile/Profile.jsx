@@ -3,8 +3,6 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { AppContext } from "../../AppContext";
 import Footer from "../../components/Layout/Footer";
 
-import ImgDefaultUser from "/src/assets/img/default-user.webp";
-
 const Profile = () => {
     const navigate = useNavigate();
     const location = useLocation();
@@ -50,22 +48,7 @@ const Profile = () => {
 
                         <div className="mb-6 flex flex-col items-center justify-center gap-3.5 py-4">
                             <div className="relative flex aspect-square min-h-24 min-w-24 items-center justify-center rounded-full bg-white">
-                                <picture className="contents">
-                                    <source media="(min-width: 2400px)" srcSet={contextData?.session?.user?.profile_image || ImgDefaultUser} className="hidden" />
-                                    <source media="(min-width: 1920px)" srcSet={contextData?.session?.user?.profile_image || ImgDefaultUser} className="hidden" />
-                                    <source media="(min-width: 1400px)" srcSet={contextData?.session?.user?.profile_image || ImgDefaultUser} className="hidden" />
-                                    <source media="(min-width: 1280px)" srcSet={contextData?.session?.user?.profile_image || ImgDefaultUser} className="hidden" />
-                                    <source media="(min-width: 960px)" srcSet={contextData?.session?.user?.profile_image || ImgDefaultUser} className="hidden" />
-                                    <source media="(min-width: 640px)" srcSet={contextData?.session?.user?.profile_image || ImgDefaultUser} className="hidden" />
-                                    <source media="(min-width: 480px)" srcSet={contextData?.session?.user?.profile_image || ImgDefaultUser} className="hidden" />
-                                    <source media="(min-width: 360px)" srcSet={contextData?.session?.user?.profile_image || ImgDefaultUser} className="hidden" />
-                                    <img
-                                        className="h-24 w-24 rounded-full object-cover"
-                                        src={contextData?.session?.user?.profile_image || ImgDefaultUser}
-                                        alt={contextData?.session?.user?.username}
-                                        loading="lazy"
-                                    />
-                                </picture>
+
                             </div>
                             <span className="text-theme-primary-50 text-center text-2xl font-bold !leading-tight tracking-tight">
                                 {contextData?.session?.user?.username || '-'}
