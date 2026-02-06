@@ -58,7 +58,6 @@ const CasinoSlideshow = () => {
           <Swiper
             ref={swiperRef}
             modules={[Navigation, Autoplay, Pagination]}
-            spaceBetween={15}
             slidesPerView={1}
             navigation={{
               nextEl: '.swiper-button-next',

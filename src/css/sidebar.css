@@ -5333,7 +5333,7 @@ html.cgp-rtl .sc-iKpGpX {
     width: 100%;
     padding-left: 4rem;
     padding-right: 4rem;
-    padding-bottom: 500px;
+    padding-bottom: 100px;
 }
 
 .home-page .sc-gKIhPs.move-top {
@@ -5576,7 +5576,7 @@ html.cgp-mobile .sc-hJwfHn {
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
     width: 100%;
-    padding: 2em;
+    padding: 2em 3.5em;
     font-size: 1rem;
     position: relative;
 }
@@ -5891,7 +5891,7 @@ html.cgp-mobile .sc-hJwfHn {
     padding-left: 4rem;
     padding-right: 4rem;
     min-height: 100vh;
-    padding-bottom: 100px;
+    padding-bottom: 30px;
 }
 
 @media (max-width:1279px) {

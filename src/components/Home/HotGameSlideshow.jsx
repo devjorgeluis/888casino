@@ -60,12 +60,11 @@ const HotGameSlideshow = ({ games, name, title, onGameClick }) => {
                         <Swiper
                             ref={swiperRef}
                             modules={[Navigation]}
-                            spaceBetween={10}
                             slidesPerView={6.8}
                             breakpoints={{
-                                0: { slidesPerView: 3.5, spaceBetween: 8 },
-                                576: { slidesPerView: 4.5, spaceBetween: 10 },
-                                992: { slidesPerView: 6.8, spaceBetween: 10 }
+                                0: { slidesPerView: 3.5 },
+                                576: { slidesPerView: 4.5 },
+                                992: { slidesPerView: 6.8 }
                             }}
                             navigation={{
                                 prevEl: prevRef.current,
