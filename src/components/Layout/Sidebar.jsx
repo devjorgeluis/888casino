@@ -14,7 +14,7 @@ import ImgDeactiveProfile from "/src/assets/svg/pre-login-reg.svg";
 import ImgProfile from "/src/assets/svg/post-login-reg.svg";
 import ImgPhone from "/src/assets/svg/phone.svg";
 
-const Sidebar = ({ isSlotsOnly, isMobile, supportParent, openSupportModal, handleLoginClick }) => {
+const Sidebar = ({ isSlotsOnly, isLogin, isMobile, supportParent, openSupportModal, handleLoginClick, isUserMenuOpen, setIsUserMenuOpen }) => {
     const navigate = useNavigate();
     const location = useLocation();
     const { contextData } = useContext(AppContext);
@@ -150,13 +150,36 @@ const Sidebar = ({ isSlotsOnly, isMobile, supportParent, openSupportModal, handl
         return false;
     };
 
+    const toggleUserMenu = () => {
+        setIsUserMenuOpen(!isUserMenuOpen);
+    };
+
+    const closeUserMenu = () => {
+        setIsUserMenuOpen(false);
+    };
+
+    const handleMenuClick = (href) => {
+        // Close user menu when any sidebar menu is clicked
+        closeUserMenu();
+        navigate(href);
+    };
+
+    const handleProfileClick = () => {
+        if (isLogin) {
+            toggleUserMenu();
+        } else {
+            handleLoginClick();
+        }
+    };
+
     return (
         <>
+            {/* Main Navigation */}
             <div className="sc-gvsNSq jxqyxT cy-main-nav">
                 <div className="sc-daLoug sc-dXijah hUcPdj bDBgJW">
                     <div className="sc-hhFrFd bCsUbK">
                         <div className="sc-yWEwC sc-bvtzcD cOhCUT bwJqBY cy-logo-container">
-                            <a onClick={() => navigate("/")} className="sc-ciMfCw ja-dRuB">
+                            <a onClick={() => handleMenuClick("/")} className="sc-ciMfCw ja-dRuB" style={{ cursor: 'pointer' }}>
                                 <img
                                     src={ImgLogo}
                                     alt="888 Online Casino"
@@ -169,22 +192,31 @@ const Sidebar = ({ isSlotsOnly, isMobile, supportParent, openSupportModal, handl
                         <div className="sc-gSONCE sc-dxYMJA fxKZYg gpHIWH">
                             <div className="sc-htyjTb sc-dBaIIm ciAYHW dSZHWt cy-profile-box">
                                 <div className="sc-cnXNfM eSsHcy">
-                                    <a className="sc-ciMfCw ja-dRuB cy-profile-picture">
+                                    <a className="sc-ciMfCw ja-dRuB cy-profile-picture" onClick={handleProfileClick} style={{ cursor: 'pointer' }}>
                                         <img
-                                            src={ImgDeactiveProfile}
+                                            src={isLogin ? ImgProfile : ImgDeactiveProfile}
                                             alt="casino888 player"
                                             className="sc-ilDdSB bTEstA"
                                         />
                                     </a>
+                                    <span className="sc-dcihie ckzqLt">{contextData?.session?.user?.username || '-'}</span>
                                 </div>
                                 <div className="sc-cXPgEM dztcgo cy-profile-box-buttons">
-                                    <div className="cy-profile-box-login-button">
-                                        <button width="15" height="4" className="sc-ksJhlw dmlVbK" onClick={() => handleLoginClick()}>
-                                            <span className="sc-fIysua sc-cRAjZL eZsMbN dcVKxz">
-                                                <span className="sc-bFbHAG fxFSPh">INICIAR</span>
+                                    {isLogin ? (
+                                        <div className="sc-gqFbaJ sc-cyhzPU iWTVed kBwInc cy-cashier-button">
+                                            <span className="sc-lhKHOd ldvMqJ cy-balance-box-amount">
+                                                $ {Number.isFinite(Number(contextData?.session?.user?.balance)) ? Number(contextData?.session?.user?.balance).toFixed(2) : "0.00"}
                                             </span>
-                                        </button>
-                                    </div>
+                                        </div>
+                                    ) : (
+                                        <div className="cy-profile-box-login-button">
+                                            <button width="15" height="4" className="sc-ksJhlw dmlVbK" onClick={handleLoginClick}>
+                                                <span className="sc-fIysua sc-cRAjZL eZsMbN dcVKxz">
+                                                    <span className="sc-bFbHAG fxFSPh">INICIAR</span>
+                                                </span>
+                                            </button>
+                                        </div>
+                                    )}
                                 </div>
                             </div>
                             <div className="sc-iYjPCr gWmbXn cy-side-menu">
@@ -199,16 +231,11 @@ const Sidebar = ({ isSlotsOnly, isMobile, supportParent, openSupportModal, handl
                                                 return (
                                                     <div ref={itemRef} key={item.id}>
                                                         <li className="sc-fkVSuP sc-bsyrka izPQbG kxFylD cy-menu-item">
-                                                            <a onClick={() => navigate(item.href)} className="sc-ciMfCw ja-dRuB">
-                                                                <div className={`sc-gPLYmt sc-cjShfW efmGEW bDGwEc ${isActive && "dtqOUd"}`}>
+                                                            <a onClick={() => handleMenuClick(item.href)} className="sc-ciMfCw ja-dRuB" style={{ cursor: 'pointer' }}>
+                                                                <div className={`sc-gPLYmt sc-cjShfW efmGEW bDGwEc ${isActive ? "dtqOUd" : ""}`}>
                                                                     <span className="sc-iDhmSy jagTrD"></span>
-                                                                    <div
-                                                                        className={`sc-dgWXKx sc-bsStmr dvyXko hWgsTC ${isLast ? "phone" : ""}`}
-                                                                    >
-                                                                        <img
-                                                                            src={item.image}
-                                                                            className="sc-bqOBqt PBviZ"
-                                                                        />
+                                                                    <div className={`sc-dgWXKx sc-bsStmr dvyXko hWgsTC ${isLast ? "phone" : ""}`}>
+                                                                        <img src={item.image} className="sc-bqOBqt PBviZ" alt={item.name} />
                                                                     </div>
                                                                     <span className="sc-bMhjqq sc-kfiijn eeQnce gwhmuu">{item.name}</span>
                                                                 </div>

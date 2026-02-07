@@ -15,6 +15,11 @@ import FullDivLoading from "../Loading/FullDivLoading";
 import MobileSearch from "../MobileSearch";
 import MobileFooter from "./MobileFooter";
 import GameModal from "../Modal/GameModal";
+import IconClose from "/src/assets/svg/circle-close.svg";
+import IconArrowRight from "/src/assets/svg/arrow-right.svg";
+import IconHistory from "/src/assets/svg/history.svg";
+import IconPoker from "/src/assets/svg/poker.svg";
+import IconArrowUpdown from "/src/assets/svg/arrow-updown.svg";
 
 const Layout = () => {
     const { contextData } = useContext(AppContext);
@@ -40,6 +45,9 @@ const Layout = () => {
     const [isSidebarExpanded, setIsSidebarExpanded] = useState(true);
     const [isSmallScreen, setIsSmallScreen] = useState(false);
     const [showMobileSearch, setShowMobileSearch] = useState(false);
+    const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
+    const [isHistoryExpanded, setIsHistoryExpanded] = useState(false);
+    const closeTimeoutRef = useRef(null);
     
     const [shouldShowGameModal, setShouldShowGameModal] = useState(false);
     const [gameModalData, setGameModalData] = useState({
@@ -110,6 +118,20 @@ const Layout = () => {
             window.removeEventListener('resize', handleResize);
         };
     }, []);
+
+    useEffect(() => {
+        if (isUserMenuOpen) {
+            if (closeTimeoutRef.current) {
+                clearTimeout(closeTimeoutRef.current);
+            }
+        }
+
+        return () => {
+            if (closeTimeoutRef.current) {
+                clearTimeout(closeTimeoutRef.current);
+            }
+        };
+    }, [isUserMenuOpen]);
 
     const refreshBalance = () => {
         setUserBalance("");
@@ -240,6 +262,146 @@ const Layout = () => {
         launchGameFromSearch(gameToUse, type || gameModalData.gameType, launcher || gameModalData.gameLauncher);
     };
 
+    const closeUserMenu = () => {
+        setIsUserMenuOpen(false);
+        if (closeTimeoutRef.current) {
+            clearTimeout(closeTimeoutRef.current);
+        }
+    };
+
+    const toggleHistoryMenu = () => {
+        setIsHistoryExpanded(!isHistoryExpanded);
+    };
+
+    const UserMenuContent = () => (
+        <div className="sc-fbrkoh hmuUFI">
+            <div className="sc-biTJds juaoAi">
+                <div className="sc-cXWvkA sc-gYmQl dOIkyn hXdhYp cy-user-menu-header-box">
+                    <div className="sc-hVVKKh fFlnSE cy-welcome-user-menu-title">
+                        <p className="sc-kvGAGD hvVMZr">Mi Cuenta</p>
+                    </div>
+                    <div className="sc-hIFQNf cgiDgU">
+                        <div className="sc-gzIglc kcwQjd cy-user-menu-close-btn" onClick={closeUserMenu} style={{ cursor: 'pointer' }}>
+                            <img src={IconClose} className="sc-bqOBqt PBviZ" style={{ width: "1.4rem", height: "1.4rem" }} />
+                        </div>
+                    </div>
+                </div>
+                <div className="sc-lfyySb gQxOdg">
+                    <div direction="column" className="sc-dIEovb fJgfbR">
+                        <div className="sc-fEyyHY inSENM">
+                            <div className="sc-kXzPdr oVDqI cy-user-menu-user-details">
+                                <div className="sc-dIEovb irhjgz">
+                                    <div className="sc-bjEuFB bvvZly"></div>
+                                    <div className="sc-fEyyHY inSENM">
+                                        <div className="sc-hTJBOf gklrIC"><span className="cy-user-name">{contextData?.session?.user?.username || '-'}</span></div>
+                                        <div className="sc-fJoDJo eeRhen">
+                                            <span className="sc-kKHKiu dlzQYQ">N.º de asistencia</span>
+                                            <span className="user-cid cy-user-cid">{contextData?.session?.user?.phone || '-'}</span>
+                                        </div>
+                                    </div>
+                                    <div className="sc-fnOeCC fDelro">
+                                        <img
+                                            src={IconArrowRight} 
+                                            className="sc-bqOBqt PBviZ"
+                                            style={{ width: "1.2rem", height: "1.2rem" }}
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="sc-kXzPdr oVDqI cy-balance-box">
+                                <div className="sc-dIEovb cwoLEt">
+                                    <div className="sc-exOYqz lcbWRF">Saldo actual</div>
+                                    <span className="sc-bsFqxl dOKwdH cy-balance-box-amount">$ {Number.isFinite(Number(contextData?.session?.user?.balance)) ? Number(contextData?.session?.user?.balance).toFixed(2) : "0.00"}</span>
+                                </div>
+                                <div className="sc-dIEovb jnsWAR"></div>
+                                <div className="sc-fEngzP jBgRlY">
+                                    <div className="sc-hpngDo iBkfgI cy-deposit-button">
+                                        <button strokeWidth="2" width="13.8" height="4" className="sc-ksJhlw dmCMse">
+                                            <span className="sc-fIysua sc-cRAjZL eZsMbN dcVKxz">
+                                                <span fontSize="1.4" className="sc-bFbHAG fxFSPh">DEPOSITA</span>
+                                            </span>
+                                        </button>
+                                    </div>
+                                    <div className="sc-hpngDo iBkfgI cy-withdraw-button">
+                                        <button strokeWidth="2" width="13.8" height="4" className="sc-ksJhlw kLnelg">
+                                            <span className="sc-fIysua sc-cRAjZL eZsMbN dcVKxz">
+                                                <span fontSize="1.4" className="sc-bFbHAG fxFSPh">RETIRAR</span>
+                                            </span>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div height="1rem" className="sc-iFgQDB kYWJaC"></div>
+                            </div>
+                            <div className="sc-kXzPdr oVDqI cy-useful-links-section">
+                                <ul className="sc-jPFrcG czuYV cy-useful-links-list">
+                                    <li className="cy-useful-links-li-item">
+                                        <div
+                                            className={`sc-fXCGkZ  ${!isHistoryExpanded ? 'fNITAL' : 'bJFzKi'} historyMenuItem cy-useful-links-item-expandable cy-useful-links-item`}
+                                            onClick={toggleHistoryMenu}
+                                            style={{ cursor: 'pointer' }}
+                                        >
+                                            <div className="sc-dgWXKx sc-bsStmr dvyXko kHIHiW">
+                                                <img src={IconHistory} className="sc-bqOBqt PBviZ" />
+                                            </div>
+                                            <div className="sc-fEyyHY inSENM">Historial</div>
+                                            <div className="sc-fnOeCC fDelro">
+                                                <img
+                                                    src={IconArrowRight} 
+                                                    className="sc-bqOBqt PBviZ"
+                                                    style={{ width: "1.2rem", height: "1.2rem", transition: "transform 0.12s ease-out", transform: isHistoryExpanded ? "rotate(-90deg)" : "rotate(90deg)" }}
+                                                />
+                                            </div>
+                                        </div>
+                                        <ul
+                                            className="sc-jPFrcG czuYV cy-useful-links-sub-items-list"
+                                            style={{ display: isHistoryExpanded ? 'block' : 'none' }}
+                                        >
+                                            <li className="cy-useful-links-li-item">
+                                                <div className="sc-fXCGkZ fNITAL cy-useful-links-subitem gamingHistoryMenuItem cy-useful-links-item">
+                                                    <div className="sc-dgWXKx sc-bsStmr dvyXko kHIHiW">
+                                                        <img src={IconPoker} className="sc-bqOBqt PBviZ" />
+                                                    </div>
+                                                    <div className="sc-fEyyHY inSENM">Historial de juego</div>
+                                                    <div className="sc-fnOeCC fDelro">
+                                                        <img
+                                                            src={IconArrowRight} 
+                                                            className="sc-bqOBqt PBviZ"
+                                                            style={{ width: "1.2rem", height: "1.2rem", transition: "transform 0.12s ease-out" }}
+                                                        />
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li className="cy-useful-links-li-item">
+                                                <div className="sc-fXCGkZ fNITAL cy-useful-links-subitem transactionHistoryMenuItem cy-useful-links-item">
+                                                    <div className="sc-dgWXKx sc-bsStmr dvyXko kHIHiW">
+                                                        <img src={IconArrowUpdown} className="sc-bqOBqt PBviZ" />
+                                                    </div>
+                                                    <div className="sc-fEyyHY inSENM">Historial de transacciones</div>
+                                                    <div className="sc-fnOeCC fDelro">
+                                                        <img
+                                                            src={IconArrowRight} 
+                                                            className="sc-bqOBqt PBviZ"
+                                                            style={{ width: "1.2rem", height: "1.2rem", transition: "transform 0.12s ease-out" }}
+                                                        />
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div className="sc-fnOeCC fDelro">
+                            <div className="sc-kXzPdr oVDqI cy-useful-links-section">
+                                <a className="sc-iCtmhp pLuTW cy-logout-link cy-useful-links-item cy-useful-links-li-item">Cerrar sesión</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+
     const layoutContextValue = {
         isLogin,
         userBalance,
@@ -283,17 +445,29 @@ const Layout = () => {
                     />
                 )}
                 <div id="orbit-container">
-                    <div className="sc-kYrjYd hbEPYD cy-overlay"></div>
+                    <div className={`sc-kYrjYd ${isUserMenuOpen ? 'WziHW' : 'hbEPYD'} cy-overlay`}></div>
+                    
                     {!isMobile &&
                         <Sidebar
                             isSlotsOnly={isSlotsOnly}
                             isMobile={isMobile}
+                            isLogin={isLogin}
                             supportParent={supportParent}
                             openSupportModal={openSupportModal}
                             handleLoginClick={handleLoginClick} 
                             handleLogoutClick={handleLogoutClick}
-                        /> }
+                            isUserMenuOpen={isUserMenuOpen}
+                            setIsUserMenuOpen={setIsUserMenuOpen}
+                        />
+                    }
+                    
                     <div className="sc-cAgqEL friIZi cy-main-wrapper">
+                        {isUserMenuOpen && (
+                            <div className="sc-eZUyqC cZWmCN cy-user-menu user-menu-open">
+                                <UserMenuContent />
+                            </div>
+                        )}
+                        
                         <Header
                             isLogin={isLogin}
                             isMobile={isMobile}

@@ -1,3 +1,176 @@
+.cashier-app {
+    direction: ltr;
+    -webkit-border-top-left-radius: 0;
+    -moz-border-topleft-radius: 0;
+    border-top-left-radius: 0;
+    -webkit-border-top-right-radius: 0;
+    -moz-border-topright-radius: 0;
+    border-top-right-radius: 0;
+    -webkit-border-bottom-right-radius: .3rem;
+    -moz-border-bottomright-radius: .3rem;
+    border-bottom-right-radius: .3rem;
+    -webkit-border-bottom-left-radius: .3rem;
+    -moz-border-bottomleft-radius: .3rem;
+    border-bottom-left-radius: .3rem;
+    width: 100rem;
+    height: 66.5rem;
+    overflow: hidden;
+    position: relative
+}
+
+.cashier-app .layout-wrapper {
+    display: table;
+    width: 100%;
+    height: 100%
+}
+
+.cashier-app .layout-wrapper .cashier-content-container {
+    background-color: #fff;
+    width: 100%;
+    height: 55.5rem;
+    display: table-row
+}
+
+.cashier-app .layout-wrapper .iGaminglogo {
+    background-size: cover;
+    height: 6rem;
+    width: 17rem;
+    display: block;
+    position: absolute;
+    bottom: 2rem
+}
+
+header {
+    display: table-row;
+    width: 100%;
+    height: 11rem;
+    color: #fff;
+    font-size: 1.2rem
+}
+
+header>div {
+    vertical-align: top;
+    height: 100%;
+    display: table-cell
+}
+
+header>div .header-language-selector {
+    padding-left: .8rem;
+    margin-top: .5rem
+}
+
+header>div .header-language-selector.bi-app-float-right {
+    margin-right: 0;
+    padding-left: 0
+}
+
+header>div .header-language-selector .dropdown-wrapper {
+    border-left: 2px solid #68686b;
+    padding: 0 .8rem 0 .8rem;
+    width: auto
+}
+
+header>div .header-language-selector .dropdown-wrapper .dropdown-menuList {
+    min-width: 20.3rem
+}
+
+header>div>.clearfix {
+    height: 3.9rem
+}
+
+header>div>[class^='bi-app-float'] {
+    padding-bottom: 2.4rem;
+    line-height: 1.3
+}
+
+header>div .bi-app-float-left {
+    text-align: left;
+    padding-left: 2rem
+}
+
+header>div .bi-app-float-right {
+    text-align: right;
+    margin-right: .8rem
+}
+
+header .brand-logo {
+    width: 14.3rem
+}
+
+header .brand-logo-inner-container {
+    height: 11rem;
+    width: 14.3rem;
+    background-repeat: no-repeat;
+    background-position: 50% 50%
+}
+
+.login-security-logo-image {
+    padding-top: .3rem;
+    margin-top: .5rem;
+    background-position: left 50%;
+    background-repeat: no-repeat;
+    width: 1.2rem;
+    height: 1.5rem;
+    padding-bottom: .2rem;
+    background-position-x: 0%
+}
+
+.swedish-logos {
+    background-repeat: no-repeat;
+    height: 2.5rem;
+    padding-bottom: .2rem;
+    background-position-x: 0%;
+    display: inline-block;
+    cursor: pointer;
+    margin-top: .5rem
+}
+
+.danish-logos {
+    background-repeat: no-repeat;
+    width: 5rem;
+    height: 2.5rem;
+    padding-bottom: .2rem;
+    background-position-x: 0%;
+    display: inline-block;
+    cursor: pointer;
+    margin-top: .5rem
+}
+
+.full-overlay {
+    left: 0;
+    -moz-transition: all 1s;
+    -o-transition: all 1s;
+    -webkit-transition: all 1s;
+    -ms-transition: all 1s;
+    transition: all 1s;
+    background-color: #000;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    display: none
+}
+
+.full-overlay.visible {
+    display: block;
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"
+}
+
+.full-overlay.fade {
+    opacity: .7;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)"
+}
+
+.popup-fullscreen-background {
+    left: 0;
+    top: 0;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1000
+}
 
 .user-settings-popup {
     right: 0;
