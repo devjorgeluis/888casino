@@ -63,13 +63,15 @@ const Header = ({
         clearTimeout(searchDelayTimer);
 
         if (keyword == "") {
+            setGames([]);
+            setIsLoadingGames(false);
             return;
         }
 
         setGames([]);
         setIsLoadingGames(true);
 
-        let pageSize = 50;
+        let pageSize = 12;
 
         let searchDelayTimerTmp = setTimeout(function () {
             callApi(
@@ -102,7 +104,9 @@ const Header = ({
                     setTxtSearch={setTxtSearch}
                     searchRef={searchRef}
                     search={search}
-                    isMobile={true}
+                    isMobile={isMobile}
+                    games={games}
+                    isLoadingGames={isLoadingGames}
                 />
             </div>
             <div className="sc-iKpGpX jPIDuM cy-navbar-right-container">

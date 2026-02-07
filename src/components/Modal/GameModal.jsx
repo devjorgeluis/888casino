@@ -98,13 +98,15 @@ const GameModal = ({
         </div>
         <div className="sc-dzZkzZ gLgOii" style={{ backgroundImage: `url(${gameImg})` }}>
           {!iframeLoaded && <LoadCasino />}
-          <iframe 
-            src={gameUrl}
-            allow="autoplay" 
-            className="sc-cQvPqr cqOVkk cy-game-iframe"
-            onLoad={handleIframeLoad}
-            style={{ display: iframeLoaded ? 'block' : 'none' }}
-          ></iframe>
+          {gameUrl && (
+            <iframe 
+              src={gameUrl}
+              allow="autoplay" 
+              className="sc-cQvPqr cqOVkk cy-game-iframe"
+              onLoad={handleIframeLoad}
+              style={{ display: iframeLoaded ? 'block' : 'none' }}
+            ></iframe>
+          )}
         </div>
       </div>
     </div>

@@ -12,8 +12,6 @@ import MyProfileModal from "../Modal/MyProfileModal";
 import HistoryModal from "../Modal/HistoryModal";
 import { NavigationContext } from "./NavigationContext";
 import FullDivLoading from "../Loading/FullDivLoading";
-import MobileSearch from "../MobileSearch";
-import MobileFooter from "./MobileFooter";
 import GameModal from "../Modal/GameModal";
 import IconClose from "/src/assets/svg/circle-close.svg";
 import IconArrowRight from "/src/assets/svg/arrow-right.svg";
@@ -48,7 +46,7 @@ const Layout = () => {
     const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
     const [isHistoryExpanded, setIsHistoryExpanded] = useState(false);
     const closeTimeoutRef = useRef(null);
-    
+
     const [shouldShowGameModal, setShouldShowGameModal] = useState(false);
     const [gameModalData, setGameModalData] = useState({
         gameUrl: "",
@@ -59,7 +57,7 @@ const Layout = () => {
         gameLauncher: null
     });
     const refGameModal = useRef();
-    
+
     const navigate = useNavigate();
     const location = useLocation();
     const isSportsPage = location.pathname === "/sports" || location.pathname === "/live-sports";
@@ -219,11 +217,11 @@ const Layout = () => {
         setShowMobileSearch(false);
         setShouldShowGameModal(true);
         setShowFullDivLoading(true);
-        
+
         const gameId = game?.id;
         const gameName = game?.name;
         const gameImg = game?.image_local != null ? contextData.cdnUrl + game?.image_local : null;
-        
+
         setGameModalData({
             gameId: gameId,
             gameType: type,
@@ -232,14 +230,14 @@ const Layout = () => {
             gameImg: gameImg,
             gameUrl: ""
         });
-        
+
         // Fetch game URL
         callApi(contextData, "GET", "/get-game-url?game_id=" + gameId, (result) => {
             setShowFullDivLoading(false);
             if (result.status === "0") {
-                setGameModalData(prev => ({ 
-                    ...prev, 
-                    gameUrl: result.url 
+                setGameModalData(prev => ({
+                    ...prev,
+                    gameUrl: result.url
                 }));
             }
         }, null);
@@ -301,7 +299,7 @@ const Layout = () => {
                                     </div>
                                     <div className="sc-fnOeCC fDelro">
                                         <img
-                                            src={IconArrowRight} 
+                                            src={IconArrowRight}
                                             className="sc-bqOBqt PBviZ"
                                             style={{ width: "1.2rem", height: "1.2rem" }}
                                         />
@@ -346,7 +344,7 @@ const Layout = () => {
                                             <div className="sc-fEyyHY inSENM">Historial</div>
                                             <div className="sc-fnOeCC fDelro">
                                                 <img
-                                                    src={IconArrowRight} 
+                                                    src={IconArrowRight}
                                                     className="sc-bqOBqt PBviZ"
                                                     style={{ width: "1.2rem", height: "1.2rem", transition: "transform 0.12s ease-out", transform: isHistoryExpanded ? "rotate(-90deg)" : "rotate(90deg)" }}
                                                 />
@@ -364,7 +362,7 @@ const Layout = () => {
                                                     <div className="sc-fEyyHY inSENM">Historial de juego</div>
                                                     <div className="sc-fnOeCC fDelro">
                                                         <img
-                                                            src={IconArrowRight} 
+                                                            src={IconArrowRight}
                                                             className="sc-bqOBqt PBviZ"
                                                             style={{ width: "1.2rem", height: "1.2rem", transition: "transform 0.12s ease-out" }}
                                                         />
@@ -379,7 +377,7 @@ const Layout = () => {
                                                     <div className="sc-fEyyHY inSENM">Historial de transacciones</div>
                                                     <div className="sc-fnOeCC fDelro">
                                                         <img
-                                                            src={IconArrowRight} 
+                                                            src={IconArrowRight}
                                                             className="sc-bqOBqt PBviZ"
                                                             style={{ width: "1.2rem", height: "1.2rem", transition: "transform 0.12s ease-out" }}
                                                         />
@@ -424,6 +422,7 @@ const Layout = () => {
             <NavigationContext.Provider
                 value={{ selectedPage, setSelectedPage, getPage, showFullDivLoading, setShowFullDivLoading }}
             >
+                <FullDivLoading show={showFullDivLoading} />
                 {showLoginModal && (
                     <LoginModal
                         isMobile={isMobile}
@@ -446,28 +445,28 @@ const Layout = () => {
                 )}
                 <div id="orbit-container">
                     <div className={`sc-kYrjYd ${isUserMenuOpen ? 'WziHW' : 'hbEPYD'} cy-overlay`}></div>
-                    
-                    {!isMobile &&
+
+                    {!isMobile && !shouldShowGameModal &&
                         <Sidebar
                             isSlotsOnly={isSlotsOnly}
                             isMobile={isMobile}
                             isLogin={isLogin}
                             supportParent={supportParent}
                             openSupportModal={openSupportModal}
-                            handleLoginClick={handleLoginClick} 
+                            handleLoginClick={handleLoginClick}
                             handleLogoutClick={handleLogoutClick}
                             isUserMenuOpen={isUserMenuOpen}
                             setIsUserMenuOpen={setIsUserMenuOpen}
                         />
                     }
-                    
+
                     <div className="sc-cAgqEL friIZi cy-main-wrapper">
                         {isUserMenuOpen && (
                             <div className="sc-eZUyqC cZWmCN cy-user-menu user-menu-open">
                                 <UserMenuContent />
                             </div>
                         )}
-                        
+
                         <Header
                             isLogin={isLogin}
                             isMobile={isMobile}
@@ -483,10 +482,10 @@ const Layout = () => {
                         <Outlet context={{ isSlotsOnly, isLogin, isMobile, topGames, topArcade, topCasino, topLiveCasino }} />
                     </div>
                 </div>
-                
+
                 {!shouldShowGameModal && (
                     <div className={isLogin ? "account-background" : ""}>
-                        
+
                     </div>
                 )}
                 {/* {showMobileSearch && (
@@ -496,7 +495,23 @@ const Layout = () => {
                         onClose={() => setShowMobileSearch(false)}
                     />
                 )} */}
-                
+
+                {shouldShowGameModal && gameModalData.gameUrl && (
+                    <GameModal
+                        gameUrl={gameModalData.gameUrl}
+                        gameName={gameModalData.gameName}
+                        gameImg={gameModalData.gameImg}
+                        reload={reloadGame}
+                        launchInNewTab={() => {
+                            if (gameModalData.gameUrl) {
+                                window.open(gameModalData.gameUrl, '_blank');
+                            }
+                        }}
+                        ref={refGameModal}
+                        onClose={closeGameModal}
+                        isMobile={isMobile}
+                    />
+                )}
                 <SupportModal
                     isOpen={showSupportModal}
                     onClose={closeSupportModal}

@@ -194,7 +194,6 @@ const Home = () => {
     } else {
       setShouldShowGameModal(false);
     }
-    setShowFullDivLoading(true);
     selectedGameId = game?.id != null ? game.id : selectedGameId;
     selectedGameType = type != null ? type : selectedGameType;
     selectedGameLauncher = launcher != null ? launcher : selectedGameLauncher;
@@ -213,7 +212,6 @@ const Home = () => {
           try { window.open(result.url, "_blank", "noopener,noreferrer"); } catch (err) { }
         }
         // Reset game active state for mobile
-        setIsGameActive(false);
         selectedGameId = null;
         selectedGameType = null;
         selectedGameLauncher = null;
@@ -233,7 +231,6 @@ const Home = () => {
         // Don't reset game active state for tab - modal should stay open
         // But close modal since we're opening in new tab
         setShouldShowGameModal(false);
-        setIsGameActive(false);
         selectedGameId = null;
         selectedGameType = null;
         selectedGameLauncher = null;
@@ -243,7 +240,6 @@ const Home = () => {
       } else {
         setGameUrl(result.url);
         setShouldShowGameModal(true);
-        setIsGameActive(true);
       }
     }
   };
@@ -256,12 +252,7 @@ const Home = () => {
     selectedGameImg = null;
     setGameUrl("");
     setShouldShowGameModal(false);
-
-    // Reset game active state
-    if (setIsGameActive) {
-      setIsGameActive(false);
-    }
-
+  
     try {
       const el = document.getElementsByClassName("game-view-container")[0];
       if (el) {
@@ -337,7 +328,6 @@ const Home = () => {
                     name="games"
                     title="Juegos Populares"
                     onGameClick={(game) => {
-                    console.log("isLogin value:", isLogin, "type:", typeof isLogin);
                       if (isLogin) {
                         launchGame(game, "slot", "modal");
                       } else {

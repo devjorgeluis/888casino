@@ -1,7 +1,7 @@
 const GameCard = (props) => {
   return (
     <div className="sc-gSkVGw sc-lbNtLv evQOJh bdSJRm cy-single-game-regular-template game-box swiper-mode game-group-videoslot game-category-slots game-company-games-global">
-      <div className="sc-clcPwD gAMnwT cy-game-image-container game-image-container">
+      <div className="sc-clcPwD gAMnwT cy-game-image-container game-image-container" onClick={props.onGameClick}>
         <div className="sc-lltiPY fetLmC">
           <div className="sc-iJfeOL iEEUQU">
             <img
@@ -15,10 +15,7 @@ const GameCard = (props) => {
           </div>
         </div>
 
-        <button 
-          className="sc-hjcAab sc-lbyFfZ dDsQeo dVMOeZ cy-play-real-game-button" 
-          onClick={props.onGameClick}
-        ></button>
+        <button  className="sc-hjcAab sc-lbyFfZ dDsQeo dVMOeZ cy-play-real-game-button"></button>
       </div>
 
       <div className="sc-jdENQA isEobv cy-game-details-container">
