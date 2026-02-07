@@ -18,11 +18,11 @@ const Sidebar = ({ isSlotsOnly, isLogin, isMobile, supportParent, openSupportMod
     const navigate = useNavigate();
     const location = useLocation();
     const { contextData } = useContext(AppContext);
-
     const [expandedMenus, setExpandedMenus] = useState([]);
     const iconRefs = useRef({});
     const isLoggedIn = !!contextData?.session;
     const isMenuExpanded = (menuId) => expandedMenus.includes(menuId);
+    const [currentTime, setCurrentTime] = useState("");
 
     useEffect(() => {
         const currentPath = location.pathname;
@@ -36,6 +36,20 @@ const Sidebar = ({ isSlotsOnly, isLogin, isMobile, supportParent, openSupportMod
             setExpandedMenus((prev) => [...prev, "profile"]);
         }
     }, [location.pathname, location.hash]);
+
+    useEffect(() => {
+        const updateTime = () => {
+        const now = new Date();
+        const hours = now.getHours().toString().padStart(2, '0');
+        const minutes = now.getMinutes().toString().padStart(2, '0');
+        setCurrentTime(`${hours}:${minutes}`);
+        };
+
+        updateTime();
+        
+        const intervalId = setInterval(updateTime, 1000);
+        return () => clearInterval(intervalId);
+    }, []);
 
     const isSlotsOnlyMode = isSlotsOnly === true || isSlotsOnly === "true";
 
@@ -100,21 +114,6 @@ const Sidebar = ({ isSlotsOnly, isLogin, isMobile, supportParent, openSupportMod
             href: "/casino#roulette",
             subItems: [],
         },
-        ...(isLoggedIn
-            ? [
-                {
-                    id: "profile",
-                    name: "Cuenta",
-                    image: ImgProfile,
-                    href: "/profile/detail",
-                    subItems: [
-                        { name: "Ajustes de Cuenta", href: "/profile/detail" },
-                        { name: "Historial de transacciones", href: "/profile/transaction" },
-                        { name: "Historial de Casino", href: "/profile/history" },
-                    ],
-                },
-            ]
-            : []),
         ...(supportParent
             ? [
                 {
@@ -158,10 +157,15 @@ const Sidebar = ({ isSlotsOnly, isLogin, isMobile, supportParent, openSupportMod
         setIsUserMenuOpen(false);
     };
 
-    const handleMenuClick = (href) => {
-        // Close user menu when any sidebar menu is clicked
+    const handleMenuClick = (href, item) => {
         closeUserMenu();
-        navigate(href);
+        console.log(item);
+        
+        if (item && item.action) {
+            item.action();
+        } else {
+            navigate(href);
+        }
     };
 
     const handleProfileClick = () => {
@@ -231,7 +235,7 @@ const Sidebar = ({ isSlotsOnly, isLogin, isMobile, supportParent, openSupportMod
                                                 return (
                                                     <div ref={itemRef} key={item.id}>
                                                         <li className="sc-fkVSuP sc-bsyrka izPQbG kxFylD cy-menu-item">
-                                                            <a onClick={() => handleMenuClick(item.href)} className="sc-ciMfCw ja-dRuB" style={{ cursor: 'pointer' }}>
+                                                            <a onClick={() => handleMenuClick(item.href, item)}  className="sc-ciMfCw ja-dRuB" style={{ cursor: 'pointer' }}>
                                                                 <div className={`sc-gPLYmt sc-cjShfW efmGEW bDGwEc ${isActive ? "dtqOUd" : ""}`}>
                                                                     <span className="sc-iDhmSy jagTrD"></span>
                                                                     <div className={`sc-dgWXKx sc-bsStmr dvyXko hWgsTC ${isLast ? "phone" : ""}`}>
@@ -248,6 +252,11 @@ const Sidebar = ({ isSlotsOnly, isLogin, isMobile, supportParent, openSupportMod
                                         </ul>
                                     </div>
                                 </section>
+                            </div>
+                        </div>
+                        <div className="sc-jngljW sc-gwicPH qpKDx jJMsHK cy-navbar-clock-last-login">
+                            <div className="sc-OPwof dBHGWN cy-clock-component">
+                                <div className="cy-clock">{currentTime}</div>
                             </div>
                         </div>
                     </div>

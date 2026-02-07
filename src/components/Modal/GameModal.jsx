@@ -11,6 +11,21 @@ const GameModal = ({
 }) => {
   const [iframeLoaded, setIframeLoaded] = useState(false);
   const [isFullscreen, setIsFullscreen] = useState(false);
+  const [currentTime, setCurrentTime] = useState("");
+
+  useEffect(() => {
+    const updateTime = () => {
+      const now = new Date();
+      const hours = now.getHours().toString().padStart(2, '0');
+      const minutes = now.getMinutes().toString().padStart(2, '0');
+      setCurrentTime(`${hours}:${minutes}`);
+    };
+
+    updateTime();
+    
+    const intervalId = setInterval(updateTime, 1000);
+    return () => clearInterval(intervalId);
+  }, []);
 
   useEffect(() => {
     if (isMobile && gameUrl) {
@@ -47,6 +62,9 @@ const GameModal = ({
           <div className="sc-lnmtbb bBaxkM">
             <div className="sc-iqMSTM sc-jGhrkT cNDXZx jgBKE">
               <div className="sc-dSeeha sc-hdqUEi kWgyCH iQpKgV">
+                <div className="sc-OPwof dBHGWN sc-iKjCcz eUUbAr cy-clock-component cy-game-navbar-clock">
+                  <div className="cy-clock">{currentTime}</div>
+                </div>
                 <span className="sc-IYxHW gxNfBt"></span>
                 <div className="sc-jDnEkQ huWxWb cy-open-responsible-gaming-button">
                   <img src={Img18} className="sc-bKxGPP bWFDOM" />
