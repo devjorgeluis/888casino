@@ -66,9 +66,9 @@ const HotGameSlideshow = ({ games, name, title, onGameClick }) => {
                             ref={swiperRef}
                             modules={[Navigation]}
                             slidesPerView={6.8}
-                            spaceBetween={20}
+                            spaceBetween={0}
                             breakpoints={{
-                                0: { slidesPerView: 3.5 },
+                                0: { slidesPerView: 3.2 },
                                 576: { slidesPerView: 4.5 },
                                 992: { slidesPerView: 6.8 }
                             }}
@@ -89,7 +89,6 @@ const HotGameSlideshow = ({ games, name, title, onGameClick }) => {
                             {games?.map((game, index) => (
                                 <SwiperSlide
                                     key={`hot-${title}-${name}-${game.id ?? index}-${index}`}
-                                    className="sc-gSkVGw sc-lbNtLv evQOJh bdSJRm cy-single-game-regular-template game-box swiper-mode game-group-videoslot game-category-slots game-company-games-global game-type-2400475"
                                 >
                                     <GameCard
                                         id={game.id}

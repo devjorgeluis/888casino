@@ -155,6 +155,7 @@ const Header = ({
                                         <button className="button-support" onClick={() => { openSupportModal(false); }}>
                                             <img src={ImgSupport} />
                                         </button>
+                                        <div className="sc-jTqEgK cxgeDG"></div>
                                         {
                                             isLogin ? <div className="sc-iKpGpX jPIDuM cy-navbar-right-container">
                                                 <div className="sc-hVQvBP jXAiUk cy-welcome-component">

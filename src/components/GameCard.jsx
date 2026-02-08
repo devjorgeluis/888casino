@@ -1,4 +1,8 @@
+import { useOutletContext } from "react-router-dom";
+
 const GameCard = (props) => {
+  const { isMobile } = useOutletContext();
+
   return (
     <div className="sc-gSkVGw sc-lbNtLv evQOJh bdSJRm cy-single-game-regular-template game-box swiper-mode game-group-videoslot game-category-slots game-company-games-global">
       <div className="sc-clcPwD gAMnwT cy-game-image-container game-image-container" onClick={props.onGameClick}>
@@ -10,7 +14,7 @@ const GameCard = (props) => {
               alt={props.title}
               loading="lazy"
               fetchPriority="high"
-              style={{ width: "100%", height: 270 }}
+              style={{ width: "100%", height: isMobile ? 160 : 270 }}
             />
           </div>
         </div>

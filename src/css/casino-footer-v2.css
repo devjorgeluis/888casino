@@ -1035,3 +1035,9 @@ footer .footer-component-v2 .gray-filter-4:hover {
     filter: grayscale(1);
     transition: all .3s ease-in-out
 }
+
+@media (max-width: 768px) {
+    footer .footer-component-v2 .section-disclaimer {
+        margin-bottom: 5rem;
+    }
+}

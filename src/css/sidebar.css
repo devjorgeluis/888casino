@@ -1278,7 +1278,7 @@ html.cgp-rtl .sc-hBpigv {
 
 @media (max-width:1479px) {
     .bdSJRm {
-        margin-right: 15px;
+        margin-right: 8px;
     }
 }
 
@@ -5351,7 +5351,13 @@ html.cgp-mobile.cgp-embedded-hybrid .home-page .sc-gwLeCi.move-top {
     -webkit-justify-content: flex-start;
     -ms-flex-pack: start;
     justify-content: flex-start;
-    padding: 0.3rem 0;
+    padding: 0.3rem 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .hvWNQq {
+        padding: 0.3rem 0;
+    }
 }
 
 .hvWNQq:before {
@@ -6342,7 +6348,7 @@ html.mini-orbit .sc-caJMrc {
 @media (max-width:1279px) {
     .cxdLwt {
         margin-top: 5px;
-        margin-bottom: 20px;
+        margin-bottom: 0;
     }
 
     .jackpots-item .sc-iysFMw {
@@ -6456,7 +6462,7 @@ html.mini-orbit .sc-caJMrc {
     -webkit-overflow-scrolling: touch;
     -ms-overflow-style: -ms-autohiding-scrollbar;
     overflow: -moz-scrollbars-none;
-    overflow-x: scroll;
+    overflow-x: hidden;
     overflow-y: hidden;
 }
 
