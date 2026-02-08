@@ -5351,7 +5351,7 @@ html.cgp-mobile.cgp-embedded-hybrid .home-page .sc-gwLeCi.move-top {
     -webkit-justify-content: flex-start;
     -ms-flex-pack: start;
     justify-content: flex-start;
-    padding: 0.3rem 1.5rem;
+    padding: 0.3rem 0;
 }
 
 .hvWNQq:before {
@@ -6308,7 +6308,7 @@ html.mini-orbit .sc-caJMrc {
 
 @media (min-width:768px) {
     .kuICQf {
-        margin: 0 1rem;
+        margin: 0;
     }
 }
 
@@ -8704,4 +8704,11 @@ html.cgp-rtl .sc-bqOBqt {
     color: #FCE523;
     padding: 0px 8px;
     white-space: nowrap;
+}
+
+@media (max-width:1023px) {
+    .la-dtQg {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
 }

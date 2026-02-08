@@ -132,16 +132,16 @@ const Layout = () => {
     }, [isUserMenuOpen]);
 
     useEffect(() => {
-        const mobileClasses = ["cgp-mobile", "cgp-portrait", "cgp-pc-low-resolution"];
-        const desktopClasses = ["cgp-pc", "cgp-landscape"];
+        const mobileClasses = ["cgp-mobile", "cgp-portrait", "cgp-low-height", "cgp-real-mobile", "cgp-iphone-ver-6", "cgp-ios", "cgp-gib", "promotions-lobby"];
+        const desktopClasses = ["cgp-pc", "cgp-landscape", "cgp-low-height", "cgp-not-mobile-os", "cgp-windows", "cgp-gib", "promotions-lobby"];
 
-        // Remove all possible conflicting classes first
-        document.body.classList.remove(...mobileClasses, ...desktopClasses);
+        const htmlElement = document.documentElement;
+        htmlElement.classList.remove(...mobileClasses, ...desktopClasses);
 
         if (isMobile) {
-            document.body.classList.add(...mobileClasses);
+            htmlElement.classList.add(...mobileClasses);
         } else {
-            document.body.classList.add(...desktopClasses);
+            htmlElement.classList.add(...desktopClasses);
         }
     }, [isMobile]);
 
