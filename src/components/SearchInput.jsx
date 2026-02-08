@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect, useRef } from "react";
 import { LayoutContext } from "./Layout/LayoutContext";
 import { AppContext } from "../AppContext";
 import LoadApi from "./Loading/LoadApi";
@@ -17,11 +17,37 @@ const SearchInput = ({
     const { contextData } = useContext(AppContext);
     const { setShowMobileSearch, isLogin, launchGameFromSearch } = useContext(LayoutContext);
     const [showLoginModal, setShowLoginModal] = useState(false);
+    
+    const [isDropdownVisible, setIsDropdownVisible] = useState(false);
+    
+    const searchContainerRef = useRef(null);
+
+    useEffect(() => {
+        const hasResultsOrLoading = 
+            (games?.length > 0 || isLoadingGames) || 
+            (txtSearch.trim() !== "" && !isLoadingGames);
+
+        setIsDropdownVisible(txtSearch.trim() !== "" && hasResultsOrLoading);
+    }, [txtSearch, games, isLoadingGames]);
+
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (searchContainerRef.current && !searchContainerRef.current.contains(event.target)) {
+                setIsDropdownVisible(false);
+            }
+        };
+
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, []);
 
     const handleChange = (event) => {
         if (!isMobile) {
             const value = event.target.value;
             setTxtSearch(value);
+            // Trigger search immediately on change
             search({ target: { value }, key: event.key, keyCode: event.keyCode });
         }
     };
@@ -29,6 +55,10 @@ const SearchInput = ({
     const handleFocus = () => {
         if (isMobile) {
             setShowMobileSearch(true);
+        }
+        // Re-show dropdown if there's already content
+        if (txtSearch.trim() !== "") {
+            setIsDropdownVisible(true);
         }
     };
 
@@ -50,7 +80,7 @@ const SearchInput = ({
                 />
             )}
 
-            <div className="sc-dnaMGt cselLF cy-game-search-box">
+            <div className="sc-dnaMGt cselLF cy-game-search-box" ref={searchContainerRef}>
                 <div className="sc-gMYlev cIiZKd">
                     <input
                         className="sc-jVmTQF sc-gcPsFQ bZmhbt knmrV cy-game-search-input"
@@ -68,71 +98,84 @@ const SearchInput = ({
                     </i>
                 </div>
 
-                {(games?.length > 0 || isLoadingGames) && (
-                    <div className="sc-cuSlJX sc-dkOAfx bcBPEw dzWWGI">
-                        <div className="sc-hcRkXe dQmZHI">
-                            <span className="cy-suggested-links-suggested-games">
-                                {isLoadingGames ? (
-                                    <div className="sc-gNBmQW ioZMAg cy-search-title-box">
-                                        <LoadApi />
-                                    </div>
-                                ) : (
-                                    <>
-                                        <div className="sc-gNBmQW ioZMAg cy-search-title-box">
-                                            <span className="cy-search-title-text">
-                                                {games.length} JUEGOS ENCONTRADOS
-                                            </span>
-                                        </div>
-                                        <div className="sc-bEuwGr ioiopX cy-found-games-list-box">
-                                            {games.map((game, index) => (
-                                                <div
-                                                    key={game.id || index}
-                                                    className="sc-LkGDY iPJEWf cy-search-game-item"
-                                                    onClick={() => {
-                                                        if (isLogin) {
-                                                            launchGameFromSearch(game, "slot", "modal");
-                                                        } else {
-                                                            handleLoginClick();
-                                                        }
-                                                    }}
-                                                >
-                                                    <div className="sc-kASIiu bSamOm">
-                                                        <div className="sc-lltiPY fetLmC">
-                                                            <div className="sc-iJfeOL iEEUQU">
-                                                                <img
-                                                                    className="sc-ivDtld kQdJxW cy-game-image single-game-image"
-                                                                    style={{ height: "100%" }}
-                                                                    alt={game.name || "Game"}
-                                                                    src={game.image_local !== null ? contextData.cdnUrl + game.image_local : game.image_url}
-                                                                />
+                {isDropdownVisible && (
+                    <>
+                        {(games?.length > 0 || isLoadingGames) && (
+                            <div className="sc-cuSlJX sc-dkOAfx bcBPEw dzWWGI mainSearchContainer">
+                                <div className="sc-hcRkXe dQmZHI">
+                                    <span className="cy-suggested-links-suggested-games">
+                                        {isLoadingGames ? (
+                                            <div className="sc-gNBmQW ioZMAg cy-search-title-box">
+                                                <LoadApi />
+                                            </div>
+                                        ) : (
+                                            <>
+                                                <div className="sc-gNBmQW ioZMAg cy-search-title-box">
+                                                    <span className="cy-search-title-text">
+                                                        {games.length} JUEGOS ENCONTRADOS
+                                                    </span>
+                                                </div>
+                                                <div className="sc-bEuwGr ioiopX cy-found-games-list-box">
+                                                    {games.map((game, index) => (
+                                                        <div
+                                                            key={game.id || index}
+                                                            className="sc-LkGDY iPJEWf cy-search-game-item"
+                                                            onClick={() => {
+                                                                if (isLogin) {
+                                                                    launchGameFromSearch(game, "slot", "modal");
+                                                                } else {
+                                                                    handleLoginClick();
+                                                                }
+                                                                // Optional: hide dropdown after selection
+                                                                setIsDropdownVisible(false);
+                                                            }}
+                                                        >
+                                                            {/* ... game item content ... */}
+                                                            <div className="sc-kASIiu bSamOm">
+                                                                <div className="sc-lltiPY fetLmC">
+                                                                    <div className="sc-iJfeOL iEEUQU">
+                                                                        <img
+                                                                            className="sc-ivDtld kQdJxW cy-game-image single-game-image"
+                                                                            style={{ height: "100%" }}
+                                                                            alt={game.name || "Game"}
+                                                                            src={
+                                                                                game.image_local !== null
+                                                                                    ? contextData.cdnUrl + game.image_local
+                                                                                    : game.image_url
+                                                                            }
+                                                                        />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div className="sc-gIPXqN dfxiZL">
+                                                                {game.title || game.name || "Unnamed Game"}
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <div className="sc-gIPXqN dfxiZL">
-                                                        {game.title || game.name || "Unnamed Game"}
-                                                    </div>
+                                                    ))}
                                                 </div>
-                                            ))}
-                                        </div>
-                                    </>
-                                )}
-                            </span>
-                        </div>
-                    </div>
-                )}
-
-                {(txtSearch !== "" && games?.length === 0 && !isLoadingGames) && (
-                    <div className="sc-cuSlJX sc-dkOAfx bcBPEw dzWWGI">
-                        <div className="sc-hcRkXe dQmZHI">
-                            <div className="cy-search-results">
-                                <div className="sc-gNBmQW ioZMAg cy-search-title-box">
-                                    <span className="cy-search-title-text">PRINCIPALES RESULTADOS DE BÚSQUEDA</span>
-                                    <span className="sc-gWkPsy tZjYL cy-search-results-number">(0)</span>
+                                            </>
+                                        )}
+                                    </span>
                                 </div>
-                                <a className="sc-ciMfCw ja-dRuB sc-kdziFn sc-doWNTf kMYqxK bNhBBD cy-no-found-games-box">No se han encontrado resultados de búsqueda...</a>
                             </div>
-                        </div>
-                    </div>
+                        )}
+
+                        {(txtSearch.trim() !== "" && games?.length === 0 && !isLoadingGames) && (
+                            <div className="sc-cuSlJX sc-dkOAfx bcBPEw dzWWGI">
+                                <div className="sc-hcRkXe dQmZHI">
+                                    <div className="cy-search-results">
+                                        <div className="sc-gNBmQW ioZMAg cy-search-title-box">
+                                            <span className="cy-search-title-text">PRINCIPALES RESULTADOS DE BÚSQUEDA</span>
+                                            <span className="sc-gWkPsy tZjYL cy-search-results-number">(0)</span>
+                                        </div>
+                                        <a className="sc-ciMfCw ja-dRuB sc-kdziFn sc-doWNTf kMYqxK bNhBBD cy-no-found-games-box">
+                                            No se han encontrado resultados de búsqueda...
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        )}
+                    </>
                 )}
             </div>
         </>
