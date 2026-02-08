@@ -31,7 +31,7 @@ const HistoryModal = ({ isOpen, onClose }) => {
 
     const formatBalance = (value) => {
         const num = parseFloat(value);
-        if (isNaN(num)) return "—";
+        if (isNaN(num)) return "0.00";
         return num.toLocaleString("de-DE", {
             minimumFractionDigits: 2,
             maximumFractionDigits: 2,

@@ -6,12 +6,12 @@ import { LayoutContext } from "./LayoutContext";
 import { callApi } from "../../utils/Utils";
 import Header from "./Header";
 import Sidebar from "./Sidebar";
+import MobileFooter from "./MobileFooter";
 import LoginModal from "../Modal/LoginModal";
 import SupportModal from "../Modal/SupportModal";
 import MyProfileModal from "../Modal/MyProfileModal";
 import HistoryModal from "../Modal/HistoryModal";
 import { NavigationContext } from "./NavigationContext";
-import FullDivLoading from "../Loading/FullDivLoading";
 import GameModal from "../Modal/GameModal";
 import IconClose from "/src/assets/svg/circle-close.svg";
 import IconArrowRight from "/src/assets/svg/arrow-right.svg";
@@ -535,7 +535,14 @@ const Layout = () => {
                     supportParentOnly={supportParentOnly}
                     supportParent={supportParent}
                 />
-                {/* {isMobile && <MobileFooter isSlotsOnly={isSlotsOnly} isMobile={isMobile} supportParent={supportParent} openSupportModal={openSupportModal} />} */}
+                {isMobile &&
+                <MobileFooter
+                    isSlotsOnly={isSlotsOnly} 
+                    isMobile={isMobile} 
+                    isLogin={isLogin}
+                    supportParent={supportParent} 
+                    openSupportModal={openSupportModal}
+                />}
             </NavigationContext.Provider>
         </LayoutContext.Provider>
     );

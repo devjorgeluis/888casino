@@ -1,6 +1,7 @@
 import { useContext, useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { AppContext } from "../../AppContext";
+import { LayoutContext } from "./LayoutContext";
 import SearchInput from "../SearchInput";
 import { callApi } from "../../utils/Utils";
 import ImgSports from "/src/assets/svg/sports.svg";
@@ -22,6 +23,7 @@ const Header = ({
     openSupportModal,
 }) => {
     const { contextData } = useContext(AppContext);
+    const { isSidebarExpanded, toggleSidebar } = useContext(LayoutContext);
     const [games, setGames] = useState([]);
     const [txtSearch, setTxtSearch] = useState("");
     const [isLoadingGames, setIsLoadingGames] = useState(false);
@@ -40,7 +42,7 @@ const Header = ({
 
     const formatBalance = (value) => {
         const num = parseFloat(value);
-        if (isNaN(num)) return "—";
+        if (isNaN(num)) return "0.00";
         return num.toLocaleString("de-DE", {
             minimumFractionDigits: 2,
             maximumFractionDigits: 2,
@@ -136,7 +138,7 @@ const Header = ({
                         <div className="sc-eUyqdB sc-bcaOSM inBPOP fHpzyA cy-navbar-container">
                             <div className="sc-cMKpDi cwlnXY cy-navbar-left-container">
                                 <div className="sc-kfLrBp fexPlV">
-                                    <div className="sc-bHnQwI ilXINL">
+                                    <div className="sc-bHnQwI ilXINL" onClick={toggleSidebar}>
                                         <img src={ImgHamburger} className="sc-bqOBqt PBviZ cy-burger-button" style={{ width: "2.6rem", height: "1.8rem"}} />
                                     </div>
                                 </div>
@@ -194,7 +196,7 @@ const Header = ({
                                 <div className="sc-gJWpfJ elLuri cy-cross-brand-list">
                                     <div className="sc-fNzuzI jFWrzq cy-cross-brand-link sportCrossBrandMenuItem" onClick={() => navigate("/sports")}>
                                         <img src={ImgSports} style={{ width: "3rem", height: "3rem" }} />
-                                        <div className="sc-fwWpaa MrUNO">sport</div>
+                                        <div className="sc-fwWpaa MrUNO">Deportes</div>
                                     </div>
                                 </div>
                             }

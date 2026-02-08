@@ -44,12 +44,9 @@ const SearchInput = ({
     }, []);
 
     const handleChange = (event) => {
-        if (!isMobile) {
-            const value = event.target.value;
-            setTxtSearch(value);
-            // Trigger search immediately on change
-            search({ target: { value }, key: event.key, keyCode: event.keyCode });
-        }
+        const value = event.target.value;
+        setTxtSearch(value);
+        search({ target: { value }, key: event.key, keyCode: event.keyCode });
     };
 
     const handleFocus = () => {
