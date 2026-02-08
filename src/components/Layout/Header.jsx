@@ -38,6 +38,15 @@ const Header = ({
         });
     };
 
+    const formatBalance = (value) => {
+        const num = parseFloat(value);
+        if (isNaN(num)) return "—";
+        return num.toLocaleString("de-DE", {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2,
+        });
+    };    
+
     const search = (e) => {
         let keyword = e.target.value;
         setTxtSearch(keyword);
@@ -144,12 +153,21 @@ const Header = ({
                                         <button className="button-support" onClick={() => { openSupportModal(false); }}>
                                             <img src={ImgSupport} />
                                         </button>
-                                        <span className="sc-IYxHW gxNfBt"></span>
-                                        <button className="sc-ksJhlw xBMZy cy-login-button-text" onClick={handleLoginClick}>
-                                            <span className="sc-fIysua sc-cRAjZL eYOOkA dcVKxz">
-                                                <span className="sc-bFbHAG kSzfyr">INICIAR</span>
-                                            </span>
-                                        </button>
+                                        {
+                                            isLogin ? <div className="sc-iKpGpX jPIDuM cy-navbar-right-container">
+                                                <div className="sc-hVQvBP jXAiUk cy-welcome-component">
+                                                    <div className="sc-hlaTyg fEgjKI cy-header-bankroll-button-mobile">
+                                                        <div className="sc-ihxOeh lmancD"></div>
+                                                        <div className="sc-dZuQbC hhvXbW cy-mobile-header-bankroll">${formatBalance(userBalance)}</div>
+                                                    </div>
+                                                </div>
+                                            </div> : 
+                                            <button className="sc-ksJhlw xBMZy cy-login-button-text" onClick={handleLoginClick}>
+                                                <span className="sc-fIysua sc-cRAjZL eYOOkA dcVKxz">
+                                                    <span className="sc-bFbHAG kSzfyr">INICIAR</span>
+                                                </span>
+                                            </button>
+                                        }
                                     </div>
                                 </div>
                             </div>

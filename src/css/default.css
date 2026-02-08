@@ -1413,7 +1413,7 @@ html {
         padding-bottom: initial
     }
 
-    .rllogin-portrait .rllogin-main-wrapper {
+    .rllogin-main-wrapper {
         width: 100%;
         min-height: 100%;
         height: 100vh;
@@ -2496,16 +2496,14 @@ input#mfa-code::-moz-placeholder {
 }
 
 @media screen and (min-width:768px) and (max-width:1024px) {
-
-    .rllogin-landscape .rllogin-main-wrapper,
-    .rllogin-portrait .rllogin-main-wrapper {
+    .rllogin-main-wrapper {
         top: 50%;
         transform: translate(-50%, -50%);
         left: 50%;
         position: absolute
     }
 
-    .rllogin-portrait .rllogin-main-wrapper {
+    .rllogin-main-wrapper {
         width: 500px;
         min-height: initial;
         height: initial
@@ -2918,7 +2916,7 @@ input#mfa-code::-moz-placeholder {
 }
 
 @media screen and (max-width:900px) {
-    .rllogin-portrait .rllogin-main-wrapper {
+    .rllogin-main-wrapper {
         border: none;
         border-radius: 0;
         overflow: initial;
@@ -2926,28 +2924,16 @@ input#mfa-code::-moz-placeholder {
         background: #232323
     }
 
-    .rllogin-portrait .rllogin-btn-primary:hover {
+    .rllogin-btn-primary:hover {
         background: #fce403
     }
 
-    .rllogin-portrait .rllogin-btn-primary:active {
+    .rllogin-btn-primary:active {
         background: #fce403;
         opacity: 1
     }
 
-    .rllogin-portrait .rllogin-btn-register:hover {
-        border: 2px solid #FFF;
-        color: #FFF;
-        background: 0 0
-    }
-
-    .rllogin-portrait .rllogin-btn-register:active {
-        border: 2px solid #FFF;
-        color: #000;
-        background: #FFF
-    }
-
-    .rllogin-portrait .rlfooter-logo-container {
+    .rlfooter-logo-container {
         right: 0
     }
 
@@ -3019,24 +3005,24 @@ input#mfa-code::-moz-placeholder {
 }
 
 @media screen and (min-width:768px) and (max-width:1024px) {
-    .rllogin-portrait .rllogin-logo {
+    .rllogin-logo {
         left: 0;
         right: 0
     }
 
-    .rllogin-portrait .rllogin-main-wrapper {
+    .rllogin-main-wrapper {
         border-radius: 8px;
         border: 1px solid #717171;
         overflow: hidden
     }
 
-    .rllogin-portrait .rllogin-form-container {
+    .rllogin-form-container {
         width: 70%;
         margin: 0 auto;
         padding: 0
     }
 
-    .rllogin-portrait .rllogin-register-container {
+    .rllogin-register-container {
         width: 70%
     }
 }

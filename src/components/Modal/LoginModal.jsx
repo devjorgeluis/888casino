@@ -103,45 +103,27 @@ const LoginModal = ({ isOpen, onClose, onLoginSuccess, isMobile }) => {
                                 </div>
 
                                 <div className="rllogin-login-container">
-                                    <button
-                                        id="rlLoginSubmit"
-                                        type="submit"
-                                        className="rllogin-btn rllogin-btn-primary"
-                                        disabled={isLoading}
-                                    >
-                                        {isLoading ? "Cargando..." : "Iniciar sesión"}
-                                    </button>
-
-                                    <div className="rllogin-preloader-btn">
-                                        <div className="rllogin-preloader-btn-inner">
-                                            <label>•</label>
-                                            <label>•</label>
-                                            <label>•</label>
-                                            <label>•</label>
-                                            <label>•</label>
-                                            <label>•</label>
-                                        </div>
-                                    </div>
-
-                                    <div className="rlLogin-container-remember" id="rlLogin-container-remember">
-                                        <input type="checkbox" value="1" id="rlLoginRememberme" name="remember" />
-                                        <label htmlFor="rlLoginRememberme">
-                                            <span>
-                                                <span />
-                                            </span>
-                                            Recordarme
-                                        </label>
-                                    </div>
-
-                                    <div className="rlLogin-container-remember" id="rlLogin-container-fitToPlay">
-                                        <input type="checkbox" value="1" id="rlLoginFitToPlay" name="fitToPlay" />
-                                        <label htmlFor="rlLoginFitToPlay">
-                                            <span>
-                                                <span />
-                                            </span>
-                                            [[**ELIGIBLE_CONSENT**]]
-                                        </label>
-                                    </div>
+                                    {
+                                        isLoading ? 
+                                        <div className="rllogin-preloader-btn" style={{ opacity: 1, margin: 0 }}>
+                                            <div className="rllogin-preloader-btn-inner">
+                                                <label>•</label>
+                                                <label>•</label>
+                                                <label>•</label>
+                                                <label>•</label>
+                                                <label>•</label>
+                                                <label>•</label>
+                                            </div>
+                                        </div> : 
+                                        <button
+                                            id="rlLoginSubmit"
+                                            type="submit"
+                                            className="rllogin-btn rllogin-btn-primary"
+                                            disabled={isLoading}
+                                        >
+                                            Iniciar sesión
+                                        </button>
+                                    }
                                 </div>
                             </form>
                         </div>
