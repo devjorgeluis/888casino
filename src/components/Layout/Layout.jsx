@@ -131,6 +131,20 @@ const Layout = () => {
         };
     }, [isUserMenuOpen]);
 
+    useEffect(() => {
+        const mobileClasses = ["cgp-mobile", "cgp-portrait", "cgp-pc-low-resolution"];
+        const desktopClasses = ["cgp-pc", "cgp-landscape"];
+
+        // Remove all possible conflicting classes first
+        document.body.classList.remove(...mobileClasses, ...desktopClasses);
+
+        if (isMobile) {
+            document.body.classList.add(...mobileClasses);
+        } else {
+            document.body.classList.add(...desktopClasses);
+        }
+    }, [isMobile]);
+
     const refreshBalance = () => {
         setUserBalance("");
         callApi(contextData, "GET", "/get-user-balance", callbackRefreshBalance, null);
@@ -422,7 +436,7 @@ const Layout = () => {
             <NavigationContext.Provider
                 value={{ selectedPage, setSelectedPage, getPage, showFullDivLoading, setShowFullDivLoading }}
             >
-                <FullDivLoading show={showFullDivLoading} />
+                {/* <FullDivLoading show={showFullDivLoading} /> */}
                 {showLoginModal && (
                     <LoginModal
                         isMobile={isMobile}

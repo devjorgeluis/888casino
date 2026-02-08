@@ -1,12 +1,13 @@
-import { useContext, useState, useRef } from "react";
+import { useContext, useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import { LayoutContext } from "./LayoutContext";
 import { AppContext } from "../../AppContext";
 import SearchInput from "../SearchInput";
 import { callApi } from "../../utils/Utils";
 import ImgSports from "/src/assets/svg/sports.svg";
 import ImgProtect from "/src/assets/svg/protect.svg";
 import ImgSupport from "/src/assets/svg/support-black.svg";
+import ImgHamburger from "/src/assets/svg/hamburger.svg";
+import ImgMobileLogo from "/src/assets/svg/mobile-logo.svg";
 
 const Header = ({
     isLogin,
@@ -27,6 +28,7 @@ const Header = ({
     const navigate = useNavigate();
     const searchRef = useRef(null);
     const [searchDelayTimer, setSearchDelayTimer] = useState();
+    const [currentTime, setCurrentTime] = useState("");
 
     const isSlotsOnlyMode = isSlotsOnly === true || isSlotsOnly === "true";
 
@@ -96,63 +98,120 @@ const Header = ({
         setIsLoadingGames(false);
     };
 
+    useEffect(() => {
+        const updateTime = () => {
+        const now = new Date();
+        const hours = now.getHours().toString().padStart(2, '0');
+        const minutes = now.getMinutes().toString().padStart(2, '0');
+        setCurrentTime(`${hours}:${minutes}`);
+        };
+
+        updateTime();
+        
+        const intervalId = setInterval(updateTime, 1000);
+        return () => clearInterval(intervalId);
+    }, []);    
+
     return (
-        <div className="sc-eUyqdB sc-bcaOSM luyol fHpzyA cy-navbar-container">
-            <div className="sc-cMKpDi cwlnXY cy-navbar-left-container">
-                <SearchInput
-                    txtSearch={txtSearch}
-                    setTxtSearch={setTxtSearch}
-                    searchRef={searchRef}
-                    search={search}
-                    isMobile={isMobile}
-                    games={games}
-                    isLoadingGames={isLoadingGames}
-                />
-            </div>
-            <div className="sc-iKpGpX jPIDuM cy-navbar-right-container">
-                <button className="button-support" onClick={() => { openSupportModal(false); }}>
-                    <img src={ImgSupport} />
-                </button>
-                <div className="sc-jTqEgK cxgeDG"></div>
-                {
-                    !isSlotsOnlyMode &&
-                    <div className="sc-gJWpfJ elLuri cy-cross-brand-list">
-                        <div className="sc-fNzuzI jFWrzq cy-cross-brand-link sportCrossBrandMenuItem" onClick={() => navigate("/sports")}>
-                            <img src={ImgSports} style={{ width: "3rem", height: "3rem" }} />
-                            <div className="sc-fwWpaa MrUNO">sport</div>
+        <>
+            {
+                isMobile ?
+                    <>
+                        <div className="sc-jmwmqE effxOv cy-header-regulation-data">
+                            <div className="sc-jngljW sc-gwicPH qpKDx jJMsHK cy-navbar-clock-last-login">
+                                <div className="sc-OPwof dBHGWN cy-clock-component">
+                                    <div className="cy-clock">{currentTime}</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="sc-eUyqdB sc-bcaOSM inBPOP fHpzyA cy-navbar-container">
+                            <div className="sc-cMKpDi cwlnXY cy-navbar-left-container">
+                                <div className="sc-kfLrBp fexPlV">
+                                    <div className="sc-bHnQwI ilXINL">
+                                        <img src={ImgHamburger} className="sc-bqOBqt PBviZ cy-burger-button" style={{ width: "2.6rem", height: "1.8rem"}} />
+                                    </div>
+                                </div>
+                                <div className="sc-jTqEgK cxgeDG cy-navbar-separator"></div>
+                                <div className="sc-yWEwC sc-bvtzcD cOhCUT bwJqBY cy-logo-container">
+                                    <a onClick={() => navigate("/")} className="sc-ciMfCw ja-dRuB">
+                                        <img src={ImgMobileLogo} alt="888 Online Casino" width="39" height="30" className="sc-gHXKQl eKXwKk logo cy-logo" />
+                                    </a>
+                                </div>
+                            </div>
+                            <div className="sc-iKpGpX jPIDuM cy-navbar-right-container">
+                                <div className="sc-hVQvBP jXAiUk cy-welcome-component">
+                                    <div className="sc-eihFif hbkNIy">
+                                        <button className="button-support" onClick={() => { openSupportModal(false); }}>
+                                            <img src={ImgSupport} />
+                                        </button>
+                                        <span className="sc-IYxHW gxNfBt"></span>
+                                        <button className="sc-ksJhlw xBMZy cy-login-button-text" onClick={handleLoginClick}>
+                                            <span className="sc-fIysua sc-cRAjZL eYOOkA dcVKxz">
+                                                <span className="sc-bFbHAG kSzfyr">INICIAR</span>
+                                            </span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </> : <div className="sc-eUyqdB sc-bcaOSM luyol fHpzyA cy-navbar-container">
+                        <div className="sc-cMKpDi cwlnXY cy-navbar-left-container">
+                            <SearchInput
+                                txtSearch={txtSearch}
+                                setTxtSearch={setTxtSearch}
+                                searchRef={searchRef}
+                                search={search}
+                                isMobile={isMobile}
+                                games={games}
+                                isLoadingGames={isLoadingGames}
+                            />
+                        </div>
+                        <div className="sc-iKpGpX jPIDuM cy-navbar-right-container">
+                            <button className="button-support" onClick={() => { openSupportModal(false); }}>
+                                <img src={ImgSupport} />
+                            </button>
+                            <div className="sc-jTqEgK cxgeDG"></div>
+                            {
+                                !isSlotsOnlyMode &&
+                                <div className="sc-gJWpfJ elLuri cy-cross-brand-list">
+                                    <div className="sc-fNzuzI jFWrzq cy-cross-brand-link sportCrossBrandMenuItem" onClick={() => navigate("/sports")}>
+                                        <img src={ImgSports} style={{ width: "3rem", height: "3rem" }} />
+                                        <div className="sc-fwWpaa MrUNO">sport</div>
+                                    </div>
+                                </div>
+                            }
+                            <div className="sc-jTqEgK cxgeDG"></div>
+                            {
+                                isLogin &&
+                                <button className="sc-ksJhlw jOQfJh cy-header-client-settings-button">
+                                    <span className="sc-hBpigv iTELlo" onClick={handleHistoryClick}>
+                                        <img src={ImgProtect} style={{ width: "2.4em", height: "2.4em" }} />
+                                    </span>
+                                    <div className="sc-bjEuFB knfoyZ" style={{ height: "2.4em" }}></div>
+                                </button>
+                            }
+                            <div className="sc-hVQvBP jXAiUk cy-welcome-component">
+                                <div className="sc-eihFif hbkNIy">
+                                    <span className="sc-IYxHW ksYfVp"></span>
+                                    {
+                                        isLogin ?
+                                            <button className="sc-ksJhlw hfleRR cy-welcome-cashier-button" onClick={handleMyProfileClick}>
+                                                <span className="sc-fIysua sc-cRAjZL eZsMbN dcVKxz">
+                                                    <span className="sc-bFbHAG fxFSPh">Cajero</span>
+                                                </span>
+                                            </button> :
+                                            <button className="sc-ksJhlw dZVxje cy-login-button-text" onClick={handleLoginClick}>
+                                                <span className="sc-fIysua sc-cRAjZL eZsMbN dcVKxz">
+                                                    <span className="sc-bFbHAG fxFSPh">INICIAR</span>
+                                                </span>
+                                            </button>
+                                    }
+                                </div>
+                            </div>
                         </div>
                     </div>
-                }
-                <div className="sc-jTqEgK cxgeDG"></div>
-                {
-                    isLogin && 
-                    <button className="sc-ksJhlw jOQfJh cy-header-client-settings-button">
-                        <span className="sc-hBpigv iTELlo" onClick={handleHistoryClick}>
-                            <img src={ImgProtect} style={{ width: "2.4em", height: "2.4em" }} />
-                        </span>
-                        <div className="sc-bjEuFB knfoyZ" style={{ height: "2.4em" }}></div>
-                    </button>
-                }
-                <div className="sc-hVQvBP jXAiUk cy-welcome-component">
-                    <div className="sc-eihFif hbkNIy">
-                        <span className="sc-IYxHW ksYfVp"></span>
-                        {
-                            isLogin ? 
-                            <button className="sc-ksJhlw hfleRR cy-welcome-cashier-button" onClick={handleMyProfileClick}>
-                                <span className="sc-fIysua sc-cRAjZL eZsMbN dcVKxz">
-                                    <span className="sc-bFbHAG fxFSPh">Cajero</span>
-                                </span>
-                            </button> : 
-                            <button className="sc-ksJhlw dZVxje cy-login-button-text" onClick={handleLoginClick}>
-                                <span className="sc-fIysua sc-cRAjZL eZsMbN dcVKxz">
-                                    <span className="sc-bFbHAG fxFSPh">INICIAR</span>
-                                </span>
-                            </button>
-                        }
-                    </div>
-                </div>
-            </div>
-        </div>
+            }
+        </>
     );
 };
 
