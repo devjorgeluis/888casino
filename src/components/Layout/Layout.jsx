@@ -290,7 +290,7 @@ const Layout = () => {
             minimumFractionDigits: 2,
             maximumFractionDigits: 2,
         });
-    };    
+    };
 
     const UserMenuContent = () => (
         <div className="sc-fbrkoh hmuUFI">
@@ -357,7 +357,7 @@ const Layout = () => {
                                             className="sc-jPFrcG czuYV cy-useful-links-sub-items-list"
                                             style={{ display: isHistoryExpanded ? 'block' : 'none' }}
                                         >
-                                            <li className="cy-useful-links-li-item">
+                                            <li className="cy-useful-links-li-item" onClick={() => { navigate("/profile/history"); closeUserMenu(); }}>
                                                 <div className="sc-fXCGkZ fNITAL cy-useful-links-subitem gamingHistoryMenuItem cy-useful-links-item">
                                                     <div className="sc-dgWXKx sc-bsStmr dvyXko kHIHiW">
                                                         <img src={IconPoker} className="sc-bqOBqt PBviZ" />
@@ -372,7 +372,7 @@ const Layout = () => {
                                                     </div>
                                                 </div>
                                             </li>
-                                            <li className="cy-useful-links-li-item">
+                                            <li className="cy-useful-links-li-item" onClick={() => { navigate("/profile/transaction"); closeUserMenu(); }}>
                                                 <div className="sc-fXCGkZ fNITAL cy-useful-links-subitem transactionHistoryMenuItem cy-useful-links-item">
                                                     <div className="sc-dgWXKx sc-bsStmr dvyXko kHIHiW">
                                                         <img src={IconArrowUpdown} className="sc-bqOBqt PBviZ" />
@@ -519,13 +519,13 @@ const Layout = () => {
                     supportParent={supportParent}
                 />
                 {isMobile &&
-                <MobileFooter
-                    isSlotsOnly={isSlotsOnly} 
-                    isMobile={isMobile} 
-                    isLogin={isLogin}
-                    supportParent={supportParent} 
-                    openSupportModal={openSupportModal}
-                />}
+                    <MobileFooter
+                        isSlotsOnly={isSlotsOnly}
+                        isMobile={isMobile}
+                        isLogin={isLogin}
+                        supportParent={supportParent}
+                        openSupportModal={openSupportModal}
+                    />}
             </NavigationContext.Provider>
         </LayoutContext.Provider>
     );

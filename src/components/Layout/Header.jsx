@@ -280,14 +280,15 @@ const Header = ({
                             <div className="sc-eihFif hbkNIy">
                                 <span className="sc-IYxHW ksYfVp"></span>
                                 {isLogin ? (
-                                    <button
-                                        className="sc-ksJhlw hfleRR cy-welcome-cashier-button"
-                                        onClick={handleMyProfileClick}
-                                    >
-                                        <span className="sc-fIysua sc-cRAjZL eZsMbN dcVKxz">
-                                            <span className="sc-bFbHAG fxFSPh">Cajero</span>
-                                        </span>
-                                    </button>
+                                    // <button
+                                    //     className="sc-ksJhlw hfleRR cy-welcome-cashier-button"
+                                    //     onClick={handleMyProfileClick}
+                                    // >
+                                    //     <span className="sc-fIysua sc-cRAjZL eZsMbN dcVKxz">
+                                    //         <span className="sc-bFbHAG fxFSPh">Cajero</span>
+                                    //     </span>
+                                    // </button>
+                                    <></>
                                 ) : (
                                     <button
                                         className="sc-ksJhlw dZVxje cy-login-button-text"

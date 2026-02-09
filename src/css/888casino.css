@@ -60,3 +60,240 @@
         margin-bottom: 10px;
     }
 }
+
+.gaming-history-page .sc-lgGbPx,
+.jackpot-bet-gaming-history-page .kmfOzj,
+.session-history-page .kmfOzj,
+.games-open-sessions-page .kmfOzj {
+    padding-bottom: 0;
+}
+
+.gaming-history-page .sc-ijKvfC,
+.jackpot-bet-gaming-history-page .gUbcNA,
+.session-history-page .gUbcNA,
+.games-open-sessions-page .gUbcNA {
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, #7BF037, #FCE523);
+}
+
+.kacfn {
+    padding-bottom: calc(200 / 1750 * 100%);
+}
+
+.gnweDQ {
+    position: relative;
+    width: 100%;
+    -webkit-transition: all 0.03s ease-in-out;
+    transition: all 0.03s ease-in-out;
+    padding-bottom: calc(200 / 1750 * 100%);
+}
+
+.cvyYUQ {
+    background-color: #0d0d0d;
+    background-image: linear-gradient(180deg, #1A1A1A 74.08%, #282828 100%);
+    background-attachment: fixed;
+}
+
+.dTlmsD {
+    background-color: #212121;
+    min-height: 785px;
+}
+
+.fwLZFs {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    min-height: 4rem;
+    padding-left: 4rem;
+    padding-right: 4rem;
+}
+
+.hbjpRY {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    width: 100%;
+    font-family: "888-Orbit", verdana, sans-serif;
+    color: #ffffff;
+    font-size: 2rem;
+    margin: 0;
+}
+
+.klLChX {
+    min-height: 200px;
+}
+
+.kfAfmA {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    font-weight: 400;
+    font-weight: 400;
+    background-color: #171717;
+    color: #ffffff;
+    font-size: 15px;
+    padding: 4rem;
+}
+
+.cfvLht {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-align-content: center;
+    -ms-flex-line-pack: center;
+    align-content: center;
+    width: 100%;
+    text-align: center;
+    font-weight: 600;
+}
+
+.table-history-container {
+    padding: 3rem;
+}
+
+.table-history-container .table-fixed {
+    table-layout: fixed;
+}
+
+.table-history-container .text-md {
+    font-size: 1.5rem;
+}
+
+.first-of-type\:pr-4:first-of-type,
+.last-of-type\:pr-4:last-of-type {
+    padding-right: 1rem;
+}
+
+@media (min-width: 1200px) {
+    .lg\:text-sm {
+        font-size: .875rem;
+    }
+}
+
+@media (min-width: 1200px) {
+    .lg\:text-sm {
+        font-size: .75rem;
+        line-height: 1;
+    }
+}
+
+@media (min-width: 1200px) {
+    .lg\:font-bold {
+        font-weight: 700;
+    }
+}
+
+@media (min-width: 1200px) {
+    .lg\:text-sm {
+        font-size: .875rem;
+        line-height: 1.25rem;
+    }
+}
+
+
+.text-white {
+    --tw-text-opacity: 1;
+    color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+}
+
+.\!leading-tight {
+    line-height: 1.25 !important;
+}
+
+.\!leading-normal {
+    line-height: 1.5 !important;
+}
+
+.font-normal {
+    font-weight: 400;
+}
+
+.font-bold {
+    font-weight: 700;
+}
+
+.text-sm {
+    font-size: .875rem;
+    line-height: 1.25rem;
+}
+
+.text-base {
+    font-size: 1rem;
+    line-height: 1.5rem;
+}
+
+.divide-dark-grey-700>:not([hidden])~:not([hidden]) {
+    --tw-divide-opacity: 1;
+    border-color: rgb(43 43 43 / var(--tw-divide-opacity, 1));
+}
+.divide-y>:not([hidden])~:not([hidden]) {
+    --tw-divide-y-reverse: 0;
+    border-bottom-width: calc(1px * var(--tw-divide-y-reverse));
+    border-top-width: calc(1px * (1 - var(--tw-divide-y-reverse)));
+}
+
+.first-of-type\:pr-4:first-of-type, .last-of-type\:pr-4:last-of-type {
+    padding: 1rem;
+}
+
+.page-item.active {
+    background-color: #7BF037;
+    border-color: #7BF037;
+    border-radius: 50%;
+    width: 29px;
+    height: 29px;
+    color: #000;
+    font-size: 1.5rem;
+}
+
+.page-item {
+    color: #fff;
+    font-size: 1.5rem;
+    width: 29px;
+    height: 29px;
+    cursor: pointer;
+    margin: 0 10px;
+    font-weight: bold;
+}
+
+.page-link {
+    cursor: pointer;
+}
+
+@media (max-width: 767px) {
+    .table-history-container {
+        padding: 1rem;
+    }
+
+    .table-history-container .table-fixed {
+        table-layout: auto
+    }
+
+    .table-history-container .text-md {
+        font-size: 12px;
+    }
+
+    .table-history-container .py-4 {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+}
