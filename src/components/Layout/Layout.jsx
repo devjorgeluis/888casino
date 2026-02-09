@@ -285,6 +285,15 @@ const Layout = () => {
         setIsHistoryExpanded(!isHistoryExpanded);
     };
 
+    const formatBalance = (value) => {
+        const num = parseFloat(value);
+        if (isNaN(num)) return "0.00";
+        return num.toLocaleString("de-DE", {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2,
+        });
+    };    
+
     const UserMenuContent = () => (
         <div className="sc-fbrkoh hmuUFI">
             <div className="sc-biTJds juaoAi">
@@ -294,7 +303,7 @@ const Layout = () => {
                     </div>
                     <div className="sc-hIFQNf cgiDgU">
                         <div className="sc-gzIglc kcwQjd cy-user-menu-close-btn" onClick={closeUserMenu} style={{ cursor: 'pointer' }}>
-                            <img src={IconClose} className="sc-bqOBqt PBviZ" style={{ width: "1.4rem", height: "1.4rem" }} />
+                            <img src={IconClose} className="sc-bqOBqt PBviZ" style={{ width: "1.4rem", height: "1.4rem", margin: "auto" }} />
                         </div>
                     </div>
                 </div>
@@ -323,26 +332,8 @@ const Layout = () => {
                             <div className="sc-kXzPdr oVDqI cy-balance-box">
                                 <div className="sc-dIEovb cwoLEt">
                                     <div className="sc-exOYqz lcbWRF">Saldo actual</div>
-                                    <span className="sc-bsFqxl dOKwdH cy-balance-box-amount">$ {Number.isFinite(Number(contextData?.session?.user?.balance)) ? Number(contextData?.session?.user?.balance).toFixed(2) : "0.00"}</span>
+                                    <span className="sc-bsFqxl dOKwdH cy-balance-box-amount">${formatBalance(contextData?.session?.user?.balance)}</span>
                                 </div>
-                                <div className="sc-dIEovb jnsWAR"></div>
-                                <div className="sc-fEngzP jBgRlY">
-                                    <div className="sc-hpngDo iBkfgI cy-deposit-button">
-                                        <button strokeWidth="2" width="13.8" height="4" className="sc-ksJhlw dmCMse">
-                                            <span className="sc-fIysua sc-cRAjZL eZsMbN dcVKxz">
-                                                <span fontSize="1.4" className="sc-bFbHAG fxFSPh">DEPOSITA</span>
-                                            </span>
-                                        </button>
-                                    </div>
-                                    <div className="sc-hpngDo iBkfgI cy-withdraw-button">
-                                        <button strokeWidth="2" width="13.8" height="4" className="sc-ksJhlw kLnelg">
-                                            <span className="sc-fIysua sc-cRAjZL eZsMbN dcVKxz">
-                                                <span fontSize="1.4" className="sc-bFbHAG fxFSPh">RETIRAR</span>
-                                            </span>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div height="1rem" className="sc-iFgQDB kYWJaC"></div>
                             </div>
                             <div className="sc-kXzPdr oVDqI cy-useful-links-section">
                                 <ul className="sc-jPFrcG czuYV cy-useful-links-list">
@@ -428,7 +419,8 @@ const Layout = () => {
         showMobileSearch,
         setShowMobileSearch,
         openSupportModal,
-        launchGameFromSearch
+        launchGameFromSearch,
+        setIsUserMenuOpen
     };
 
     return (

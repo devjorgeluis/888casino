@@ -23,7 +23,7 @@ const Header = ({
     openSupportModal,
 }) => {
     const { contextData } = useContext(AppContext);
-    const { isSidebarExpanded, toggleSidebar } = useContext(LayoutContext);
+    const { isSidebarExpanded, toggleSidebar, setIsUserMenuOpen } = useContext(LayoutContext);
     const [games, setGames] = useState([]);
     const [txtSearch, setTxtSearch] = useState("");
     const [isLoadingGames, setIsLoadingGames] = useState(false);
@@ -47,7 +47,7 @@ const Header = ({
             minimumFractionDigits: 2,
             maximumFractionDigits: 2,
         });
-    };    
+    };
 
     const search = (e) => {
         let keyword = e.target.value;
@@ -111,17 +111,17 @@ const Header = ({
 
     useEffect(() => {
         const updateTime = () => {
-        const now = new Date();
-        const hours = now.getHours().toString().padStart(2, '0');
-        const minutes = now.getMinutes().toString().padStart(2, '0');
-        setCurrentTime(`${hours}:${minutes}`);
+            const now = new Date();
+            const hours = now.getHours().toString().padStart(2, '0');
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            setCurrentTime(`${hours}:${minutes}`);
         };
 
         updateTime();
-        
+
         const intervalId = setInterval(updateTime, 1000);
         return () => clearInterval(intervalId);
-    }, []);    
+    }, []);
 
     return (
         <>
@@ -139,7 +139,7 @@ const Header = ({
                             <div className="sc-cMKpDi cwlnXY cy-navbar-left-container">
                                 <div className="sc-kfLrBp fexPlV">
                                     <div className="sc-bHnQwI ilXINL" onClick={toggleSidebar}>
-                                        <img src={ImgHamburger} className="sc-bqOBqt PBviZ cy-burger-button" style={{ width: "2.6rem", height: "1.8rem"}} />
+                                        <img src={ImgHamburger} className="sc-bqOBqt PBviZ cy-burger-button" style={{ width: "2.6rem", height: "1.8rem" }} />
                                     </div>
                                 </div>
                                 <div className="sc-jTqEgK cxgeDG cy-navbar-separator"></div>
@@ -159,12 +159,12 @@ const Header = ({
                                         {
                                             isLogin ? <div className="sc-iKpGpX jPIDuM cy-navbar-right-container">
                                                 <div className="sc-hVQvBP jXAiUk cy-welcome-component">
-                                                    <div className="sc-hlaTyg fEgjKI cy-header-bankroll-button-mobile">
+                                                    <div className="sc-hlaTyg fEgjKI cy-header-bankroll-button-mobile" onClick={() => setIsUserMenuOpen(true)}>
                                                         <div className="sc-ihxOeh lmancD"></div>
                                                         <div className="sc-dZuQbC hhvXbW cy-mobile-header-bankroll">${formatBalance(userBalance)}</div>
                                                     </div>
                                                 </div>
-                                            </div> : 
+                                            </div> :
                                             <button className="sc-ksJhlw xBMZy cy-login-button-text" onClick={handleLoginClick}>
                                                 <span className="sc-fIysua sc-cRAjZL eYOOkA dcVKxz">
                                                     <span className="sc-bFbHAG kSzfyr">INICIAR</span>
