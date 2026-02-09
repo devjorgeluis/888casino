@@ -3,6 +3,7 @@ import { Outlet, useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { AppContext } from "../../AppContext";
 import { LayoutContext } from "./LayoutContext";
+import { NavigationContext } from "./NavigationContext";
 import { callApi } from "../../utils/Utils";
 import Header from "./Header";
 import Sidebar from "./Sidebar";
@@ -11,7 +12,7 @@ import LoginModal from "../Modal/LoginModal";
 import SupportModal from "../Modal/SupportModal";
 import MyProfileModal from "../Modal/MyProfileModal";
 import HistoryModal from "../Modal/HistoryModal";
-import { NavigationContext } from "./NavigationContext";
+import FullDivLoading from "../Loading/FullDivLoading";
 import GameModal from "../Modal/GameModal";
 import IconClose from "/src/assets/svg/circle-close.svg";
 import IconArrowRight from "/src/assets/svg/arrow-right.svg";
@@ -57,10 +58,7 @@ const Layout = () => {
         gameLauncher: null
     });
     const refGameModal = useRef();
-
     const navigate = useNavigate();
-    const location = useLocation();
-    const isSportsPage = location.pathname === "/sports" || location.pathname === "/live-sports";
 
     const toggleSidebar = () => {
         setIsSidebarExpanded(!isSidebarExpanded);
@@ -428,7 +426,7 @@ const Layout = () => {
             <NavigationContext.Provider
                 value={{ selectedPage, setSelectedPage, getPage, showFullDivLoading, setShowFullDivLoading }}
             >
-                {/* <FullDivLoading show={showFullDivLoading} /> */}
+                <FullDivLoading show={showFullDivLoading} />
                 {showLoginModal && (
                     <LoginModal
                         isMobile={isMobile}
@@ -494,13 +492,6 @@ const Layout = () => {
 
                     </div>
                 )}
-                {/* {showMobileSearch && (
-                    <MobileSearch
-                        isLogin={isLogin}
-                        isMobile={isMobile}
-                        onClose={() => setShowMobileSearch(false)}
-                    />
-                )} */}
 
                 {shouldShowGameModal && gameModalData.gameUrl && (
                     <GameModal

@@ -425,7 +425,9 @@ const LiveCasino = () => {
       {/* Only show LiveCasino content when game modal is NOT shown */}
       {!shouldShowGameModal && (
         <div className="casino">
-          <img src={ImgHero} style={{ width: "100%", height: "100%" }} />
+          {
+            !isMobile && <img src={ImgHero} style={{ width: "100%", height: "100%" }} />
+          }
           <ProviderContainer
             categories={categories}
             selectedProvider={selectedProvider}

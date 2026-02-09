@@ -1,6 +1,7 @@
 import { useContext, useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { AppContext } from "../AppContext";
+import { NavigationContext } from "../components/Layout/NavigationContext";
 import { callApi } from "../utils/Utils";
 import LoadApi from "../components/Loading/LoadApi";
 import "animate.css";
@@ -11,6 +12,7 @@ const Sports = () => {
     const [sportsEmbedUrl, setSportsEmbedUrl] = useState("");
     const [isLoading, setIsLoading] = useState(true);
     const location = useLocation();
+    const { setShowFullDivLoading } = useContext(NavigationContext);
 
     useEffect(() => {
         loadSportsPage();
@@ -18,6 +20,7 @@ const Sports = () => {
 
     const loadSportsPage = () => {
         setIsLoading(true);
+        setShowFullDivLoading(true);
         callApi(contextData, "GET", "/get-page?page=sports", callbackGetPage, null);
     };
 
@@ -26,6 +29,7 @@ const Sports = () => {
         } else {
             setSportsEmbedUrl(result.data.url_embed);
             setIsLoading(false);
+            setShowFullDivLoading(false);
         }
     };
 

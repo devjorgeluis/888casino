@@ -406,7 +406,7 @@ const Casino = () => {
             
             {
               isMobile &&
-              <div className="sc-eUyqdB sc-bcaOSM inBPOP fHpzyA cy-navbar-container">
+              <div className="px-3">
                 <CategoryContainer
                   categories={tags}
                   selectedCategoryIndex={selectedCategoryIndex}
@@ -416,7 +416,6 @@ const Casino = () => {
                     } else {
                       setSelectedCategoryIndex(index);
                       getPage(tag.code);
-                      setIsLobbySelected(tag.code === "home");
                     }
                   }}
                   onCategorySelect={handleCategorySelect}
@@ -437,7 +436,7 @@ const Casino = () => {
                           title={game.name}
                           text={isLogin ? "Jugar" : "Ingresar"}
                           imageSrc={game.image_local !== null ? contextData.cdnUrl + game.image_local : game.image_url}
-                          onClick={() => (isLogin ? launchGame(game, "slot", "tab") : handleLoginClick())}
+                          onGameClick={() => (isLogin ? launchGame(game, "slot", "modal") : handleLoginClick())}
                         />
                       ))}
                     </div>

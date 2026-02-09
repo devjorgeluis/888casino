@@ -53,3 +53,10 @@
     background-repeat: no-repeat;
     background-position: center;
 }
+
+@media (max-width: 767px) {
+    .casino .game-list .evQOJh {
+        width: calc(100% / 3 - 8px);
+        margin-bottom: 10px;
+    }
+}
