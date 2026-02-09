@@ -203,7 +203,7 @@ const Sidebar = ({ isSlotsOnly, isLogin, isMobile, supportParent, openSupportMod
                                             className="sc-ilDdSB bTEstA"
                                         />
                                     </a>
-                                    <span className="sc-dcihie ckzqLt">{contextData?.session?.user?.username || '-'}</span>
+                                    <span className="sc-dcihie ckzqLt">{contextData?.session?.user?.username || ''}</span>
                                 </div>
                                 <div className="sc-cXPgEM dztcgo cy-profile-box-buttons">
                                     {isLogin ? (
