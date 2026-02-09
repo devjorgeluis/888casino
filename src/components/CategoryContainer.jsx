@@ -16,20 +16,20 @@ const CategoryContainer = (props) => {
 
   return (
     <>
-      <div className="flex select-none items-center gap-2 overflow-x-hidden overscroll-contain scroll-smooth -mb-px gap-6 overflow-visible">
-        {props.categories.map((category, index) => (
-          <CategoryButton
-            key={category.id ?? category.code ?? index}
-            name={category.name}
-            code={category.code}
-            active={props.selectedCategoryIndex === index}
-            onClick={() => handleCategoryClick(category, index)}
-          />
-        ))}
-      </div>
-      <div className="border-dark-grey-400 mb-6 flex items-center justify-between gap-4 border-b">
-        <div className="flex w-full gap-1"></div>
-      </div>
+      <nav className="sc-grhCBx keEDki">
+        <div className="sc-gcqYyY fdQKXs cy-tabs-navigation-wrapper">
+          {props.categories.map((category, index) => (
+            <CategoryButton
+              key={category.id ?? category.code ?? index}
+              name={category.name}
+              code={category.code}
+              image={category.image}
+              active={props.selectedCategoryIndex === index}
+              onClick={() => handleCategoryClick(category, index)}
+            />
+          ))}
+        </div>
+      </nav>
     </>
   )
 }

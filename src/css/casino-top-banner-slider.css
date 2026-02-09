@@ -1361,3 +1361,11 @@
 .top-banner-slider-component:hover .top-banner-slider-container .swiper .swiper-buttons {
     visibility: visible
 }
+
+.display-casino-mobile {
+    display: block;
+    height: 200px;
+    object-position: center;
+    width: 100%;
+    object-fit: cover;
+}
