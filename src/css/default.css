@@ -1983,6 +1983,7 @@ html {
     z-index: 9001;
     position: fixed;
     top: 0;
+    bottom: 0;
     right: 0;
     left: 0;
     margin: 0;
@@ -3036,4 +3037,10 @@ input#mfa-code::-moz-placeholder {
 
 .mfa-popup-overlay {
     height: calc(100% + 50px)
+}
+
+@media (max-width:768px) {
+    .rllogin-overlay {
+        bottom: unset;
+    }
 }
