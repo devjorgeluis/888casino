@@ -248,20 +248,22 @@ const Header = ({
                         </button>
                         <div className="sc-jTqEgK cxgeDG"></div>
                         {!isSlotsOnlyMode && (
-                            <div className="sc-gJWpfJ elLuri cy-cross-brand-list">
-                                <div
-                                    className="sc-fNzuzI jFWrzq cy-cross-brand-link sportCrossBrandMenuItem"
-                                    onClick={() => navigate("/sports")}
-                                >
-                                    <img
-                                        src={ImgSports}
-                                        style={{ width: "3rem", height: "3rem" }}
-                                    />
-                                    <div className="sc-fwWpaa MrUNO">Deportes</div>
+                            <>
+                                <div className="sc-gJWpfJ elLuri cy-cross-brand-list">
+                                    <div
+                                        className="sc-fNzuzI jFWrzq cy-cross-brand-link sportCrossBrandMenuItem"
+                                        onClick={() => navigate("/sports")}
+                                    >
+                                        <img
+                                            src={ImgSports}
+                                            style={{ width: "3rem", height: "3rem" }}
+                                        />
+                                        <div className="sc-fwWpaa MrUNO">Deportes</div>
+                                    </div>
                                 </div>
-                            </div>
+                                <div className="sc-jTqEgK cxgeDG"></div>
+                            </>
                         )}
-                        <div className="sc-jTqEgK cxgeDG"></div>
                         {isLogin && (
                             <button className="sc-ksJhlw jOQfJh cy-header-client-settings-button">
                                 <span className="sc-hBpigv iTELlo" onClick={handleHistoryClick}>

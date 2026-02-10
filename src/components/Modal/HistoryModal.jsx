@@ -100,13 +100,13 @@ const HistoryModal = ({ isOpen, onClose }) => {
                     <div
                         className="HeaderFullDashboard__HeaderBox-safeZone__sc-12jr7j1-0 BtcJD fd-header"
                     >
-                        <div 
-                            className="click__spacer right__spacer" 
+                        <div
+                            className="click__spacer right__spacer"
                             onClick={onClose}
                             style={{ cursor: 'pointer' }}
                         >
                             <img
-                                src={IconClose} 
+                                src={IconClose}
                                 style={{ width: 18, height: 18 }}
                                 className="Icons-safeZone__sc-1ygnqgu-0 IconsList__Svg-safeZone__sc-1oy48qt-0 fRNbHj hxSYDr close__icon"
                             />
@@ -116,86 +116,115 @@ const HistoryModal = ({ isOpen, onClose }) => {
                     <div className="fulldashboard__content">
                         <div>
                             {
-                                loading ? <LoadApi /> : 
-                            <div
-                                className="Activity__ActivityCardsStyle-safeZone__sc-139hfv-0 dOEknw activity__cards activity__cards"
-                            >
-                                <h3 className="control__titles">Actividad</h3>
-                                <div id="carousel-activity" className="cards__content">
+                                loading ? <LoadApi /> :
                                     <div
-                                        className="CarouselControls__CarouselNav-safeZone__sc-83dil-0 kafnTt carousel__controls"
+                                        className="Activity__ActivityCardsStyle-safeZone__sc-139hfv-0 dOEknw activity__cards activity__cards"
                                     >
-                                        <div
-                                            className="prev__control"
-                                            ref={prevRef}
-                                            onClick={handlePrevClick}
-                                            style={{ cursor: 'pointer' }}
-                                        ></div>
-                                        <div 
-                                            className="next__control"
-                                            ref={nextRef}
-                                            onClick={handleNextClick}
-                                            style={{ cursor: 'pointer' }}
-                                        ></div>
-                                    </div>
-                                    
-                                    <Swiper
-                                        ref={swiperRef}
-                                        modules={[Navigation, Pagination]}
-                                        spaceBetween={10}
-                                        slidesPerView={2.2}
-                                        breakpoints={{
-                                            320: { slidesPerView: 2.2 }
-                                        }}
-                                        navigation={{
-                                            prevEl: prevRef.current,
-                                            nextEl: nextRef.current,
-                                        }}
-                                        pagination={{
-                                            clickable: true,
-                                            el: '.swiper-pagination',
-                                        }}
-                                        loop={false}
-                                        onSwiper={(swiper) => {
-                                            setTimeout(() => {
-                                                if (prevRef.current && nextRef.current) {
-                                                    swiper.params.navigation.prevEl = prevRef.current;
-                                                    swiper.params.navigation.nextEl = nextRef.current;
-                                                    swiper.navigation.init();
-                                                    swiper.navigation.update();
-                                                }
-                                            });
-                                        }}
-                                        className="swiper-container"
-                                    >
-                                        {transactions.map((tx) => (
-                                            <SwiperSlide 
-                                                key={tx.id}
-                                                id={`activity-card-${tx.id}`}
+                                        <h3 className="control__titles">Actividad</h3>
+                                        <div id="carousel-activity" className="cards__content">
+                                            <div
+                                                className="CarouselControls__CarouselNav-safeZone__sc-83dil-0 kafnTt carousel__controls"
                                             >
                                                 <div
-                                                    className="Card__CardBox-safeZone__sc-1d0u3ie-0 jnHIfK card"
-                                                >
-                                                    <div className="card__wrapper">
-                                                        <h3 className="card__title title__left">
-                                                            <img src={tx.type === 'add' ? IconDeposit : IconRetiro} className="Icons-safeZone__sc-1ygnqgu-0 IconsList__Svg-safeZone__sc-1oy48qt-0 fRNbHj hxSYDr" />
-                                                            <span>{tx.type === 'add' ? 'Depósitos' : 'Retiro'}</span>
-                                                        </h3>
-                                                        <div className="card__body">${formatBalance(tx.amount)}</div>
-                                                        <div>
-                                                            <div
-                                                                className="Tooltip__TooltipIcon-safeZone__sc-1fw0itd-0 jINSfy tooltipIcon"
-                                                            >
-                                                                <span className="tooltip__span">i</span>
+                                                    className="prev__control"
+                                                    ref={prevRef}
+                                                    onClick={handlePrevClick}
+                                                    style={{ cursor: 'pointer' }}
+                                                ></div>
+                                                <div
+                                                    className="next__control"
+                                                    ref={nextRef}
+                                                    onClick={handleNextClick}
+                                                    style={{ cursor: 'pointer' }}
+                                                ></div>
+                                            </div>
+
+                                            {
+                                                transactions.length < 3 ? <>
+                                                    {transactions.map((tx) => (
+                                                        <div
+                                                            className="Card__CardBox-safeZone__sc-1d0u3ie-0 jnHIfK card"
+                                                            key={tx.id}
+                                                            id={`activity-card-${tx.id}`}
+                                                        >
+                                                            <div className="card__wrapper">
+                                                                <h3 className="card__title title__left">
+                                                                    <img src={tx.type === 'add' ? IconDeposit : IconRetiro} className="Icons-safeZone__sc-1ygnqgu-0 IconsList__Svg-safeZone__sc-1oy48qt-0 fRNbHj hxSYDr" />
+                                                                    <span>{tx.type === 'add' ? 'Depósitos' : 'Retiro'}</span>
+                                                                </h3>
+                                                                <div className="card__body">${formatBalance(tx.amount)}</div>
+                                                                <div>
+                                                                    <div
+                                                                        className="Tooltip__TooltipIcon-safeZone__sc-1fw0itd-0 jINSfy tooltipIcon"
+                                                                    >
+                                                                        <span className="tooltip__span">i</span>
+                                                                    </div>
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                </div>
-                                            </SwiperSlide>
-                                        ))}
-                                    </Swiper>
-                                </div>
-                            </div>
+                                                    ))} </> : <>
+                                                    {transactions.map((tx) => (
+                                                        <Swiper
+                                                            ref={swiperRef}
+                                                            modules={[Navigation, Pagination]}
+                                                            spaceBetween={10}
+                                                            slidesPerView={2.2}
+                                                            breakpoints={{
+                                                                320: { slidesPerView: 2.2 }
+                                                            }}
+                                                            navigation={{
+                                                                prevEl: prevRef.current,
+                                                                nextEl: nextRef.current,
+                                                            }}
+                                                            pagination={{
+                                                                clickable: true,
+                                                                el: '.swiper-pagination',
+                                                            }}
+                                                            loop={false}
+                                                            onSwiper={(swiper) => {
+                                                                setTimeout(() => {
+                                                                    if (prevRef.current && nextRef.current) {
+                                                                        swiper.params.navigation.prevEl = prevRef.current;
+                                                                        swiper.params.navigation.nextEl = nextRef.current;
+                                                                        swiper.navigation.init();
+                                                                        swiper.navigation.update();
+                                                                    }
+                                                                });
+                                                            }}
+                                                            className="swiper-container"
+                                                        >
+                                                            {transactions.map((tx) => (
+                                                                <SwiperSlide
+                                                                    key={tx.id}
+                                                                    id={`activity-card-${tx.id}`}
+                                                                >
+                                                                    <div
+                                                                        className="Card__CardBox-safeZone__sc-1d0u3ie-0 jnHIfK card"
+                                                                    >
+                                                                        <div className="card__wrapper">
+                                                                            <h3 className="card__title title__left">
+                                                                                <img src={tx.type === 'add' ? IconDeposit : IconRetiro} className="Icons-safeZone__sc-1ygnqgu-0 IconsList__Svg-safeZone__sc-1oy48qt-0 fRNbHj hxSYDr" />
+                                                                                <span>{tx.type === 'add' ? 'Depósitos' : 'Retiro'}</span>
+                                                                            </h3>
+                                                                            <div className="card__body">${formatBalance(tx.amount)}</div>
+                                                                            <div>
+                                                                                <div
+                                                                                    className="Tooltip__TooltipIcon-safeZone__sc-1fw0itd-0 jINSfy tooltipIcon"
+                                                                                >
+                                                                                    <span className="tooltip__span">i</span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </SwiperSlide>
+                                                            ))}
+                                                        </Swiper>
+                                                    ))}
+                                                </>
+                                            }
+
+                                        </div>
+                                    </div>
                             }
                         </div>
                     </div>
