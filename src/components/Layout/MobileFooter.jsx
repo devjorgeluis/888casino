@@ -397,21 +397,21 @@ const MobileFooter = ({
                                                     </a>
                                                 </li>
                                             </div>
-                                            <div className="sc-dnaMGt cselLF cy-game-search-box cy-menu-links-group">
-                                                <ul className="sc-caJMrc goXKGs cy-menu-item">
-                                                    <SearchInput
-                                                        txtSearch={txtSearch}
-                                                        setTxtSearch={setTxtSearch}
-                                                        searchRef={searchRef}
-                                                        search={search}
-                                                        isMobile={isMobile}
-                                                        games={games}
-                                                        isLoadingGames={isLoadingGames}
-                                                    />
-                                                </ul>
-                                            </div>
                                         </>
                                     }
+                                    <div className="sc-dnaMGt cselLF cy-game-search-box cy-menu-links-group">
+                                        <ul className="sc-caJMrc goXKGs cy-menu-item">
+                                            <SearchInput
+                                                txtSearch={txtSearch}
+                                                setTxtSearch={setTxtSearch}
+                                                searchRef={searchRef}
+                                                search={search}
+                                                isMobile={isMobile}
+                                                games={games}
+                                                isLoadingGames={isLoadingGames}
+                                            />
+                                        </ul>
+                                    </div>
                                     {!isSearchActive && (
                                         <section className="sc-klCKcm sc-kZzZex eLAEaM jdUfX">
                                             <div className="sc-MKQME sc-jlirRl ekPQQx fJgckN">
