@@ -20,8 +20,8 @@ import ImgMobileCasino from "/src/assets/svg/mobile-casino.svg";
 import ImgMobileLiveCasino from "/src/assets/svg/mobile-live-casino.svg";
 import ImgMobileSports from "/src/assets/svg/mobile-sports.svg";
 import ImgArrowLeft from "/src/assets/svg/arrow-left.svg";
-import ImgSearch from "/src/assets/svg/search.svg";
-import ImgPhone from "/src/assets/svg/phone.svg";
+// import ImgSearch from "/src/assets/svg/search.svg"; // Unused import
+// import ImgPhone from "/src/assets/svg/phone.svg"; // Unused import
 
 const MobileFooter = ({
     isSlotsOnly,
@@ -45,6 +45,7 @@ const MobileFooter = ({
     const searchRef = useRef(null);
     const [isLoadingGames, setIsLoadingGames] = useState(false);
     const [isSearchActive, setIsSearchActive] = useState(false);
+    // const [isUserMenuOpen, setIsUserMenuOpen] = useState(false); // Uncomment if needed
 
     const isSlotsOnlyMode = isSlotsOnly === true || isSlotsOnly === "true";
     const isMenuExpanded = (menuId) => expandedMenus.includes(menuId);
@@ -112,9 +113,10 @@ const MobileFooter = ({
         }
     };
 
-    const toggleUserMenu = () => {
-        setIsUserMenuOpen(!isUserMenuOpen);
-    };
+    // Comment out if not used
+    // const toggleUserMenu = () => {
+    //     setIsUserMenuOpen(!isUserMenuOpen);
+    // };
 
     const isMenuActive = (item) => {
         const currentPath = location.pathname;
@@ -137,6 +139,7 @@ const MobileFooter = ({
 
     const showFullMenu = isSlotsOnly === "false" || isSlotsOnly === false;
 
+    // Fix: Correctly handle the ruleta item condition
     const menuItems = [
         {
             id: "home",
@@ -177,13 +180,15 @@ const MobileFooter = ({
             href: "/casino#joker",
             subItems: [],
         },
-        {
+        ...(!isSlotsOnlyMode 
+        ? [{
             id: "crash",
             name: "Juegos de Crash",
             image: ImgCrash,
             href: "/casino#arcade",
             subItems: [],
-        },
+        }]
+        : []),
         {
             id: "megaway",
             name: "Megaways",
@@ -191,13 +196,17 @@ const MobileFooter = ({
             href: "/casino#megaways",
             subItems: [],
         },
-        {
-            id: "ruleta",
-            name: "Ruletas",
-            image: ImgRuleta,
-            href: "/casino#roulette",
-            subItems: [],
-        },
+        // Fix: Correctly add ruleta item when in slots only mode
+        ...(!isSlotsOnlyMode 
+            ? [{
+                id: "ruleta",
+                name: "Ruletas",
+                image: ImgRuleta,
+                href: "/casino#roulette",
+                subItems: [],
+            }]
+            : []),
+        // Fix: Add support item if supportParent exists
         ...(supportParent
             ? [{
                 id: "support",
@@ -217,11 +226,11 @@ const MobileFooter = ({
 
     const isBottomNavActive = (path) => {
         const currentPath = location.pathname;
-        
+
         if (path === "/casino" && currentPath === "/casino") {
             return true;
         }
-        
+
         return currentPath === path;
     };
 
@@ -230,7 +239,6 @@ const MobileFooter = ({
         setTxtSearch(keyword);
 
         if (navigator.userAgent.match(/Android|BlackBerry|iPhone|iPad|iPod|Opera Mini|IEMobile/i)) {
-            let keyword = e.target.value;
             do_search(keyword);
         } else {
             if (
@@ -283,58 +291,58 @@ const MobileFooter = ({
 
     const callbackSearch = (result) => {
         if (result.status === 500 || result.status === 422) {
-
+            // Handle error if needed
         } else {
             configureImageSrc(result);
             setGames(result.content);
         }
         setIsLoadingGames(false);
-    };    
+    };
 
     return (
         <>
             <div className="sc-gIvVow cZNKpo hybrid-embedded-nav-menu cy-hybrid-embedded-nav-menu">
                 <div className="sc-fFJegD fJFmTt">
                     <div className="sc-eJmjAC FRJkW cy-hybrid-embedded-nav-menu-list">
-                        <a 
+                        <a
                             onClick={handleSimpleNavigation("/")}
                             className="sc-ciMfCw ja-dRuB sc-fYIXqs zMWZi cy-bottom-navbar-menu-item"
                             style={{ cursor: 'pointer' }}
                         >
                             <div className={`sc-dcomKt ${isBottomNavActive("/") ? "kBkDtU" : "ezbnfo"} cy-bottom-navbar-menu-icon`}>
-                                <img src={ImgMobileHome} className="sc-bqOBqt PBviZ" />
+                                <img src={ImgMobileHome} className="sc-bqOBqt PBviZ" alt="Home" />
                             </div>
                             <div className="sc-bcckXD imDsVC">Inicio</div>
                         </a>
-                        <a 
+                        <a
                             onClick={handleSimpleNavigation("/casino")}
                             className="sc-ciMfCw ja-dRuB sc-fYIXqs zMWZi cy-bottom-navbar-menu-item"
                             style={{ cursor: 'pointer' }}
                         >
                             <div className={`sc-dcomKt ${isBottomNavActive("/casino") ? "kBkDtU" : "ezbnfo"} cy-bottom-navbar-menu-icon`}>
-                                <img src={ImgMobileCasino} className="sc-bqOBqt PBviZ" />
+                                <img src={ImgMobileCasino} className="sc-bqOBqt PBviZ" alt="Casino" />
                             </div>
                             <div className="sc-bcckXD imDsVC">Tragamonedas</div>
                         </a>
                         {
                             showFullMenu && <>
-                                <a 
+                                <a
                                     onClick={handleSimpleNavigation("/live-casino")}
                                     className="sc-ciMfCw ja-dRuB sc-fYIXqs zMWZi cy-bottom-navbar-menu-item"
                                     style={{ cursor: 'pointer' }}
                                 >
                                     <div className={`sc-dcomKt ${isBottomNavActive("/live-casino") ? "kBkDtU" : "ezbnfo"} cy-bottom-navbar-menu-icon`}>
-                                        <img src={ImgMobileLiveCasino} className="sc-bqOBqt PBviZ" />
+                                        <img src={ImgMobileLiveCasino} className="sc-bqOBqt PBviZ" alt="Live Casino" />
                                     </div>
                                     <div className="sc-bcckXD imDsVC">Casino en Vivo</div>
                                 </a>
-                                <a 
+                                <a
                                     onClick={handleSimpleNavigation("/sports")}
                                     className="sc-ciMfCw ja-dRuB sc-fYIXqs zMWZi cy-bottom-navbar-menu-item"
                                     style={{ cursor: 'pointer' }}
                                 >
                                     <div className={`sc-dcomKt ${isBottomNavActive("/sports") ? "kBkDtU" : "ezbnfo"} cy-bottom-navbar-menu-icon`}>
-                                        <img src={ImgMobileSports} className="sc-bqOBqt PBviZ" />
+                                        <img src={ImgMobileSports} className="sc-bqOBqt PBviZ" alt="Sports" />
                                     </div>
                                     <div className="sc-bcckXD imDsVC">Deportes</div>
                                 </a>
@@ -350,13 +358,13 @@ const MobileFooter = ({
                         <div className="sc-codVKW bPGlzn">
                             <div className="sc-fEyyHY cwRgmi">
                                 <div className="sc-etyUPJ gNGgmX cy-close-mobile-menu-icon">
-                                    <img src={ImgArrowLeft} onClick={toggleSidebar} style={{ cursor: 'pointer' }} />
+                                    <img src={ImgArrowLeft} onClick={toggleSidebar} style={{ cursor: 'pointer' }} alt="Close" />
                                 </div>
                             </div>
                             <div className="sc-fEyyHY cwRgmi">
                                 <div className="sc-yWEwC sc-bvtzcD cOhCUT bwJqBY cy-logo-container">
                                     <a onClick={handleSimpleNavigation("/")} className="sc-ciMfCw ja-dRuB" style={{ cursor: 'pointer' }}>
-                                        <img src={ImgMobileLogo} className="sc-gHXKQl eKXwKk logo cy-logo" />
+                                        <img src={ImgMobileLogo} className="sc-gHXKQl eKXwKk logo cy-logo" alt="Logo" />
                                     </a>
                                 </div>
                             </div>
@@ -365,41 +373,45 @@ const MobileFooter = ({
                         <div className="sc-hhFrFd bCsUbK">
                             <div className="sc-gSONCE sc-dxYMJA fxKZYg gpHIWH">
                                 <div className="sc-iYjPCr gWmbXn cy-side-menu">
-                                    <div className="sc-gKjrUP ieYZAJ cy-menu-links-group cy-menu-links-cross-brands-group">
-                                        <li className="sc-kIfdec jmRoun cy-menu-item">
-                                            <a onClick={handleSimpleNavigation("/sports")} className="sc-ciMfCw ja-dRuB" style={{ cursor: 'pointer' }}>
-                                                <div className="sc-cAeysB fHjzIS">
-                                                    <div className="sc-dGzCaO bRZDKe">
-                                                        <img src={ImgMobileCircleSport} />
-                                                    </div>
-                                                    <span className="sc-KeRuP fuWdtC">Deportes</span>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li className="sc-kIfdec jmRoun cy-menu-item">
-                                            <a onClick={handleSimpleNavigation("/live-sports")} className="sc-ciMfCw ja-dRuB" style={{ cursor: 'pointer' }}>
-                                                <div className="sc-cAeysB fPYrue">
-                                                    <div className="sc-dGzCaO bRZDKe">
-                                                        <img src={ImgMobileCircleLiveSport} />
-                                                    </div>
-                                                    <span className="sc-KeRuP fuWdtC">En Vivo</span>
-                                                </div>
-                                            </a>
-                                        </li>
-                                    </div>
-                                    <div className="sc-dnaMGt cselLF cy-game-search-box cy-menu-links-group">
-                                        <ul className="sc-caJMrc goXKGs cy-menu-item">
-                                            <SearchInput
-                                                txtSearch={txtSearch}
-                                                setTxtSearch={setTxtSearch}
-                                                searchRef={searchRef}
-                                                search={search}
-                                                isMobile={isMobile}
-                                                games={games}
-                                                isLoadingGames={isLoadingGames}
-                                            />
-                                        </ul>
-                                    </div>
+                                    {
+                                        isSlotsOnly == "false" && <>
+                                            <div className="sc-gKjrUP ieYZAJ cy-menu-links-group cy-menu-links-cross-brands-group">
+                                                <li className="sc-kIfdec jmRoun cy-menu-item">
+                                                    <a onClick={handleSimpleNavigation("/sports")} className="sc-ciMfCw ja-dRuB" style={{ cursor: 'pointer' }}>
+                                                        <div className="sc-cAeysB fHjzIS">
+                                                            <div className="sc-dGzCaO bRZDKe">
+                                                                <img src={ImgMobileCircleSport} alt="Sports" />
+                                                            </div>
+                                                            <span className="sc-KeRuP fuWdtC">Deportes</span>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li className="sc-kIfdec jmRoun cy-menu-item">
+                                                    <a onClick={handleSimpleNavigation("/live-sports")} className="sc-ciMfCw ja-dRuB" style={{ cursor: 'pointer' }}>
+                                                        <div className="sc-cAeysB fPYrue">
+                                                            <div className="sc-dGzCaO bRZDKe">
+                                                                <img src={ImgMobileCircleLiveSport} alt="Live Sports" />
+                                                            </div>
+                                                            <span className="sc-KeRuP fuWdtC">En Vivo</span>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                            </div>
+                                            <div className="sc-dnaMGt cselLF cy-game-search-box cy-menu-links-group">
+                                                <ul className="sc-caJMrc goXKGs cy-menu-item">
+                                                    <SearchInput
+                                                        txtSearch={txtSearch}
+                                                        setTxtSearch={setTxtSearch}
+                                                        searchRef={searchRef}
+                                                        search={search}
+                                                        isMobile={isMobile}
+                                                        games={games}
+                                                        isLoadingGames={isLoadingGames}
+                                                    />
+                                                </ul>
+                                            </div>
+                                        </>
+                                    }
                                     {!isSearchActive && (
                                         <section className="sc-klCKcm sc-kZzZex eLAEaM jdUfX">
                                             <div className="sc-MKQME sc-jlirRl ekPQQx fJgckN">
